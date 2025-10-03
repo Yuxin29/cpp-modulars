@@ -1,6 +1,7 @@
 3.10.25 Fri
 
 ===============================CPP 00==========================
+https://en.cppreference.com/w/
 
 ================ ex00 ================
 
@@ -31,4 +32,44 @@ std:: endl  end of the line and flush the stdout
 ------print in c++98 and after c++98--------
 std::cout << std::format("Hello {}, number = {}\n", name, number);
 
+------toupper in cpp--------
+headers: 
+<cctype>      std::toupper
+
+
+------styels in c and c++------
+c       av[i][j]     char level toupper, rely on sting end is nulll
+c++     av[i]           std:string  a package 
+
+features of Object Oriented Programing
+- Encapsulation: put data, attributes and funcitons within one class, and hive the implementations details internally
+- Abstraction:  show the result but not the process 
+- Inheritance:  new class can be based on extension class, to reuse exiting code and build hiertachy of classes
+- Polymorphism: different classes can be called with same way, so it is flexible
+
+
+--> some practice with VAR types
+int main()
+{
+    std::string name = "Summer";
+    int number = 5;
+    std::cout << "hello " << name << ", you are " << number << " years old." << std::endl;
+    return 0;
+}
 ================ ex01 ================
+
+On program start-up, the phonebook is empty and the user is prompted to enter one
+of three commands. The program only accepts ADD, SEARCH and EXIT.
+Any other input is discarded.
+Once a command has been correctly executed, the program waits for another one. It
+stops when the user inputs EXIT.
+
+------cpp and hpp--------
+in c++, normally one .cpp and one .hpp
+
+------PhoneBook---------
+there is not ac or av, 
+in ./PhoneBook, it just enters the program
+
+------get line---------
+<string>

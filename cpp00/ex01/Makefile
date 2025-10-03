@@ -1,32 +1,30 @@
-
-NAME := libftprintf.a
-HEADERS := include/ft_printf.h
-CCFLAGS := -Wall -Wextra -Werror
-CC := c++
+NAME := PhoneBook
+CXX := c++
+CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -I include
 SRC_DIR := src
+OBJ_DIR := obj
+INCLUDE_DIR := include
 
-#SRCS := $(wildcard src/*.c)
-SRCS := $(SRC_DIR)/ft_printf.c $(SRC_DIR)/ft_putchar.c $(SRC_DIR)/ft_putstr.c \
-		$(SRC_DIR)/ft_putdec.c $(SRC_DIR)/ft_putdecu.c \
-		$(SRC_DIR)/ft_puthexlower.c $(SRC_DIR)/ft_puthexupper.c \
-		$(SRC_DIR)/ft_putptr.c \
+SRCS := $(SRC_DIR)/Contact.cpp $(SRC_DIR)/PhoneBook.cpp $(SRC_DIR)/main.cpp
+OBJS := $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
-OBJS := $(SRCS:%.c=%.o)
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-		ar -rcs $@ $^
-
-%.o: %.c $(HEADERS)
-		$(CC) $(CFLAGS) -Iinclude -c $< -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 all: $(NAME)
 
 clean:
-		rm -f $(OBJS)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
-		rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re			
+.PHONY: all clean fclean re

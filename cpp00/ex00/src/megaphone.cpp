@@ -6,26 +6,32 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 11:56:09 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/03 12:11:01 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/03 14:25:36 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// $>./megaphone "shhhhh... I think the students are asleep..."
-// SHHHHH... I THINK THE STUDENTS ARE ASLEEP...
-// $>./megaphone Damnit " ! " "Sorry students, I thought this thing was off."
-// DAMNIT ! SORRY STUDENTS, I THOUGHT THIS THING WAS OFF.
-// $>./megaphone
-// * LOUD AND UNBEARABLE FEEDBACK NOISE *
-// $>
-
-// the aim of ex00: capitalize and print out a string.
-
 #include <iostream>
+#include <string>
+#include <cctype>
 
-int main()
+int main(int ac, char **av)
 {
-    std::string name = "Summer";
-    int number = 5;
-    std::cout << "hello " << name << ", you are " << number << " years old." << std::endl;
+    if (ac == 1)
+    {
+        std::cout << " LOUD AND UNBEARABLE FEEDBACK NOISE " << std::endl;
+        return 0;
+    }
+    for (int i = 1; i < ac; i++)
+    {
+        std::string temp(av[i]);
+        for (std::string::size_type j = 0; j < temp.size(); j++)
+        {
+            temp[j] = std::toupper(temp[j]);
+        }
+        std::cout << temp;
+        if (i < ac -1)
+            std::cout << " ";
+    }
+    std::cout << std::endl;
     return 0;
 }

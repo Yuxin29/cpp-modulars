@@ -1,27 +1,29 @@
-
 NAME := megaphone
-CCFLAGS := -Wall -Wextra -Werror
-CC := c++
+CXX := c++
+CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 SRC_DIR := src
+OBJ_DIR := obj
 
-SRCS := $(SRC_DIR)/megaphone.cpp \
+SRCS := $(SRC_DIR)/megaphone.cpp
+OBJS := $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
-OBJS := $(SRCS:%.cpp=%.o)
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-		ar -rcs $@ $^
-
-%.o: %.c $(HEADERS)
-		$(CC) $(CFLAGS) -Iinclude -c $< -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 all: $(NAME)
 
 clean:
-		rm -f $(OBJS)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
-		rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re			
+.PHONY: all clean fclean re
