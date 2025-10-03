@@ -1,0 +1,34 @@
+3.10.25 Fri
+
+===============================CPP 00==========================
+
+================ ex00 ================
+
+example out out
+// $>./megaphone "shhhhh... I think the students are asleep..."
+// SHHHHH... I THINK THE STUDENTS ARE ASLEEP...
+// $>./megaphone Damnit " ! " "Sorry students, I thought this thing was off."
+// DAMNIT ! SORRY STUDENTS, I THOUGHT THIS THING WAS OFF.
+// $>./megaphone
+// * LOUD AND UNBEARABLE FEEDBACK NOISE *
+// $>
+the aim of ex00: capitalize and print out a string.
+
+------main in cpp--------
+main in cpp is basicly the same as c
+int main(int ac, char **av)
+
+------print in cpp--------
+headers: 
+<iostream>       std::cout   std::cin    std::cerr   std::clog   std::endl
+<string>        std::string     s+=...
+
+std::cout << ... << std:: endl
+cout        stdout
+<<          insertation operator
+std:: endl  end of the line and flush the stdout 
+
+------print in c++98 and after c++98--------
+std::cout << std::format("Hello {}, number = {}\n", name, number);
+
+================ ex01 ================
