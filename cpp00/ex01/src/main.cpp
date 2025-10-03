@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 14:46:38 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/03 15:40:17 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/03 16:23:03 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,19 @@ int main()
     {
         std::cout << "Enter command please (ADD, SEARCH / EXIT): ";
         std::getline(std::cin, cmd); /// I dont know how to write this one yet: but use getline to get the cmd
-        return 1; //test run
         if (cmd == "ADD")
         {
-            std::string name_f;
-            std::string name_l;
-            std::string nbr;
-            
+            std::cout << "now we are adding" << std::endl;
+            //do add
         }
         else if (cmd == "SEARCH")
         {
+            std::cout << "now we are searching" << std::endl;
             //do search
-            
         }
         else if (cmd == "EXIT")
         {
+            std::cout << "now we are quiting the program" << std::endl;
             //quit the program
             break; // do I have some thing to free ??
         }

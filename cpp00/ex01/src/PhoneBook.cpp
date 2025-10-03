@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 14:30:17 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/03 16:02:10 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/03 16:19:32 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "PhoneBook.hpp"
 
-void add_Contac()
+void add_Contact()
 {
     std::string name_f;
     std::string name_l;

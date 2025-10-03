@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 14:36:49 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/03 15:57:27 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/03 16:18:52 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ public:
 
     std::string get_FirstName();
     std::string get_LastName();
-    std::string sget_Number();
+    std::string get_Number();
 }; //seems I need this ;
 
 #endif
