@@ -6,17 +6,16 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 14:46:38 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/03 15:19:07 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/03 15:40:17 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include <string>
-#include <iostream>
+#include "Contact.hpp"
 
 int main()
 {
-    //PhoneBook   book;
+    PhoneBook   book;
     std::string cmd;
     while (true)
     {
@@ -25,7 +24,10 @@ int main()
         return 1; //test run
         if (cmd == "ADD")
         {
-            //do add
+            std::string name_f;
+            std::string name_l;
+            std::string nbr;
+            
         }
         else if (cmd == "SEARCH")
         {

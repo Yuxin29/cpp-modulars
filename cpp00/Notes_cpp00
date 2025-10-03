@@ -72,4 +72,13 @@ there is not ac or av,
 in ./PhoneBook, it just enters the program
 
 ------get line---------
-<string> 
+<string> sample usage 
+    std::string name;
+    std::cout << "What is your name? ";
+    std::getline(std::cin, name);
+    std::cout << "Hello " << name << ", nice to meet you.\n";
+
+------- & in c in c++ -----------
+& is different in c and c++:
+c       & always addr of
+c++     & addr of / reference

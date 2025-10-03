@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 14:30:17 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/03 15:19:38 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/03 16:02:10 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,22 @@
 
 #include "PhoneBook.hpp"
 
-
+void add_Contac()
+{
+    std::string name_f;
+    std::string name_l;
+    std::string nbr;
+    //Contact     new;
+    
+    std::cout << "Enter first_name: ";
+    std::getline(std::cin, name_f);
+    //set_first_name
+    
+    std::cout << "Enter first_name: ";
+    std::getline(std::cin, name_f);
+    //set_first_name
+    
+    std::cout << "Enter first_name: ";
+    std::getline(std::cin, name_f);
+    //set_first_name
+}
