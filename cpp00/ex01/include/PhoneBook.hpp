@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 14:32:03 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/04 17:15:54 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/04 18:04:35 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,14 @@
 class PhoneBook
 {
 private:
-    Contact     persons[8];
-    int         total; //could be 0 to 8
-    int         oldest_index;
+	Contact	persons[8];
+	int		total; //could be 0 to 8
+	int		oldest_index;
 
 public:
-    PhoneBook(); 
-    Contact getContact();
-    void    addContact();
-    void    showContacts();
-    void    showoneContact(int i);
-    void    searchContact();
+	PhoneBook(); 
+	void	addContact();
+	void	searchContact();
 };
 
 #endif
