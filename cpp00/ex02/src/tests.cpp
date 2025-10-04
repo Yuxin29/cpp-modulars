@@ -13,7 +13,8 @@
 #include "Account.hpp"
 
 
-int		main( void ) {
+int		main( void ) 
+{
 
 	typedef std::vector<Account::t>							  accounts_t;
 	typedef std::vector<int>								  ints_t;
@@ -62,7 +63,6 @@ int		main( void ) {
 
 	return 0;
 }
-
 
 // ************************************************************************** //
 // vim: set ts=4 sw=4 tw=80 noexpandtab:                                      //

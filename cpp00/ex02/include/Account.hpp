@@ -21,23 +21,23 @@ public:
 
 	typedef Account		t;
 
-	static int	getNbAccounts( void );
+	static int	getNbAccounts( void );  //totoal number of accounts
 	static int	getTotalAmount( void );
 	static int	getNbDeposits( void );
 	static int	getNbWithdrawals( void );
 	static void	displayAccountsInfos( void );
 
-	Account( int initial_deposit );
-	~Account( void );
+	Account( int initial_deposit );	//constructer funcion
+	~Account( void );				//deconstructer function: print exit status and informations
 
 	void	makeDeposit( int deposit );
 	bool	makeWithdrawal( int withdrawal );
 	int		checkAmount( void ) const;
 	void	displayStatus( void ) const;
 
-
 private:
 
+	//information of all accounts: class level
 	static int	_nbAccounts;
 	static int	_totalAmount;
 	static int	_totalNbDeposits;
@@ -45,6 +45,7 @@ private:
 
 	static void	_displayTimestamp( void );
 
+	//informaiton of one accoutn: object level
 	int				_accountIndex;
 	int				_amount;
 	int				_nbDeposits;
