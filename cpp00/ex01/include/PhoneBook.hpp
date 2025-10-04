@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 14:32:03 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/04 15:52:48 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/04 16:13:30 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ private:
 public:
     PhoneBook(); //constructor funcsion, executed when callinng the class, initiatem the Class pb
     Contact getContact();
-    void    addContact(Contact &c);
-    //void    showContacts();
+    void    addContact();
+    void    showContacts();
     //void    showoneContact(int i);
     //search contact
     //maybe cleanning up this phonebook ?

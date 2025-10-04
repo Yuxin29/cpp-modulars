@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 14:46:38 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/03 16:23:03 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/04 16:14:58 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,22 @@ int main()
     std::string cmd;
     while (true)
     {
-        std::cout << "Enter command please (ADD, SEARCH / EXIT): ";
+        std::cout << "Enter command please (ADD / SEARCH / EXIT): ";
         std::getline(std::cin, cmd); /// I dont know how to write this one yet: but use getline to get the cmd
         if (cmd == "ADD")
         {
             std::cout << "now we are adding" << std::endl;
-            //do add
+            book.addContact();
         }
         else if (cmd == "SEARCH")
         {
             std::cout << "now we are searching" << std::endl;
             //do search
+        }
+        else if (cmd == "SHOW")
+        {
+            std::cout << "now we are showing all" << std::endl;
+            book.showContacts();
         }
         else if (cmd == "EXIT")
         {
