@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 14:30:17 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/03 16:19:32 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/04 15:55:52 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,41 @@
 // of three commands. The program only accepts ADD, SEARCH and EXIT.
 
 #include "PhoneBook.hpp"
+#include "Contact.hpp"
 
-void add_Contact()
+//first constructor functinos
+// it is special, it does not have a return value
+PhoneBook::PhoneBook()
 {
-    std::string name_f;
-    std::string name_l;
-    std::string nbr;
-    //Contact     new;
+    total = 0;
+    oldest_index = 0;   
+}
+
+//add a new contact to the phonebook
+void    PhoneBook::addContact(Contact &c)
+{
+    Contact  new_contact  = getContact();
+    
+    
+}
+
+//get info from the keyboard
+Contact    PhoneBook::getContact()
+{
+    std::string input;
+    Contact     new_contact; //input is a mutable object: thus it can you cleared, covered and reused
     
     std::cout << "Enter first_name: ";
-    std::getline(std::cin, name_f);
-    //set_first_name
+    std::getline(std::cin, input);
+    new_contact.setFirstName(input);
     
-    std::cout << "Enter first_name: ";
-    std::getline(std::cin, name_f);
-    //set_first_name
+    std::cout << "Enter last_name: ";
+    std::getline(std::cin, input);
+    new_contact.setLastName(input);
     
-    std::cout << "Enter first_name: ";
-    std::getline(std::cin, name_f);
-    //set_first_name
+    std::cout << "Enter number: ";
+    std::getline(std::cin, input);
+    new_contact.Contact::setNumber(input);
+
+    return new_contact;
 }

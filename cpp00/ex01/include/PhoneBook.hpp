@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 14:32:03 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/03 15:37:05 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/04 15:52:48 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,15 @@ class PhoneBook
 {
 private:
     Contact     persons[8];
-    int         total;
+    int         total; //could be 0 to 8
     int         oldest_index;
 
 public:
-    //void        add_contact(std::string name);
+    PhoneBook(); //constructor funcsion, executed when callinng the class, initiatem the Class pb
+    Contact getContact();
+    void    addContact(Contact &c);
+    //void    showContacts();
+    //void    showoneContact(int i);
     //search contact
     //maybe cleanning up this phonebook ?
 };

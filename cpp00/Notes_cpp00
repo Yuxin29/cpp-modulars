@@ -82,3 +82,16 @@ in ./PhoneBook, it just enters the program
 & is different in c and c++:
 c       & always addr of
 c++     & addr of / reference
+
+4.10.25 Sat
+------- naming style in c++ -----------
+-   PascalCase: class names are nomally capitalised at every word start
+-   camelCase:  funstion names, it is an action, avoid _.
+addContact: action and class combined together, 
+Element         Common Naming Style	        Example                         Description
+Class name	    PascalCase	                PhoneBook, Contact	            Each word starts with a capital letter
+Member function	camelCase	                addContact(), showContacts()	Starts with lowercase, subsequent words capitalized
+Variable name	all lowercase	            count, oldest, contactList	    Simple and readable
+Constant/Macro  ALL_CAPS + underscore	    MAX_SIZE, BUFFER_SIZE	        Easy to distinguish from variables
+Filename	    all lowercase + underscore	phonebook.hpp, contact.cpp	    Improves system compatibility (esp. on Unix)
+

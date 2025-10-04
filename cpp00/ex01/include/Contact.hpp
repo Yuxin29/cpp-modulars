@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 14:36:49 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/03 16:18:52 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/04 15:29:24 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ private:
     std::string     Number;
 
 public:
-    void        set_FirstName(std::string &name);
-    void        set_LastName(std::string &name);
-    void        set_Number(std::string &number);
+    void        setFirstName(std::string &name);
+    void        setLastName(std::string &name);
+    void        setNumber(std::string &number);
 
-    std::string get_FirstName();
-    std::string get_LastName();
-    std::string get_Number();
+    std::string getFirstName();
+    std::string getLastName();
+    std::string getNumber();
 }; //seems I need this ;
 
 #endif
