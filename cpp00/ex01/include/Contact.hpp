@@ -6,11 +6,9 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 14:36:49 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/04 16:36:07 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/04 17:15:36 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// ◦ Stands for a phonebook contact.
 
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
@@ -40,6 +38,5 @@ public:
     std::string getPhoneNumber();
     std::string getDarkestSecret();
 }; 
-//seems I need this ;
 
 #endif

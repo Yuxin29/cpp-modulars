@@ -95,3 +95,6 @@ Variable name	all lowercase	            count, oldest, contactList	    Simple an
 Constant/Macro  ALL_CAPS + underscore	    MAX_SIZE, BUFFER_SIZE	        Easy to distinguish from variables
 Filename	    all lowercase + underscore	phonebook.hpp, contact.cpp	    Improves system compatibility (esp. on Unix)
 
+------- atoi in c++ -----------
+#include <string> std::stoi(str) C++11
+#include <cstdlib>  std::atoi(str.c_str()) C++98

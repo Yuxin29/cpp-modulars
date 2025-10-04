@@ -6,20 +6,15 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 14:30:17 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/04 17:06:05 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/04 17:17:14 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// On program start-up, the phonebook is empty and the user is prompted to enter one
-// of three commands. The program only accepts ADD, SEARCH and EXIT.
-
 #include "PhoneBook.hpp"
-#include "Contact.hpp"
-//#include <string> std::stoi(str) C++11
-#include <cstdlib>
 
-//first constructor functinos
+//first: constructor functinos
 // it is special, it does not have a return value
+// executed when callinng the class, initiatem the Class pb
 PhoneBook::PhoneBook()
 {
     total = 0;
@@ -78,8 +73,8 @@ void    PhoneBook::addContact()
 //get info from the keyboard
 Contact    PhoneBook::getContact()
 {
-    std::string input;
-    Contact     new_contact; //input is a mutable object: thus it can you cleared, covered and reused
+    std::string input;//input is a mutable object: thus it can you cleared, covered and reused
+    Contact     new_contact;
     
     std::cout << "Enter first name: ";
     std::getline(std::cin, input);
