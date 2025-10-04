@@ -15,6 +15,12 @@
 #include <iostream>
 #include <string>
 
+//private static attibute must be defined outside the class oncce
+int Account::_nbAccounts = 0;
+int Account::_totalAmount = 0;
+int Account::_totalNbDeposits = 0;
+int Account::_totalNbWithdrawals = 0;
+
 //constructor
 // example print
 // [19920104_091532] index:4;amount:1234;created
