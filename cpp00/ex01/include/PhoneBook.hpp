@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 14:32:03 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/04 16:13:30 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/04 16:57:41 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ public:
     Contact getContact();
     void    addContact();
     void    showContacts();
-    //void    showoneContact(int i);
+    void    showoneContact(int i);
+    void    searchContact();
     //search contact
     //maybe cleanning up this phonebook ?
 };
