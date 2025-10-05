@@ -8,6 +8,8 @@ INCLUDE_DIR := include
 SRCS := $(SRC_DIR)/Account.cpp $(SRC_DIR)/tests.cpp 
 OBJS := $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
+all: $(NAME)
+
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
@@ -16,8 +18,6 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
 
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $^ -o $@
-
-all: $(NAME)
 
 clean:
 	rm -rf $(OBJ_DIR)

@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 14:36:49 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/04 18:04:12 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/05 14:43:25 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <string>
 #include <iostream>
+
+# define MAX_LENGTH 10
 
 class Contact
 {
@@ -26,7 +28,8 @@ private:
 	std::string	DarkestSecret;
 
 public:
-	void		fillFromInput();
+	void		getContact();
+	void		printContactsSummary();
 	void		printContact();
 }; 
 

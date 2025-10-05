@@ -7,6 +7,8 @@ OBJ_DIR := obj
 SRCS := $(SRC_DIR)/megaphone.cpp
 OBJS := $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
+all: $(NAME)
+
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
@@ -15,8 +17,6 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
 
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $^ -o $@
-
-all: $(NAME)
 
 clean:
 	rm -rf $(OBJ_DIR)

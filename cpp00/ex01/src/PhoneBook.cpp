@@ -6,11 +6,12 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 14:30:17 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/04 18:07:06 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/05 14:47:00 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <iomanip>
 
 //first: constructor functinos
 // it is special, it does not have a return value
@@ -25,7 +26,7 @@ PhoneBook::PhoneBook()
 void    PhoneBook::addContact()
 {
     Contact  new_contact;
-    new_contact.fillFromInput();
+    new_contact.getContact();
     if (total < 8)
     {
         persons[total] = new_contact; 
@@ -46,9 +47,13 @@ void    PhoneBook::searchContact()
         std::cout << "The phonebook is empty. " << std::endl;
         return ;
     }
+    std::cout << std::setw(10) << "index" << "|"
+              << std::setw(10) << "fistname" << "|"
+              << std::setw(10) << "lastname" << "|"
+              << std::setw(10) << "nickname" << std::endl;
     for (int d = 0; d < total; ++d)
     {
-        persons[d].printContact();
+        persons[d].printContactsSummary();
     }
     std::cout << "Enter the index of the contact you want to display: ";
     std::getline(std::cin, index);
