@@ -4,6 +4,7 @@
 https://en.cppreference.com/w/
 
 ================ ex00 ================
-
-example out out
+--> new and delete
+in c++, new and delete is key word, it is not a fuctino
+<cstdlid> : malloc and free
 
