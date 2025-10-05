@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 14:46:38 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/04 18:02:09 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/05 15:17:43 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int main()
         else if (cmd == "EXIT")
         {
             std::cout << "now we are quiting the program" << std::endl;
-            break; // do I have some thing to free ??
+            break;
         }
     }
 	return (0);
