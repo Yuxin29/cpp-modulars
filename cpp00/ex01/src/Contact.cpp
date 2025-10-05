@@ -6,16 +6,13 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 14:37:14 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/05 14:45:25 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/05 15:49:00 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
-#include <iomanip>
     
-// set infos
-// input is a mutable object: 
-// thus it can you cleared, covered and reused
+// set infos: input is a mutable object: 
 void	Contact::getContact()
 {
     std::string input;
@@ -39,7 +36,7 @@ void	Contact::getContact()
         LastName = input;
     //nickname
     do {
-        std::cout << "Enter nick name: ";
+        std::cout << "Enter nickname: ";
         std::getline(std::cin, input);
         if (input.empty())
             std::cout << "Input cannot be empty. Please try again.\n";
@@ -66,7 +63,7 @@ void	Contact::getContact()
         DarkestSecret = input;
 }
 
-void        Contact::printContactsSummary()
+void        Contact::printContactsSummary(int i)
 {
     std::string fn = FirstName;
     std::string ln = LastName;
@@ -77,23 +74,22 @@ void        Contact::printContactsSummary()
 		fn.resize(MAX_LENGTH - 1);
 		fn.append(".");
 	}
-    if (fn.length() > MAX_LENGTH)
+    if (ln.length() > MAX_LENGTH)
 	{
-		fn.resize(MAX_LENGTH - 1);
-		fn.append(".");
+		ln.resize(MAX_LENGTH - 1);
+		ln.append(".");
 	}
-    if (fn.length() > MAX_LENGTH)
+    if (nn.length() > MAX_LENGTH)
 	{
-		fn.resize(MAX_LENGTH - 1);
-		fn.append(".");
+		nn.resize(MAX_LENGTH - 1);
+		nn.append(".");
 	}
-    std::cout << std::setw(10) << 1 << "|"
+    std::cout << std::setw(10) << i << "|"
               << std::setw(10) << fn << "|"
               << std::setw(10) << ln << "|"
               << std::setw(10) << nn << std::endl;
 }
     
-
 void        Contact::printContact()
 {
     std::cout << "First name: " << FirstName << std::endl;

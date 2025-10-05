@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 14:36:49 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/05 14:43:25 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/05 15:48:56 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <string>
 #include <iostream>
+#include <iomanip>
 
 # define MAX_LENGTH 10
 
@@ -29,7 +30,7 @@ private:
 
 public:
 	void		getContact();
-	void		printContactsSummary();
+	void		printContactsSummary(int i);
 	void		printContact();
 }; 
 
