@@ -43,6 +43,7 @@ private:
 	static int	_totalNbDeposits;
 	static int	_totalNbWithdrawals;
 
+	//class level 
 	static void	_displayTimestamp( void );
 
 	//informaiton of one accoutn: object level
