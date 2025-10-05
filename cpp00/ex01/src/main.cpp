@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include "Contact.hpp"
 
 // On program start-up, the phonebook is empty and the user is prompted to enter one
 // of three commands. The program only accepts ADD, SEARCH and EXIT.

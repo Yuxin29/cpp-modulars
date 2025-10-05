@@ -99,13 +99,10 @@ Filename	    all lowercase + underscore	phonebook.hpp, contact.cpp	    Improves 
 #include <string> std::stoi(str) C++11
 #include <cstdlib>  std::atoi(str.c_str()) C++98
 
-<<<<<<< HEAD
 5.10.25 Sun
 ------- static in class -----------
 static : class level, not a specific flass leve;
-=======
 
-5.10.25 Sun
 ------- memory allocation -----------
 new / delete 代替 malloc / free
 
@@ -141,4 +138,3 @@ for example
         FirstName = input;
 as long as while is true, do the loop  
          while is false, end the loop and do while
->>>>>>> 3aa9a8d52f2e53972a6ded43c0887cf9115174e5
