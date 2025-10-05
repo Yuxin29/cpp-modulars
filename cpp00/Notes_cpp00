@@ -98,3 +98,7 @@ Filename	    all lowercase + underscore	phonebook.hpp, contact.cpp	    Improves 
 ------- atoi in c++ -----------
 #include <string> std::stoi(str) C++11
 #include <cstdlib>  std::atoi(str.c_str()) C++98
+
+5.10.25 Sun
+------- static in class -----------
+static : class level, not a specific flass leve;
