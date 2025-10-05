@@ -14,7 +14,8 @@
 #define CONTACT_HPP
 
 #include <iostream>
-#include <iomanip>
+#include <iomanip>	//setw
+#include <string>	//resize, append
 
 # define MAX_LENGTH 10
 
@@ -29,7 +30,7 @@ private:
 
 public:
 	void		getContact();
-	void		printContactsSummary(int i);
+	void		printContactNames(int i);
 	void		printContact();
 }; 
 

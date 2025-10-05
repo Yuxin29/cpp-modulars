@@ -14,8 +14,8 @@
 #define PHONEBOOK_HPP
 
 #include "Contact.hpp"
-#include <cstdlib>
-#include <iomanip>
+#include <cstdlib>	//atoi
+#include <cctype>	//isdigit
 
 // ◦ It has an array of contacts.
 // ◦ It can store a maximum of 8 contacts. 

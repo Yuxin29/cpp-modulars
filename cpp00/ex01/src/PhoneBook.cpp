@@ -64,7 +64,7 @@ void    PhoneBook::searchContact()
               << std::setw(10) << "nickname" << std::endl;
     for (int d = 0; d < total; ++d)
     {
-        persons[d].printContactsSummary(d);
+        persons[d].printContactNames(d);
     }
     while (i == -1) 
     {

@@ -16,54 +16,49 @@
 void	Contact::getContact()
 {
     std::string input;
-    //first name
+
     do {
         std::cout << "Enter first name: ";
         std::getline(std::cin, input);
         if (input.empty())
             std::cout << "Input cannot be empty. Please try again.\n";
-    } 
-    while (input.empty());
-        FirstName = input;
-    //last name
+    } while (input.empty());
+    FirstName = input;
+
     do {
         std::cout << "Enter last name: ";
-        std::getline(std::cin, input);if (input.empty())
+        std::getline(std::cin, input);
         if (input.empty())
             std::cout << "Input cannot be empty. Please try again.\n";
-    } 
-    while (input.empty());
-        LastName = input;
-    //nickname
+    } while (input.empty());
+    LastName = input;
+
     do {
         std::cout << "Enter nickname: ";
         std::getline(std::cin, input);
         if (input.empty())
             std::cout << "Input cannot be empty. Please try again.\n";
-    }
-    while (input.empty());
-        Nickname = input;
-    //number
+    } while (input.empty());
+    Nickname = input;
+
     do {
         std::cout << "Enter number: ";
         std::getline(std::cin, input);
         if (input.empty())
             std::cout << "Input cannot be empty. Please try again.\n";
-    }
-    while (input.empty());
-        PhoneNumber = input;
-    //secrect
+    } while (input.empty());
+    PhoneNumber = input;
+
     do {
         std::cout << "Enter darkest secret: ";
         std::getline(std::cin, input);
         if (input.empty())
             std::cout << "Input cannot be empty. Please try again.\n";
-    }
-    while (input.empty());
-        DarkestSecret = input;
+    } while (input.empty());
+    DarkestSecret = input;
 }
 
-void        Contact::printContactsSummary(int i)
+void        Contact::printContactNames(int i)
 {
     std::string fn = FirstName;
     std::string ln = LastName;

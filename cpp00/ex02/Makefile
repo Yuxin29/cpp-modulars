@@ -1,9 +1,9 @@
-NAME := Account
-CXX := c++
-CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -I include
-SRC_DIR := src
-OBJ_DIR := obj
-INCLUDE_DIR := include
+NAME = Account
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I include
+SRC_DIR = src
+OBJ_DIR = obj
+INCLUDE_DIR = include
 
 SRCS := $(SRC_DIR)/Account.cpp $(SRC_DIR)/tests.cpp 
 OBJS := $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)

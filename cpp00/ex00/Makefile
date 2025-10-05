@@ -1,11 +1,11 @@
-NAME := megaphone
-CXX := c++
-CXXFLAGS := -Wall -Wextra -Werror -std=c++98
-SRC_DIR := src
-OBJ_DIR := obj
+NAME = megaphone
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+SRC_DIR = src
+OBJ_DIR = obj
 
-SRCS := $(SRC_DIR)/megaphone.cpp
-OBJS := $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
+SRCS = $(SRC_DIR)/megaphone.cpp
+OBJS = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
 

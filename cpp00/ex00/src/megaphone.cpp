@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <cctype>
+#include <iostream> //std::cout
+#include <cctype>   //toupper
 
 int main(int ac, char **av)
 {

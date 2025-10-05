@@ -12,8 +12,9 @@
 
 #include "PhoneBook.hpp"
 
-// On program start-up, the phonebook is empty and the user is prompted to enter one
-// of three commands. The program only accepts ADD, SEARCH and EXIT.
+// On program start-up, the phonebook is empty 
+// and the user is prompted to enter one of three commands. 
+// The program only accepts ADD, SEARCH and EXIT.
 int main()
 {
     PhoneBook   book;
@@ -24,17 +25,14 @@ int main()
         std::getline(std::cin, cmd);
         if (cmd == "ADD")
         {
-            std::cout << "now we are adding" << std::endl;
             book.addContact();
         }
         else if (cmd == "SEARCH")
         {
-            std::cout << "now we are searching" << std::endl;
             book.searchContact();
         }
         else if (cmd == "EXIT")
         {
-            std::cout << "now we are quiting the program" << std::endl;
             break;
         }
     }
