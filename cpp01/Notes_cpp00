@@ -8,3 +8,7 @@ https://en.cppreference.com/w/
 in c++, new and delete is key word, it is not a fuctino
 <cstdlid> : malloc and free
 
+变量名	         类型	                            属于谁	               生命周期
+fee	            局部变量	                        当前函数栈上	        函数结束销毁
+_amount	        成员变量        member var	        当前对象（this）	    随对象存在          this->name
+_nbAccounts     静态成员变量    static member var	 整个类共享	            程序结束前一直存在     Account::_nbAccounts

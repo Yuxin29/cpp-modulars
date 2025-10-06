@@ -21,7 +21,8 @@ public:
 
 	typedef Account		t;
 
-	static int	getNbAccounts( void );  //totoal number of accounts
+	//static member varials
+	static int	getNbAccounts( void );
 	static int	getTotalAmount( void );
 	static int	getNbDeposits( void );
 	static int	getNbWithdrawals( void );
@@ -37,7 +38,7 @@ public:
 
 private:
 
-	//information of all accounts: class level
+	//static member varials: information of all accounts: class-level
 	static int	_nbAccounts;
 	static int	_totalAmount;
 	static int	_totalNbDeposits;
@@ -46,7 +47,7 @@ private:
 	//class level 
 	static void	_displayTimestamp( void );
 
-	//informaiton of one accoutn: object level
+	//member variables: object-level variables
 	int				_accountIndex;
 	int				_amount;
 	int				_nbDeposits;
