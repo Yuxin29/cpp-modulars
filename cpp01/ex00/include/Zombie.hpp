@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 16:49:45 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/06 19:58:20 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/07 19:04:10 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ private:
     std::string name;
     
 public:
-    Zombie();                   //Constructor: class method, eg.   Zombie z;            stack mem
+    //Zombie();                   //Constructor: class method, eg.   Zombie z;            stack mem
     Zombie(std::string name);	//Constructor: class method, eg.   Zombie z("Manday")   stack mem
 	~Zombie();			        //deconstructer
 

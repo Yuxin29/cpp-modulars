@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 14:46:38 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/05 15:17:43 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/07 18:11:07 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,6 @@ int main()
     }
 	return (0);
 }
+
+//after eval
+//I should guild my getline with null check after it

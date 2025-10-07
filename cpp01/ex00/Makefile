@@ -5,7 +5,7 @@ SRC_DIR := src
 OBJ_DIR := obj
 INCLUDE_DIR := include
 
-SRCS := $(SRC_DIR)/Zombie.cpp $(SRC_DIR)/main.cpp
+SRCS := $(SRC_DIR)/Zombie.cpp $(SRC_DIR)/main.cpp $(SRC_DIR)/newZombie.cpp $(SRC_DIR)/randomChump.cpp
 OBJS := $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
 all: $(NAME)

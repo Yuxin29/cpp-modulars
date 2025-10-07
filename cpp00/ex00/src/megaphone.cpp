@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 11:56:09 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/05 13:51:56 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/07 18:10:36 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,7 @@ int main(int ac, char **av)
     std::cout << std::endl;
     return 0;
 }
+
+//after eval
+//./megaphtone "aaa " ! "bbb"
+// I printed out an extra space
