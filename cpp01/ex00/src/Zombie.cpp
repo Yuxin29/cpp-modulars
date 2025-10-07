@@ -6,12 +6,11 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 16:48:40 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/07 18:56:50 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/07 19:18:23 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-#include <string>
 
 //Constructor: class method, class level op, eg.   Zombie z;            stack mem
 // Zombie::Zombie()
