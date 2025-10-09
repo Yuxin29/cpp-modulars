@@ -29,11 +29,11 @@ private:
     
 public:
     //Weapon();                   //Constructor: class method, eg.   Zopwdmbie z;            stack mem
-    Weapon(std::string name);	//Constructor: class method, eg.   Zombie z("Manday")   stack mem
+    Weapon(std::string type);	//Constructor: class method, eg.   Zombie z("Manday")   stack mem
 	~Weapon();			        //deconstructer
 
-    void getType(void);
-    void setType(std::string new_name);
+    const std::string& getType(void);
+    void setType(std::string new_type);
 };
 
 #endif

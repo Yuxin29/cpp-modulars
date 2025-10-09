@@ -10,8 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Weapon.hpp"
+
 int main()
 {
+    // Weapon testing
+    Weapon test = Weapon("cold weapon");
+    std::cout << "the original type is " << test.getType() << std::endl;
+    test.setType("hot weapon");
+    std::cout << "the new type is " << test.getType() << std::endl;
+    // HumanA testing
     {
     Weapon club = Weapon("crude spiked club");
     HumanA bob("Bob", club);
@@ -19,14 +27,14 @@ int main()
     club.setType("some other type of club");
     bob.attack();
     }
-    
-    {
-    Weapon club = Weapon("crude spiked club");
-    HumanB jim("Jim");
-    jim.setWeapon(club);
-    jim.attack();
-    club.setType("some other type of club");
-    jim.attack();
-    }
+
+    // {
+    // Weapon club = Weapon("crude spiked club");
+    // HumanB jim("Jim");
+    // jim.setWeapon(club);
+    // jim.attack();
+    // club.setType("some other type of club");
+    // jim.attack();
+    // }
 return 0;
 }
