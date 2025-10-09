@@ -1,9 +1,8 @@
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, Weapon armer)
+HumanA::HumanA(std::string name, Weapon& weapon)
+    :name(name), weapon(weapon) //& or const member variable must be initedted before the {}
 {
-    this->name = name;
-    this->Weapon->setWeapon(armer);
 }
 
 HumanA::~HumanA()
@@ -12,5 +11,5 @@ HumanA::~HumanA()
 
 void HumanA::attack()
 {
-    std::cout << name << " attacks with their " << HumanA->Weapon->getType << std::endl;
+    std::cout << name << " attacks with their " << weapon.getType() << std::endl;
 }

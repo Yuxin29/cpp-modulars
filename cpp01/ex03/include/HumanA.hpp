@@ -16,9 +16,9 @@ class HumanA
 {
 private:
     std::string name;
-    
+    Weapon& weapon; //&, reference, it is already existing, local. 
 public:
-    HumanA(std::string name, Weapon armer);	//Constructor: class method, eg.   Zombie z("Manday")   stack mem
+    HumanA(std::string name, Weapon& weapon);	//Constructor: class method, eg.   Zombie z("Manday")   stack mem
 	~HumanA();			                    //deconstructer
 
     void attack();

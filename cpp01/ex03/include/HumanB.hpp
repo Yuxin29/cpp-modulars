@@ -1,6 +1,6 @@
 
-#ifndef HUMANA_H
-#define HUMANA_H
+#ifndef HUMANB_H
+#define HUMANB_H
 
 #include "Weapon.hpp"
 #include <string>
@@ -12,15 +12,19 @@ They also have a member function attack() that displays
 While HumanA takes the Weapon in its constructor, HumanB doesn’t.
 • HumanB may not always have a Weapon, whereas HumanA will always be armed
 */
-class HumanA
+class HumanB
 {
 private:
     std::string name;
-    
-public:
-    HumanA(std::string name, Weapon armer);	//Constructor: class method, eg.   Zombie z("Manday")   stack mem
-	~HumanA();			                    //deconstructer
+    //Weapon *weapon; //*, could be a solid weapon, could also be a nullptr
 
+public:
+    Weapon *weapon; //*, could be a solid weapon, could also be a nullptr
+
+    HumanB(std::string name);	//Constructor: class method, eg.   Zombie z("Manday")   stack mem
+	~HumanB();			                    //deconstructer
+    
+    void setWeapon(Weapon *weapon);
     void attack();
 };
 
