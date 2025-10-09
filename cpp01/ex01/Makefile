@@ -1,4 +1,4 @@
-NAME := zombie
+NAME := zombiehorde
 CXX := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -I include
 SRC_DIR := src

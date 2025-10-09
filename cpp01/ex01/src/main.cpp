@@ -15,7 +15,7 @@
 int main()
 {
     //heap zombie
-    std::cout << "------now here comes heap Zombies------" << std::endl;
+    std::cout << "------now here comes heap Zombie arrays------" << std::endl;
     Zombie* horde = zombieHorde(4, "boy");
     for (int i = 0; i < 4; i++)
     {
@@ -28,7 +28,7 @@ int main()
     //     delete &horde[i];
     // }
     delete[] horde;
-    std::cout << "------heap Zombie test done------" << std::endl << std::endl;
+    std::cout << "------heap Zombie arrays test done------" << std::endl << std::endl;
 
     return 0;
 }
