@@ -28,7 +28,7 @@ private:
     std::string type;
     
 public:
-    //Weapon();                   //Constructor: class method, eg.   Zombie z;            stack mem
+    //Weapon();                   //Constructor: class method, eg.   Zopwdmbie z;            stack mem
     Weapon(std::string name);	//Constructor: class method, eg.   Zombie z("Manday")   stack mem
 	~Weapon();			        //deconstructer
 
