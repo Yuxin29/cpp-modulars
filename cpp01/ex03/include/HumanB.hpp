@@ -24,7 +24,7 @@ public:
     HumanB(std::string name);	//Constructor: class method, eg.   Zombie z("Manday")   stack mem
 	~HumanB();			                    //deconstructer
     
-    void setWeapon(Weapon *weapon);
+    void setWeapon(Weapon weapon);
     void attack();
 };
 

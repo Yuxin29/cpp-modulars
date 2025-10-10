@@ -32,7 +32,7 @@ public:
     Weapon(std::string type);	//Constructor: class method, eg.   Zombie z("Manday")   stack mem
 	~Weapon();			        //deconstructer
 
-    const std::string getType(void);
+    const std::string& getType(void);
     void setType(std::string new_type);
 };
 
