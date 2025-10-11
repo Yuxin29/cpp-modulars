@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 16:49:45 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/09 13:00:05 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/11 15:55:49 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 #include <string>
 #include <iostream>
 
-// You have to determine in what case it’s better to allocate the zombies on the stack or heap.
-// Zombies must be destroyed when you don’t need them anymore. 
-// The destructor must print a message with the name of the zombie for debugging purposes.
 class Zombie
 {
 private:
