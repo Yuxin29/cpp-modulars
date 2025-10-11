@@ -3,33 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuwu <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 13:50:17 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/11 13:50:19 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/11 17:01:06 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
 HumanB::HumanB(std::string name)
+: _name(name), _weapon(NULL)
 {
-    this->name = name;
 }
 
 HumanB::~HumanB()
 {
 }
 
+//first null check weapon needed
 void HumanB::attack()
 {
-    if (weapon)//first null check weapon needed
-        std::cout << name << " attacks with their " << weapon->getType() << std::endl;
+    if (_weapon)
+        std::cout << _name << " attacks with their " << _weapon->getType() << std::endl;
     else
-        std::cout << name << " attacks with nothing." << std::endl;
+        std::cout << _name << " has no weapon." << std::endl;
 }
 
-void HumanB::setWeapon(Weapon weapon)
+void HumanB::setWeapon(Weapon &weapon)
 {
-    weapon = weapon;
+    _weapon = &weapon;
 }

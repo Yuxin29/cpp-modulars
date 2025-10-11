@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 13:52:02 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/11 14:39:31 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/11 18:13:32 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ private:
     void error(void);
     
 public:
-    Harl(/* args */);
+    Harl();
     ~Harl();
     void complain(std::string level);
 };

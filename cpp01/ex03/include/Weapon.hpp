@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuwu <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 16:49:45 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/05 16:49:48 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/11 16:48:19 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,17 @@
 #include <string>
 #include <iostream>
 
-/*
-Implement a Weapon class that has:
-• A private attribute type, which is a string.
-• A getType() member function that returns a const reference to type.
-• A setType() member function that sets type using the new one passed as parameter
-*/
+// • A private attribute type, which is a string.
+// • A getType() member function that returns a const reference to type.
+// • A setType() member function that sets type using the new one passed as parameter
 class Weapon
 {
 private:
     std::string type;
     
 public:
-    //Weapon();                   //Constructor: class method, eg.   Zopwdmbie z;            stack mem
-    Weapon(std::string type);	//Constructor: class method, eg.   Zombie z("Manday")   stack mem
-	~Weapon();			        //deconstructer
+    Weapon(std::string type);
+	~Weapon();
 
     const std::string& getType(void);
     void setType(std::string new_type);

@@ -6,13 +6,13 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 13:52:18 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/11 15:28:04 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/11 18:26:21 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-Harl::Harl(/* args */)
+Harl::Harl()
 {
 }
 
@@ -34,6 +34,7 @@ void Harl::info(void)
     std::cout << "If you did, I wouldn’t be asking for more!" << std::endl;
     std::cout << std::endl;
 }
+
 void Harl::warning(void)
 {
     std::cout << "[ WARNING ]" << std::endl;
@@ -41,6 +42,7 @@ void Harl::warning(void)
     std::cout << "I’ve been coming for years whereas you started working here since last month." << std::endl;
     std::cout << std::endl;
 }
+
 void Harl::error(void)
 {
     std::cout << "[ ERROR ]" << std::endl;
@@ -65,18 +67,18 @@ void Harl::complain(std::string level)
     switch (index)
     {
         case 0:
-            (this->*funcs[index++])();
+            (this->*funcs[0])();
             /* fall through */
         case 1:
-            (this->*funcs[index++])();
+            (this->*funcs[1])();
             /* fall through */
         case 2:
-            (this->*funcs[index++])();
+            (this->*funcs[2])();
             /* fall through */
         case 3:
-            (this->*funcs[index])();
-            /* fall through */
+            (this->*funcs[3])();
+            break;
         default:
-            std::cout << "Complaining somethign else." << std::endl;
+            std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
     }
 }
