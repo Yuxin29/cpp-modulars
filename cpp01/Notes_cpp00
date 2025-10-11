@@ -18,3 +18,17 @@ We found small issues with memory management.
 Use try-catch, if you allocate, it's better ti=o have try-catch. 
 Getline takes third argument as a sep
 
+11.10.25 Sat
+switch: A syntax structure: similar to if. else if, else.
+switch (condition) 
+{
+    case 1:
+        // action 1
+       break;
+    case 2:
+        // action 2
+        break;
+    ...
+    default:
+        action default
+}
