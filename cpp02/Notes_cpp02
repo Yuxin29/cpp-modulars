@@ -1,0 +1,11 @@
+12.10.25 Sun
+
+===============================CPP 02==========================
+
+================ ex00 ================
+--> Orthodox Canonical Form
+Default constructor		    create and initiate
+Copy constructor		    initiate this obj using another obj
+Copy assignment operator	asign an obj to another exiting obj --->>check this != &other to avoid "self-asigning", return a *this to support assining chain
+Destructor		            realise memory
+exaple
