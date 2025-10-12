@@ -23,6 +23,8 @@ public:
     //copy
     //copy assine
     ~Fixed(); 
+
+    void    getRawBits();
 }
 #endif
 
