@@ -1,12 +1,9 @@
-NAME := My_First_Class_in_OCF
+NAME := a.out
 CXX := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++17 -I include
 SRC_DIR := src
 OBJ_DIR := obj
 INCLUDE_DIR := include
-
-My First Class in
-Orthodox Canonical Form
 
 SRCS := $(SRC_DIR)/Fixed.cpp $(SRC_DIR)/main.cpp
 OBJS := $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)

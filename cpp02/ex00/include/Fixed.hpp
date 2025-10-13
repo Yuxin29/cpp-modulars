@@ -1,30 +1,29 @@
 
-#ifndef FIX_H
-#define FIX_H
+#ifndef FIXED_H
+#define FIXED_H
 
 #include <string>
 #include <iostream>
 
-// Orthodox Canonical Form,
-// unless explicitely stated otherwise. 
-// Then, they will implement the four required member
-// functions below:
+// Orthodox Canonical Form as below:
 // • Default constructor
 // • Copy constructor
 // • Copy assignment operator
 // • Destructor
-class Fix
+class Fixed
 {
 private:
-    //value
+    int                 _FixedPointValue;
+    static const int    _FractionalBitsNumber = 8;
 
 public:
-    Fix();
-    //copy
-    //copy assine
+    Fixed();
+    Fixed(const Fixed& another);
+    Fixed& operator=(const Fixed &other);
     ~Fixed(); 
 
-    void    getRawBits();
-}
-#endif
+    int getRawBits(void) const;
+    void setRawBits( int const raw );
+};
 
+#endif

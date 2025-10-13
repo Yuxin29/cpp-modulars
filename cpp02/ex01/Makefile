@@ -1,11 +1,11 @@
-NAME := PhoneBook
+NAME := a.out
 CXX := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++17 -I include
 SRC_DIR := src
 OBJ_DIR := obj
 INCLUDE_DIR := include
 
-SRCS := $(SRC_DIR)/Contact.cpp $(SRC_DIR)/PhoneBook.cpp $(SRC_DIR)/main.cpp
+SRCS := $(SRC_DIR)/Fixed.cpp $(SRC_DIR)/main.cpp
 OBJS := $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
 all: $(NAME)

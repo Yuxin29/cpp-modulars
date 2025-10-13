@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed_hpp"
-
-#include <iostream>
+#include "Fixed.hpp"
 
 int main( void )
 {

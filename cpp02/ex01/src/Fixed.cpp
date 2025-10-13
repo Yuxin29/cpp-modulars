@@ -1,20 +1,35 @@
 
 #include "Fixed.hpp"
 
+std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
+{
+    out << fixed.toFloat();
+    return out;
+}
+
 //Default constructor		    create and initiate
 Fixed::Fixed()
 {
-    _FixedPointValue = 0;
     std::cout << "Default constructor called" << std::endl;
+}
+
+Fixed::Fixed(const int value)
+{
+    _FixedPointValue = value << _FractionalBitsNumber;
+    std::cout << "Int constructor called" << std::endl;
+}
+
+Fixed::Fixed(const float value)
+{
+    _FixedPointValue = value; //not correctl
+    std::cout << "Float constructor called" << std::endl;
 }
 
 //Copy constructor		    initiate this obj using another obj
 Fixed::Fixed(const Fixed& another)
-//: _FixedPointValue(another._FixedPointValue)
 {
     std::cout << "Copy constructor called " << std::endl;
-    *this = another; 
-    //this->_FixedPointValue = another._FixedPointValue;
+    this->_FixedPointValue = another._FixedPointValue;
 }
 
 //Copy assignment operator	    asign an obj to another exiting obj 
@@ -45,4 +60,17 @@ int Fixed::getRawBits(void) const
 void Fixed::setRawBits(int const raw)
 {
     _FixedPointValue = raw;
+}
+
+    
+//converts the fixed-point value to a floating-point value.
+float Fixed::toFloat( void ) const
+{
+    return (float)_FixedPointValue / (1 << _FractionalBitsNumber);
+}
+
+// converts the fixed-point value to an integer value.
+int Fixed::toInt( void ) const
+{
+    return _FixedPointValue >> _FractionalBitsNumber;
 }
