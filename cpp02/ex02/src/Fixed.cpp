@@ -84,7 +84,8 @@ int Fixed::toInt( void ) const
 
 //-------------------------------------- 6 comparison operators  --------------------------------------
 //The 6 comparison operators: >, <, >=, <=, == and !=.
-bool Fixed::operator>(const Fixed &another) const  //the  const at the end make sure that this is not modified
+//the  const at the end make sure that this is not modified
+bool Fixed::operator>(const Fixed &another) const
 {
     if (_fixedPointValue > another._fixedPointValue)
         return true;
@@ -153,7 +154,7 @@ Fixed Fixed::operator*(const Fixed &another) const
 Fixed Fixed::operator/(const Fixed &another) const
 {
     Fixed res;
-    res._fixedPointValue = _fixedPointValue / another._fixedPointValue;  //need to consider devider can not be minus
+    res._fixedPointValue = _fixedPointValue / another._fixedPointValue;  // RETHINK need to consider devider can not be minus
     return res;
 }
     
@@ -161,20 +162,69 @@ Fixed Fixed::operator/(const Fixed &another) const
 // that will increase or decrease the fixed-point value from the smallest representable ϵ such as 1 + ϵ > 1.
 // ++i      pre increment
 // i++      post increment
+// why not void &operator++();   //pre  ++i
+// because in cpp, pre-increment should allow chaining pre-increment
+// like ++(++a); (++a).operator++(); 
+Fixed &Fixed::operator++()
+{
+    ++_fixedPointValue; //this is pre
+    return *this;  
+}
+
+//int no use, just to differentia.
+Fixed Fixed::operator++(int)
+{
+    Fixed old(*this);
+    ++_fixedPointValue; //this is post
+    return old;
+}
+
+Fixed &Fixed::operator--()
+{
+    --_fixedPointValue; //this is pre
+    return *this;  
+}
+
+Fixed Fixed::operator--(int)
+{
+    Fixed old(*this);
+    --_fixedPointValue; //this is post
+    return old;
+}
     
 //-------------------------------------- max and min operators  --------------------------------------
 // • A static member function min that takes as parameters two references on fixed-point numbers, 
 // and returns a reference to the smallest one.
 // • A static member function min that takes as parameters two references to constant fixed-point numbers, 
 // and returns a reference to the smallest one.
+// in cpp, static is only in hpp file
 Fixed &Fixed::min(Fixed& a, Fixed& b) //static at hte beginging
 {
     if (a._fixedPointValue < b._fixedPointValue)
         return (a);
     return (b);
-    //case a = b included in 2nd case
+    //case a = b included in 2nd case  // RETHINK
 }
-//more to go
-// static const Fixed &min(const Fixed &a, const Fixed& b); //if input is const, return also const
-// static Fixed &max(Fixed &a, Fixed& b);
-// static const Fixed &max(const Fixed &a, const Fixed& b); //if input is const, return also const
+
+//if input is const, return also const
+const Fixed &Fixed::min(const Fixed &a, const Fixed& b)
+{
+    if (a._fixedPointValue < b._fixedPointValue)
+        return (a);
+    return (b);
+}
+
+Fixed &Fixed::max(Fixed &a, Fixed& b)
+{
+    if (a._fixedPointValue > b._fixedPointValue)
+        return (a);
+    return (b);
+}
+
+//if input is const, return also const
+const Fixed &Fixed::max(const Fixed &a, const Fixed& b)
+{
+    if (a._fixedPointValue > b._fixedPointValue)
+        return (a);
+    return (b);
+}

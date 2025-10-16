@@ -45,25 +45,19 @@ public:
     bool operator==(const Fixed &another) const; 
     bool operator!=(const Fixed &another) const; 
     
-    
-    //The 4 arithmetic operators: +, -, *, and /.
-    // Fixed const b(Fixed(5.05f) * Fixed(2));  Usage
-    //return a new Fixed 
+    //The 4 arithmetic operators: +, -, *, and /. return a new Fixed 
     Fixed operator+(const Fixed &another) const;
     Fixed operator-(const Fixed &another) const;
     Fixed operator*(const Fixed &another) const;
     Fixed operator/(const Fixed &another) const;
     
     //The 4 increment/decrement (pre and post) operators, 
-    // that will increase or decrease the fixed-point value from the smallest representable ϵ such as 1 + ϵ > 1.
-    // ++i      pre increment
-    // i++      post increment
-
+    Fixed &operator++();   //pre  ++i
+    Fixed operator++(int);         //post i++, int no use, just to differentia.
+    Fixed &operator--();
+    Fixed operator--(int);      
     
-    // • A static member function min that takes as parameters two references on fixed-point numbers, 
-    // and returns a reference to the smallest one.
-    // • A static member function min that takes as parameters two references to constant fixed-point numbers, 
-    // and returns a reference to the smallest one.
+    // min & max
     static Fixed &min(Fixed &a, Fixed& b);
     static const Fixed &min(const Fixed &a, const Fixed& b); //if input is const, return also const
     static Fixed &max(Fixed &a, Fixed& b);

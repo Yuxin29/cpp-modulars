@@ -46,19 +46,27 @@ int main( void )
     }
     std::cout << "---------testing arithmetic operaters ends---------" << std::endl << std::endl;
 
-    // maybe later
-    //Fixed a;
-    // Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-    // std::cout << a << std::endl;
-    // std::cout << ++a << std::endl;
-    // std::cout << a << std::endl;
-    // std::cout << a++ << std::endl;
-    // std::cout << a << std::endl;
-    // std::cout << b << std::endl;
-    // std::cout << Fixed::max( a, b ) << std::endl;
-    std::cout << "---------testing increment / decrement ---------" << std::endl << std::endl;
+    {
+        std::cout << "---------testing increment / decrement begings---------" << std::endl;
+        Fixed a; //a initiated to 0, increment test
+        std::cout << a << std::endl;
+        std::cout << ++a << std::endl;       // 0.00390625
+        std::cout << a << std::endl;         // 0.00390625
+        std::cout << a++ << std::endl;       // 0.00390625
+        std::cout << a << std::endl;         // 0.0078125
+        Fixed b; //a initiated to 0, decrement test
+        std::cout << b << std::endl;
+        std::cout << --b << std::endl;
+        std::cout << b << std::endl;
+        std::cout << b-- << std::endl;
+        std::cout << b << std::endl;
+        std::cout << "----a bit hybrid test ----" << std::endl;
+        Fixed const c( Fixed( 5.05f ) * Fixed( 2 ) );
+        std::cout << c << std::endl;
+        std::cout << Fixed::max(a, c) << std::endl;
+    }
+    std::cout << "---------testing increment / decrement ends---------" << std::endl << std::endl;
     
-    //code
     {
         std::cout << "---------testing max / min operaters begins---------" << std::endl;
         Fixed a = Fixed(1);
@@ -66,6 +74,9 @@ int main( void )
         std::cout << "value of a is " << a << std::endl;
         std::cout << "value of b is " << b << std::endl;
         std::cout << "the min of a and b is(returning non_const) " << Fixed::min(a, b) << std::endl;
+        std::cout << "the min of a and b is(returning const) " << Fixed::min(a, b) << std::endl;
+        std::cout << "the max of a and b is(returning non_const) " << Fixed::max(a, b) << std::endl;
+        std::cout << "the max of a and b is(returning const) " << Fixed::max(a, b) << std::endl;
     }
     std::cout << "---------testing max / min operaters ends---------" << std::endl << std::endl;
     
