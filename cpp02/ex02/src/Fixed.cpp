@@ -6,15 +6,12 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:55:14 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/16 16:23:34 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/16 16:38:01 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-//  This function allows a Fixed obj to be directly used with output streams
-//  It converts the internal fixed-point value to a floating-point representation 
-// and inserts it into the output stream.
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
 {
     out << fixed.toFloat();
@@ -28,15 +25,12 @@ Fixed::Fixed()
     std::cout << "Default constructor called" << std::endl;
 }
 
-//for int, no need for roundf
 Fixed::Fixed(const int value)
 {
     _fixedPointValue = value << _fractionalBitsNumber;
     std::cout << "Int constructor called" << std::endl;
 }
 
-// need manully roundf, otherwise force to int(= round down)
-// cannot directly roundf(value << _fractionalBitsNumber), because << can only be used for int
 Fixed::Fixed(const float value)
 {
     _fixedPointValue = roundf(value * (1 << _fractionalBitsNumber));
@@ -78,13 +72,11 @@ void Fixed::setRawBits(int const raw)
 }
 
 //-------------------------------------- toFloat and toInt --------------------------------------
-//converts the fixed-point value to a floating-point value.
 float Fixed::toFloat( void ) const
 {
     return (float)_fixedPointValue / (1 << _fractionalBitsNumber);
 }
 
-// converts the fixed-point value to an integer value.
 int Fixed::toInt( void ) const
 {
     return _fixedPointValue >> _fractionalBitsNumber;
@@ -119,7 +111,6 @@ bool Fixed::operator<=(const Fixed &another) const
         return true;
     return false;
 }
-
 
 bool Fixed::operator==(const Fixed &another) const
 {

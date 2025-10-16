@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:55:27 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/16 16:31:35 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/16 16:54:11 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,16 @@ int main( void )
     std::cout << "---------testing increment / decrement ---------" << std::endl << std::endl;
     
     //code
-    std::cout << "---------testing max / min operaters---------" << std::endl << std::endl;
+    {
+        std::cout << "---------testing max / min operaters begins---------" << std::endl;
+        Fixed a = Fixed(1);
+        Fixed b = Fixed(2);
+        std::cout << "value of a is " << a << std::endl;
+        std::cout << "value of b is " << b << std::endl;
+        std::cout << "the min of a and b is(returning non_const) " << Fixed::min(a, b) << std::endl;
+    }
+    std::cout << "---------testing max / min operaters ends---------" << std::endl << std::endl;
+    
     
     return 0;
 }
