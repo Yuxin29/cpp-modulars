@@ -9,3 +9,11 @@ Copy constructor		    initiate this obj using another obj
 Copy assignment operator	asign an obj to another exiting obj --->>check this != &other to avoid "self-asigning", return a *this to support assining chain
 Destructor		            realise memory
 exaple
+
+
+Type                            Recommended Style	Example                 Explanation
+Member variables (non-static)	camelCase with _	_fixedPointValue	    Makes it clear that it’s a class member variable
+Static variables (non-constant)	camelCase/prefix    s_	s_instanceCount	    Optional, often used to differentiate static members
+Static / global constants	    (MACRO style)	    FRACTIONAL_BITS_NUMBER	Easy to identify as a constant at a glance
+Functions / methods	            camelCase	        getRawBits()	        Common function naming convention
+Class / struct names	        PascalCase	        Fixed	                Standard naming for C++ classes

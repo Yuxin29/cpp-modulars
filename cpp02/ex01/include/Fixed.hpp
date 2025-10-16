@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuwu <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:54:03 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/16 10:54:05 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/16 11:28:49 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 class Fixed
 {
 private:
-    int           _FixedPointValue;
-    static const int    _FractionalBitsNumber = 8;
+    int           _fixedPointValue;
+    static const int    _fractionalBitsNumber = 8;
 
 public:
     Fixed();

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuwu <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:55:14 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/16 10:55:15 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/16 11:40:36 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Fixed::Fixed()
 
 Fixed::Fixed(const int value)
 {
-    _FixedPointValue = value << _FractionalBitsNumber;
+    _FixedPointValue = value << _fractionalBitsNumber;
     std::cout << "Int constructor called" << std::endl;
 }
 
@@ -78,11 +78,11 @@ void Fixed::setRawBits(int const raw)
 //converts the fixed-point value to a floating-point value.
 float Fixed::toFloat( void ) const
 {
-    return (float)_FixedPointValue / (1 << _FractionalBitsNumber);
+    return (float)_FixedPointValue / (1 << _fractionalBitsNumber);
 }
 
 // converts the fixed-point value to an integer value.
 int Fixed::toInt( void ) const
 {
-    return _FixedPointValue >> _FractionalBitsNumber;
+    return _FixedPointValue >> _fractionalBitsNumber;
 }
