@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:55:14 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/16 11:40:36 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/16 11:43:50 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ Fixed::Fixed()
 
 Fixed::Fixed(const int value)
 {
-    _FixedPointValue = value << _fractionalBitsNumber;
+    _fixedPointValue = value << _fractionalBitsNumber;
     std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float value)
 {
-    _FixedPointValue = value; //not correctl
+    _fixedPointValue = value; //not correctl
     std::cout << "Float constructor called" << std::endl;
 }
 
@@ -41,7 +41,7 @@ Fixed::Fixed(const float value)
 Fixed::Fixed(const Fixed& another)
 {
     std::cout << "Copy constructor called " << std::endl;
-    this->_FixedPointValue = another._FixedPointValue;
+    this->_fixedPointValue = another._fixedPointValue;
 }
 
 //Copy assignment operator	    asign an obj to another exiting obj 
@@ -51,7 +51,7 @@ Fixed& Fixed::operator=(const Fixed &other)
     //c = b;
     std::cout << "Copy assignment operator called" << std::endl;
     std::cout << "getRawBits member function called" << std::endl;
-    this->_FixedPointValue = other._FixedPointValue;
+    this->_fixedPointValue = other._fixedPointValue;
     return *this;
 }
 
@@ -65,24 +65,24 @@ Fixed::~Fixed()
 int Fixed::getRawBits(void) const
 {
     std::cout << "getRawBits member function called" << std::endl;
-    return _FixedPointValue;
+    return _fixedPointValue;
 }
    
 //sets the raw value of the fixed-point number.
 void Fixed::setRawBits(int const raw)
 {
-    _FixedPointValue = raw;
+    _fixedPointValue = raw;
 }
 
     
 //converts the fixed-point value to a floating-point value.
 float Fixed::toFloat( void ) const
 {
-    return (float)_FixedPointValue / (1 << _fractionalBitsNumber);
+    return (float)_fixedPointValue / (1 << _fractionalBitsNumber);
 }
 
 // converts the fixed-point value to an integer value.
 int Fixed::toInt( void ) const
 {
-    return _FixedPointValue >> _fractionalBitsNumber;
+    return _fixedPointValue >> _fractionalBitsNumber;
 }

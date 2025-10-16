@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:52:25 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/16 11:27:16 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/16 12:01:35 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ public:
     
 
     int getRawBits(void) const;
-    void setRawBits( int const raw );
+    void setRawBits(int const raw);
 };
 
 #endif

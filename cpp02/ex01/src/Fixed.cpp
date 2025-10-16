@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:54:14 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/16 11:34:28 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/16 12:05:06 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
     return out;
 }
 
-//Default constructor		    create and initiate
+// -------------------------------------- Othodox Calonical Form elements -------------------------------------- 
 Fixed::Fixed()
 {
+    _fixedPointValue = 0;
     std::cout << "Default constructor called" << std::endl;
 }
 
@@ -32,7 +33,7 @@ Fixed::Fixed(const int value)
 
 Fixed::Fixed(const float value)
 {
-    _fixedPointValue = value; //not correctl
+    _fixedPointValue = value * (1 << _fractionalBitsNumber);
     std::cout << "Float constructor called" << std::endl;
 }
 
@@ -46,34 +47,34 @@ Fixed::Fixed(const Fixed& another)
 //Copy assignment operator	    asign an obj to another exiting obj 
 Fixed& Fixed::operator=(const Fixed &other)
 {
-    //--->>check this != &other to avoid "self-asigning", return a *this to support assining chain
-    //c = b;
     std::cout << "Copy assignment operator called" << std::endl;
-    std::cout << "getRawBits member function called" << std::endl;
-    this->_fixedPointValue = other._fixedPointValue;
+    if (this != &other) //--->>check this != &other to avoid "self-asigning"
+    {
+        std::cout << "getRawBits member function called" << std::endl;
+        this->_fixedPointValue = other._fixedPointValue;
+    }
     return *this;
 }
 
-//Destructor: release resources
 Fixed::~Fixed()
 {
    std::cout << "Destructor called" << std::endl;
 }
-    
-//returns the raw value of the fixed-point value.
+
+//-------------------------------------- Setters and Getters --------------------------------------
+//get / set the raw value of the fixed-point value.
 int Fixed::getRawBits(void) const
 {
     std::cout << "getRawBits member function called" << std::endl;
     return _fixedPointValue;
 }
-   
-//sets the raw value of the fixed-point number.
+
 void Fixed::setRawBits(int const raw)
 {
     _fixedPointValue = raw;
 }
 
-    
+//-------------------------------------- toFloat and toInt --------------------------------------
 //converts the fixed-point value to a floating-point value.
 float Fixed::toFloat( void ) const
 {
@@ -83,5 +84,5 @@ float Fixed::toFloat( void ) const
 // converts the fixed-point value to an integer value.
 int Fixed::toInt( void ) const
 {
-    return _FixedPointValue >> _FractionalBitsNumber;
+    return _fixedPointValue >> _fractionalBitsNumber;
 }

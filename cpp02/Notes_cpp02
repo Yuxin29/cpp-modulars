@@ -10,10 +10,19 @@ Copy assignment operator	asign an obj to another exiting obj --->>check this != 
 Destructor		            realise memory
 exaple
 
-
+16.10.25 Thurs 
+--> Conventional naming habit in cpp
 Type                            Recommended Style	Example                 Explanation
 Member variables (non-static)	camelCase with _	_fixedPointValue	    Makes it clear that it’s a class member variable
 Static variables (non-constant)	camelCase/prefix    s_	s_instanceCount	    Optional, often used to differentiate static members
 Static / global constants	    (MACRO style)	    FRACTIONAL_BITS_NUMBER	Easy to identify as a constant at a glance
 Functions / methods	            camelCase	        getRawBits()	        Common function naming convention
 Class / struct names	        PascalCase	        Fixed	                Standard naming for C++ classes
+
+================ ex01 ================
+
+Static const int _fractionalBitsNumber = 8;
+---> we represent fractors with 8 bit binary nbr
+---> example
+42.42 * 2^8 = 42.42 * 256 ≈ 10859
+reverse-> 10859 / 2^8 = 10859 / 256 ≈ 42.4219

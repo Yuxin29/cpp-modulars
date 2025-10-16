@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:54:03 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/16 11:28:49 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/16 12:02:45 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class Fixed
 {
 private:
-    int           _fixedPointValue;
+    int                 _fixedPointValue;
     static const int    _fractionalBitsNumber = 8;
 
 public:
@@ -38,13 +38,10 @@ public:
     int toInt(void) const;
 };
 
-
-// LATER
 // And add the following function 
-// • An overload of the insertion («) operator that inserts a floating-point representation
+// An overload of the insertion («) operator that inserts a floating-point representation
 // of the fixed-point number into the output stream object passed as parameter
 // Overload << operator
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
-
 
 #endif
