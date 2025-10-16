@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:54:57 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/16 15:53:17 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/16 16:22:59 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ public:
 
     //The 6 comparison operators: >, <, >=, <=, == and !=.
     bool operator>(const Fixed &another) const;  //the  const at the end make sure that this is not modified
-    // bool operator<(const Fixed &another) const;
-    // bool operator>=(const Fixed &another) const;
-    // bool operator<=(const Fixed &another) const; 
-    // bool operator==(const Fixed &another) const; 
-    // bool operator!=(const Fixed &another) const; 
+    bool operator<(const Fixed &another) const;
+    bool operator>=(const Fixed &another) const;
+    bool operator<=(const Fixed &another) const; 
+    bool operator==(const Fixed &another) const; 
+    bool operator!=(const Fixed &another) const; 
     
     
     //The 4 arithmetic operators: +, -, *, and /.

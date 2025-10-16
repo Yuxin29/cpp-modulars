@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:55:14 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/16 15:53:47 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/16 16:23:34 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,13 +98,43 @@ bool Fixed::operator>(const Fixed &another) const  //the  const at the end make 
         return true;
     return false;
 }
-//more to go
-// bool operator<(const Fixed &another) const;
-// bool operator>=(const Fixed &another) const;
-// bool operator<=(const Fixed &another) const; 
-// bool operator==(const Fixed &another) const; 
-// bool operator!=(const Fixed &another) const; 
-    
+
+bool Fixed::operator<(const Fixed &another) const
+{
+    if (_fixedPointValue < another._fixedPointValue)
+        return true;
+    return false;
+}
+
+bool Fixed::operator>=(const Fixed &another) const
+{
+    if (_fixedPointValue >= another._fixedPointValue)
+        return true;
+    return false;
+}
+
+bool Fixed::operator<=(const Fixed &another) const
+{
+    if (_fixedPointValue <= another._fixedPointValue)
+        return true;
+    return false;
+}
+
+
+bool Fixed::operator==(const Fixed &another) const
+{
+    if (_fixedPointValue == another._fixedPointValue)
+        return true;
+    return false;
+}
+
+bool Fixed::operator!=(const Fixed &another) const
+{
+    if (_fixedPointValue != another._fixedPointValue)
+        return true;
+    return false;
+}    
+
 //-------------------------------------- 4 arithmetic operators  --------------------------------------
 // Fixed const b(Fixed(5.05f) * Fixed(2));  Usage
 //return a new Fixed !!!!!!!!!!!!!!!!!why not static at the begining
