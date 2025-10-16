@@ -6,75 +6,78 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:55:14 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/16 11:43:50 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/16 15:36:55 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "Fixed.hpp"
 
+//  This function allows a Fixed obj to be directly used with output streams
+//  It converts the internal fixed-point value to a floating-point representation 
+// and inserts it into the output stream.
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
 {
     out << fixed.toFloat();
     return out;
 }
 
-//Default constructor		    create and initiate
+// -------------------------------------- Othodox Calonical Form elements -------------------------------------- 
 Fixed::Fixed()
 {
+    _fixedPointValue = 0;
     std::cout << "Default constructor called" << std::endl;
 }
 
+//for int, no need for roundf
 Fixed::Fixed(const int value)
 {
     _fixedPointValue = value << _fractionalBitsNumber;
     std::cout << "Int constructor called" << std::endl;
 }
 
+// need manully roundf, otherwise force to int(= round down)
+// cannot directly roundf(value << _fractionalBitsNumber), because << can only be used for int
 Fixed::Fixed(const float value)
 {
-    _fixedPointValue = value; //not correctl
+    _fixedPointValue = roundf(value * (1 << _fractionalBitsNumber));
     std::cout << "Float constructor called" << std::endl;
 }
 
-//Copy constructor		    initiate this obj using another obj
 Fixed::Fixed(const Fixed& another)
 {
     std::cout << "Copy constructor called " << std::endl;
     this->_fixedPointValue = another._fixedPointValue;
 }
 
-//Copy assignment operator	    asign an obj to another exiting obj 
 Fixed& Fixed::operator=(const Fixed &other)
 {
-    //--->>check this != &other to avoid "self-asigning", return a *this to support assining chain
-    //c = b;
     std::cout << "Copy assignment operator called" << std::endl;
-    std::cout << "getRawBits member function called" << std::endl;
-    this->_fixedPointValue = other._fixedPointValue;
+    if (this != &other)
+    {
+        std::cout << "getRawBits member function called" << std::endl;
+        this->_fixedPointValue = other._fixedPointValue;
+    }
     return *this;
 }
 
-//Destructor: release resources
 Fixed::~Fixed()
 {
    std::cout << "Destructor called" << std::endl;
 }
-    
-//returns the raw value of the fixed-point value.
+
+//-------------------------------------- Setters and Getters --------------------------------------
 int Fixed::getRawBits(void) const
 {
     std::cout << "getRawBits member function called" << std::endl;
     return _fixedPointValue;
 }
-   
-//sets the raw value of the fixed-point number.
+
 void Fixed::setRawBits(int const raw)
 {
     _fixedPointValue = raw;
 }
 
-    
+//-------------------------------------- toFloat and toInt --------------------------------------
 //converts the fixed-point value to a floating-point value.
 float Fixed::toFloat( void ) const
 {
@@ -86,3 +89,52 @@ int Fixed::toInt( void ) const
 {
     return _fixedPointValue >> _fractionalBitsNumber;
 }
+
+//-------------------------------------- 6 comparison operators  --------------------------------------
+//The 6 comparison operators: >, <, >=, <=, == and !=.
+bool Fixed::operator>(const Fixed &another) const  //the  const at the end make sure that this is not modified
+{
+    if (_fixedPointValue > another._fixedPointValue)
+        return true;
+    return false;
+}
+//more to go
+// bool operator<(const Fixed &another) const;
+// bool operator>=(const Fixed &another) const;
+// bool operator<=(const Fixed &another) const; 
+// bool operator==(const Fixed &another) const; 
+// bool operator!=(const Fixed &another) const; 
+    
+//-------------------------------------- 4 arithmetic operators  --------------------------------------
+// Fixed const b(Fixed(5.05f) * Fixed(2));  Usage
+//return a new Fixed 
+Fixed Fixed::operator+(const Fixed &another) const
+{
+    return Fixed(_fixedPointValue + another._fixedPointValue);
+}
+//more to go
+// Fixed operator-(const Fixed &another) const;
+// Fixed operator*(const Fixed &another) const;
+// Fixed operator/(const Fixed &another) const;
+    
+//-------------------------------------- 4 4 increment/decrement (pre and post) operators  --------------------------------------
+// that will increase or decrease the fixed-point value from the smallest representable ϵ such as 1 + ϵ > 1.
+// ++i      pre increment
+// i++      post increment
+    
+//-------------------------------------- max and min operators  --------------------------------------
+// • A static member function min that takes as parameters two references on fixed-point numbers, 
+// and returns a reference to the smallest one.
+// • A static member function min that takes as parameters two references to constant fixed-point numbers, 
+// and returns a reference to the smallest one.
+static Fixed Fixed::&min(Fixed &a, Fixed& b)
+{
+    if (a._fixedPointValue < b._fixedPointValue)
+        return (Fixed(a));
+    return (Fixed(b));
+    //case a = b included in 2nd case
+}
+//more to go
+// static const Fixed &min(const Fixed &a, const Fixed& b); //if input is const, return also const
+// static Fixed &max(Fixed &a, Fixed& b);
+// static const Fixed &max(const Fixed &a, const Fixed& b); //if input is const, return also const

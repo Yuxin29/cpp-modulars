@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:54:03 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/16 12:02:45 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/16 14:59:00 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,9 @@ public:
     int toInt(void) const;
 };
 
-// And add the following function 
-// An overload of the insertion («) operator that inserts a floating-point representation
-// of the fixed-point number into the output stream object passed as parameter
-// Overload << operator
+// from the sub
+// An overload of the insertion («) operator that inserts a floating-point representation of the fixed-point number into the output stream object passed as parameter
+// Overloads the insertion operator (<<) for Fixed objects.
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
 
 #endif

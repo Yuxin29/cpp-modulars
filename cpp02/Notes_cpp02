@@ -21,8 +21,27 @@ Class / struct names	        PascalCase	        Fixed	                Standard n
 
 ================ ex01 ================
 
+--->>> shift with _fractionalBitsNumber
 Static const int _fractionalBitsNumber = 8;
 ---> we represent fractors with 8 bit binary nbr
 ---> example
 42.42 * 2^8 = 42.42 * 256 ≈ 10859
 reverse-> 10859 / 2^8 = 10859 / 256 ≈ 42.4219
+
+--->    Overload << operator
+std::cout << "hello"            << is an operater
+operator <<
+std::cout << "hello"  = operator<<(std::cout, "hello")
+std::cout << someObject = operator<<(std::ostream& out, const TypeOfSomeObject& obj);
+
+std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
+
+std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
+{
+    out << fixed.toFloat();
+    return out;
+}
+-->
+std::cout << "a is " << a << std::endl;
+<< a = operator<<(std::cout, a) 
+WHYYY: because a is a Fix, self_defined class, 

@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:54:14 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/16 14:16:35 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/16 14:59:45 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ real_value = 42.42
 float       roundf( float num ); <cmath>
 */
 
+
+//  This function allows a Fixed obj to be directly used with output streams
+//  It converts the internal fixed-point value to a floating-point representation 
+// and inserts it into the output stream.
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
 {
     out << fixed.toFloat();

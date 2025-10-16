@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:54:34 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/16 14:18:04 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/16 14:55:28 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ int main( void )
     Fixed const d(b);
     std::cout << "---------test copy constructor---------" << std::endl << std::endl;
     
-    a = Fixed( 1234.4321f );
+    a = Fixed(1234.4321f);
     std::cout << "---------test copy assign constructor---------" << std::endl << std::endl;
     
     std::cout << "a is " << a << std::endl;
     std::cout << "b is " << b << std::endl;
     std::cout << "c is " << c << std::endl;
     std::cout << "d is " << d << std::endl;
-    std::cout << "---------print whole number values---------" << std::endl << std::endl;
+    std::cout << "---------print actual number values, int / float---------" << std::endl << std::endl;
     // a is 1234.43
     // b is 10
     // c is 42.4219
