@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:54:57 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/16 15:30:18 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/16 15:53:17 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ public:
     // Fixed const b(Fixed(5.05f) * Fixed(2));  Usage
     //return a new Fixed 
     Fixed operator+(const Fixed &another) const;
-    // Fixed operator-(const Fixed &another) const;
-    // Fixed operator*(const Fixed &another) const;
-    // Fixed operator/(const Fixed &another) const;
+    Fixed operator-(const Fixed &another) const;
+    Fixed operator*(const Fixed &another) const;
+    Fixed operator/(const Fixed &another) const;
     
     //The 4 increment/decrement (pre and post) operators, 
     // that will increase or decrease the fixed-point value from the smallest representable ϵ such as 1 + ϵ > 1.

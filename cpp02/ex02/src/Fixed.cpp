@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:55:14 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/16 15:36:55 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/16 15:53:47 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,15 +107,34 @@ bool Fixed::operator>(const Fixed &another) const  //the  const at the end make 
     
 //-------------------------------------- 4 arithmetic operators  --------------------------------------
 // Fixed const b(Fixed(5.05f) * Fixed(2));  Usage
-//return a new Fixed 
+//return a new Fixed !!!!!!!!!!!!!!!!!why not static at the begining
 Fixed Fixed::operator+(const Fixed &another) const
 {
-    return Fixed(_fixedPointValue + another._fixedPointValue);
+    Fixed res;
+    res._fixedPointValue = _fixedPointValue + another._fixedPointValue;
+    return res;
 }
-//more to go
-// Fixed operator-(const Fixed &another) const;
-// Fixed operator*(const Fixed &another) const;
-// Fixed operator/(const Fixed &another) const;
+
+Fixed Fixed::operator-(const Fixed &another) const
+{
+    Fixed res;
+    res._fixedPointValue = _fixedPointValue - another._fixedPointValue;
+    return res;
+}   
+
+Fixed Fixed::operator*(const Fixed &another) const
+{
+    Fixed res;
+    res._fixedPointValue = _fixedPointValue * another._fixedPointValue;
+    return res;
+}
+
+Fixed Fixed::operator/(const Fixed &another) const
+{
+    Fixed res;
+    res._fixedPointValue = _fixedPointValue / another._fixedPointValue;  //need to consider devider can not be minus
+    return res;
+}
     
 //-------------------------------------- 4 4 increment/decrement (pre and post) operators  --------------------------------------
 // that will increase or decrease the fixed-point value from the smallest representable ϵ such as 1 + ϵ > 1.
@@ -127,11 +146,11 @@ Fixed Fixed::operator+(const Fixed &another) const
 // and returns a reference to the smallest one.
 // • A static member function min that takes as parameters two references to constant fixed-point numbers, 
 // and returns a reference to the smallest one.
-static Fixed Fixed::&min(Fixed &a, Fixed& b)
+Fixed &Fixed::min(Fixed& a, Fixed& b) //static at hte beginging
 {
     if (a._fixedPointValue < b._fixedPointValue)
-        return (Fixed(a));
-    return (Fixed(b));
+        return (a);
+    return (b);
     //case a = b included in 2nd case
 }
 //more to go
