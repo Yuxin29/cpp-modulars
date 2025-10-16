@@ -6,11 +6,23 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:54:14 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/16 12:05:06 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/16 14:16:35 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+/* 
+-----------------------------------------------
+_fractionalBitsNumber = 8;
+real_value = 42.42
+--> fixedPointValue = 42.42 * (1 << 8) = 42.42 * 2^8  = round(42.42 × 256) ≈ 10859      // round: normal round, int: round down
+--> fixedPointValue = 42 >> 8) = 42 * 2^8  = 10842                                      // int: not need to round                   <----
+--> toFloat: 10859 / (1 << 8)  = 10859 / 2^8  = 10859 / 256 ≈ 42.421875                 //round down ?? with a few fractors             |
+--> toInt: 10859 >> 8 = 10859 / 2^8  >> 8 = roundf(10859 / 256)                         // not need to round: al ready rounded here --->|
+-----------------------------------------------
+float       roundf( float num ); <cmath>
+*/
 
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
 {
@@ -25,30 +37,31 @@ Fixed::Fixed()
     std::cout << "Default constructor called" << std::endl;
 }
 
+//for int, no need for roundf
 Fixed::Fixed(const int value)
 {
     _fixedPointValue = value << _fractionalBitsNumber;
     std::cout << "Int constructor called" << std::endl;
 }
 
+// need manully roundf, otherwise force to int(= round down)
+// cannot directly roundf(value << _fractionalBitsNumber), because << can only be used for int
 Fixed::Fixed(const float value)
 {
-    _fixedPointValue = value * (1 << _fractionalBitsNumber);
+    _fixedPointValue = roundf(value * (1 << _fractionalBitsNumber));
     std::cout << "Float constructor called" << std::endl;
 }
 
-//Copy constructor		    initiate this obj using another obj
 Fixed::Fixed(const Fixed& another)
 {
     std::cout << "Copy constructor called " << std::endl;
     this->_fixedPointValue = another._fixedPointValue;
 }
 
-//Copy assignment operator	    asign an obj to another exiting obj 
 Fixed& Fixed::operator=(const Fixed &other)
 {
     std::cout << "Copy assignment operator called" << std::endl;
-    if (this != &other) //--->>check this != &other to avoid "self-asigning"
+    if (this != &other)
     {
         std::cout << "getRawBits member function called" << std::endl;
         this->_fixedPointValue = other._fixedPointValue;
@@ -62,7 +75,6 @@ Fixed::~Fixed()
 }
 
 //-------------------------------------- Setters and Getters --------------------------------------
-//get / set the raw value of the fixed-point value.
 int Fixed::getRawBits(void) const
 {
     std::cout << "getRawBits member function called" << std::endl;

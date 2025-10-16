@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:54:34 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/16 12:10:19 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/16 14:18:04 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main( void )
     Fixed a;
     std::cout << "---------test default constructor---------" << std::endl << std::endl;
     
-    Fixed const b(0);
+    Fixed const b(10);
     std::cout << "---------test int constructor---------" << std::endl << std::endl;
 
     Fixed const c(42.42f);
