@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:55:14 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/17 13:25:20 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/17 16:25:54 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,29 @@ Fixed::Fixed()
     std::cout << "Default constructor called" << std::endl;
 }
 
+//for int, no need for roundf
 Fixed::Fixed(const int value)
 {
-    _fixedPointValue = value << _fractionalBitsNumber;
     std::cout << "Int constructor called" << std::endl;
+    if (value > INT_MAX >> _fractionalBitsNumber)
+        _fixedPointValue = INT_MAX;
+    else if (value < INT_MIN >> _fractionalBitsNumber)
+        _fixedPointValue = INT_MIN;
+    else
+        _fixedPointValue = value << _fractionalBitsNumber;
 }
 
+// need manully roundf, otherwise force to int(= round down)
+// cannot directly roundf(value << _fractionalBitsNumber), because << can only be used for int
 Fixed::Fixed(const float value)
 {
-    _fixedPointValue = roundf(value * (1 << _fractionalBitsNumber));
     std::cout << "Float constructor called" << std::endl;
+    float tmp = roundf(value * (1 << _fractionalBitsNumber));
+    if (tmp > INT_MAX)
+        tmp = INT_MAX;
+    else if (tmp < INT_MIN)
+        tmp = INT_MIN;
+    _fixedPointValue = static_cast<int>(tmp);
 }
 
 Fixed::Fixed(const Fixed& another)

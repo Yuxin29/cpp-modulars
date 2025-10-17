@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:52:25 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/16 12:01:35 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/17 15:36:48 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ public:
     Fixed(const Fixed& another);
     Fixed& operator=(const Fixed &other);
     ~Fixed(); 
-    
 
     int getRawBits(void) const;
     void setRawBits(int const raw);

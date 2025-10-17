@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:54:57 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/16 16:22:59 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/17 16:17:16 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 #include <string>
 #include <iostream>
 #include <cmath>
+
+constexpr int INT_MAX = 2147483647;
+constexpr int INT_MIN = -2147483648;
 
 class Fixed
 {
