@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:55:14 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/17 12:01:40 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/17 13:25:20 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,44 +88,32 @@ int Fixed::toInt( void ) const
 //the  const at the end make sure that this is not modified
 bool Fixed::operator>(const Fixed &another) const
 {
-    if (_fixedPointValue > another._fixedPointValue)
-        return true;
-    return false;
+    return (_fixedPointValue > another._fixedPointValue);
 }
 
 bool Fixed::operator<(const Fixed &another) const
 {
-    if (_fixedPointValue < another._fixedPointValue)
-        return true;
-    return false;
+    return (_fixedPointValue < another._fixedPointValue);
 }
 
 bool Fixed::operator>=(const Fixed &another) const
 {
-    if (_fixedPointValue >= another._fixedPointValue)
-        return true;
-    return false;
+    return (_fixedPointValue >= another._fixedPointValue);
 }
 
 bool Fixed::operator<=(const Fixed &another) const
 {
-    if (_fixedPointValue <= another._fixedPointValue)
-        return true;
-    return false;
+    return (_fixedPointValue <= another._fixedPointValue);
 }
 
 bool Fixed::operator==(const Fixed &another) const
 {
-    if (_fixedPointValue == another._fixedPointValue)
-        return true;
-    return false;
+    return (_fixedPointValue == another._fixedPointValue);
 }
 
 bool Fixed::operator!=(const Fixed &another) const
 {
-    if (_fixedPointValue != another._fixedPointValue)
-        return true;
-    return false;
+    return (_fixedPointValue != another._fixedPointValue);
 }    
 
 //-------------------------------------- 4 arithmetic operators  --------------------------------------
@@ -158,6 +146,7 @@ Fixed Fixed::operator*(const Fixed &another) const
     return res;
 }
 
+//error case could be: throw std::runtime_error("division by zero");
 Fixed Fixed::operator/(const Fixed &another) const
 {
     if (another._fixedPointValue == 0)
@@ -171,7 +160,7 @@ Fixed Fixed::operator/(const Fixed &another) const
     return res;
 }
 
-//-------------------------------------- 4 4 increment/decrement (pre and post) operators  --------------------------------------
+//-------------------------------------- 4 increment/decrement (pre and post) operators  --------------------------------------
 
 // that will increase or decrease the fixed-point value from the smallest representable ϵ such as 1 + ϵ > 1.
 // ++i      pre increment
@@ -183,7 +172,7 @@ Fixed Fixed::operator/(const Fixed &another) const
 //this is pre
 Fixed &Fixed::operator++()
 {
-    ++_fixedPointValue; //this is pre
+    ++_fixedPointValue;
     return *this;  
 }
 
@@ -216,7 +205,7 @@ Fixed Fixed::operator--(int)
 // and returns a reference to the smallest one.
 
 // in cpp, static is only in hpp file
-Fixed &Fixed::min(Fixed& a, Fixed& b) //static at hte beginging
+Fixed &Fixed::min(Fixed& a, Fixed& b)
 {
     if (a._fixedPointValue < b._fixedPointValue)
         return (a);

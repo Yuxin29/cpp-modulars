@@ -6,10 +6,9 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:55:27 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/17 12:14:18 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/17 13:31:01 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "Fixed.hpp"
 
@@ -28,10 +27,10 @@ int main( void )
         std::cout << "----nomal testing ----" << std::endl;
         std::cout << "bool a > than b: " << a.operator>(b) << std::endl;
         std::cout << "bool a < than b: " << a.operator<(b) << std::endl;
-        std::cout << "bool a >= than b: " << a.operator>=(b) << std::endl;
-        std::cout << "bool a <= than b: " << a.operator<=(b) << std::endl;
-        std::cout << "bool a == than b: " << a.operator==(b) << std::endl;
-        std::cout << "bool a != than b: " << a.operator!=(b) << std::endl;
+        std::cout << "bool a >= than b: " << (a >= b) << std::endl;
+        std::cout << "bool a <= than b: " << (a <= b) << std::endl;
+        std::cout << "bool a == than b: " << (a == b) << std::endl;
+        std::cout << "bool a != than b: " << (a != b) << std::endl;
         std::cout << "----stress testing ----" << std::endl;
         std::cout << "bool c > than b: " << a.operator>(b) << std::endl;
         std::cout << "bool c < than b: " << a.operator<(b) << std::endl;
@@ -69,13 +68,15 @@ int main( void )
 
     {
         std::cout << "---------testing increment / decrement begings---------" << std::endl;
-        Fixed a; //a initiated to 0, increment test
+        std::cout << "----a initiated to 0, increment ----" << std::endl;
+        Fixed a;
         std::cout << a << std::endl;
         std::cout << ++a << std::endl;       // 0.00390625
         std::cout << a << std::endl;         // 0.00390625
         std::cout << a++ << std::endl;       // 0.00390625
         std::cout << a << std::endl;         // 0.0078125
-        Fixed b; //a initiated to 0, decrement test
+        std::cout << "----b initiated to 0, decreament ----" << std::endl;
+        Fixed b;
         std::cout << b << std::endl;
         std::cout << --b << std::endl;
         std::cout << b << std::endl;
@@ -103,6 +104,22 @@ int main( void )
 
     return 0;
 }
+
+//main from suj.
+// int main( void ) {
+//     Fixed a;
+//     Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+//     std::cout << a << std::endl;
+//     std::cout << ++a << std::endl;
+//     std::cout << a << std::endl;
+//     std::cout << a++ << std::endl;
+//     std::cout << a << std::endl;
+//     std::cout << b << std::endl;
+//     std::cout << Fixed::max( a, b ) << std::endl;
+//     return 0;
+// }
+
+// Should output something like (for greater readability, the constructor/destructor messages are removed in the example below):
 
 // $> ./a.out
 // 0

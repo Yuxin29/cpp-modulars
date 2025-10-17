@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:54:14 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/16 14:59:45 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/17 13:16:03 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,5 @@ float Fixed::toFloat( void ) const
 // converts the fixed-point value to an integer value.
 int Fixed::toInt( void ) const
 {
-    return _fixedPointValue >> _fractionalBitsNumber;
+    return static_cast<int>(_fixedPointValue >> _fractionalBitsNumber);
 }
