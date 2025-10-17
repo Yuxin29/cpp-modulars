@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:55:14 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/17 16:25:54 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/17 16:43:48 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@ std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
 Fixed::Fixed()
 {
     _fixedPointValue = 0;
-    std::cout << "Default constructor called" << std::endl;
+    //std::cout << "Default constructor called" << std::endl;
 }
 
 //for int, no need for roundf
 Fixed::Fixed(const int value)
 {
-    std::cout << "Int constructor called" << std::endl;
-    if (value > INT_MAX >> _fractionalBitsNumber)
+    //std::cout << "Int constructor called" << std::endl;
+    if (value > (INT_MAX >> _fractionalBitsNumber))
         _fixedPointValue = INT_MAX;
-    else if (value < INT_MIN >> _fractionalBitsNumber)
+    else if (value < (INT_MIN >> _fractionalBitsNumber))
         _fixedPointValue = INT_MIN;
     else
         _fixedPointValue = value << _fractionalBitsNumber;
@@ -41,7 +41,7 @@ Fixed::Fixed(const int value)
 // cannot directly roundf(value << _fractionalBitsNumber), because << can only be used for int
 Fixed::Fixed(const float value)
 {
-    std::cout << "Float constructor called" << std::endl;
+    //std::cout << "Float constructor called" << std::endl;
     float tmp = roundf(value * (1 << _fractionalBitsNumber));
     if (tmp > INT_MAX)
         tmp = INT_MAX;
@@ -52,16 +52,16 @@ Fixed::Fixed(const float value)
 
 Fixed::Fixed(const Fixed& another)
 {
-    std::cout << "Copy constructor called " << std::endl;
+    //std::cout << "Copy constructor called " << std::endl;
     this->_fixedPointValue = another._fixedPointValue;
 }
 
 Fixed& Fixed::operator=(const Fixed &other)
 {
-    std::cout << "Copy assignment operator called" << std::endl;
+    //std::cout << "Copy assignment operator called" << std::endl;
     if (this != &other)
     {
-        std::cout << "getRawBits member function called" << std::endl;
+        //std::cout << "getRawBits member function called" << std::endl;
         this->_fixedPointValue = other._fixedPointValue;
     }
     return *this;
@@ -69,13 +69,13 @@ Fixed& Fixed::operator=(const Fixed &other)
 
 Fixed::~Fixed()
 {
-   std::cout << "Destructor called" << std::endl;
+   //std::cout << "Destructor called" << std::endl;
 }
 
 //-------------------------------------- Setters and Getters --------------------------------------
 int Fixed::getRawBits(void) const
 {
-    std::cout << "getRawBits member function called" << std::endl;
+    //std::cout << "getRawBits member function called" << std::endl;
     return _fixedPointValue;
 }
 
@@ -179,8 +179,7 @@ Fixed Fixed::operator/(const Fixed &another) const
 // ++i      pre increment
 // i++      post increment
 // why not void &operator++();   //pre  ++i
-// because in cpp, pre-increment should allow chaining pre-increment
-// like ++(++a); (++a).operator++(); 
+// because in cpp, pre-increment should allow chaining pre-increment, like ++(++a); (++a).operator++(); 
 
 //this is pre
 Fixed &Fixed::operator++()

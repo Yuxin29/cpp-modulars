@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:54:14 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/17 16:21:57 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/17 16:42:49 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ Fixed::Fixed()
 Fixed::Fixed(const int value)
 {
     std::cout << "Int constructor called" << std::endl;
-    if (value > INT_MAX >> _fractionalBitsNumber)
+    if (value > (INT_MAX >> _fractionalBitsNumber))
         _fixedPointValue = INT_MAX;
-    else if (value < INT_MIN >> _fractionalBitsNumber)
+    else if (value < (INT_MIN >> _fractionalBitsNumber))
         _fixedPointValue = INT_MIN;
     else
         _fixedPointValue = value << _fractionalBitsNumber;

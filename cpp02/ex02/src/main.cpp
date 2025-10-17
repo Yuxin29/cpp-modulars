@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:55:27 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/17 13:31:01 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/17 17:10:48 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ int main( void )
         std::cout << "bool a == than b: " << (a == b) << std::endl;
         std::cout << "bool a != than b: " << (a != b) << std::endl;
         std::cout << "----stress testing ----" << std::endl;
-        std::cout << "bool c > than b: " << a.operator>(b) << std::endl;
-        std::cout << "bool c < than b: " << a.operator<(b) << std::endl;
-        std::cout << "bool c >= than b: " << a.operator>=(b) << std::endl;
-        std::cout << "bool c <= than b: " << a.operator<=(b) << std::endl;
-        std::cout << "bool c == than b: " << a.operator==(b) << std::endl;
-        std::cout << "bool c != than b: " << a.operator!=(b) << std::endl;
+        std::cout << "bool c > than b: " << c.operator>(b) << std::endl;
+        std::cout << "bool c < than b: " << c.operator<(b) << std::endl;
+        std::cout << "bool c >= than b: " << c.operator>=(b) << std::endl;
+        std::cout << "bool c <= than b: " << c.operator<=(b) << std::endl;
+        std::cout << "bool c == than b: " << c.operator==(b) << std::endl;
+        std::cout << "bool c != than b: " << c.operator!=(b) << std::endl;
     }
     std::cout << "---------testing comparison operaters ends---------" << std::endl  << std::endl;
 
@@ -46,7 +46,7 @@ int main( void )
         Fixed a = Fixed(2.4f);
         Fixed b = Fixed(2);
         Fixed c = Fixed(0);
-        Fixed d = Fixed(__INT32_MAX__);
+        Fixed d = Fixed(INT_MAX);
         std::cout << "----nomal caculations ----" << std::endl;
         Fixed const pl(a + b);
         Fixed const mi(a - b);
@@ -93,12 +93,16 @@ int main( void )
         std::cout << "---------testing max / min operaters begins---------" << std::endl;
         Fixed a = Fixed(1);
         Fixed b = Fixed(2);
+        const Fixed a_c = Fixed(3);
+        const Fixed b_c = Fixed(4);
         std::cout << "value of a is " << a << std::endl;
         std::cout << "value of b is " << b << std::endl;
+        std::cout << "value of ac is " << a_c << std::endl;
+        std::cout << "value of bc is " << b_c << std::endl;
         std::cout << "the min of a and b is(returning non_const) " << Fixed::min(a, b) << std::endl;
-        std::cout << "the min of a and b is(returning const) " << Fixed::min(a, b) << std::endl;
+        std::cout << "the min of ac and bc is(returning const) " << Fixed::min(a_c, b_c) << std::endl;
         std::cout << "the max of a and b is(returning non_const) " << Fixed::max(a, b) << std::endl;
-        std::cout << "the max of a and b is(returning const) " << Fixed::max(a, b) << std::endl;
+        std::cout << "the max of ac and bc is(returning const) " << Fixed::max(a_c, b_c) << std::endl;
     }
     std::cout << "---------testing max / min operaters ends---------" << std::endl << std::endl;
 
