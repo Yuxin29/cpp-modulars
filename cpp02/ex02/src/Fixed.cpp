@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:55:14 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/17 18:35:33 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/17 18:43:08 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -224,7 +224,7 @@ Fixed Fixed::operator--(int)
 // in cpp, static is only in hpp file
 Fixed &Fixed::min(Fixed& a, Fixed& b)
 {
-    if (a._fixedPointValue < b._fixedPointValue)
+    if (a._fixedPointValue <= b._fixedPointValue)
         return (a);
     return (b);
     //case a = b included in 2nd case  // RETHINK
@@ -233,21 +233,21 @@ Fixed &Fixed::min(Fixed& a, Fixed& b)
 //if input is const, return also const
 const Fixed &Fixed::min(const Fixed &a, const Fixed& b)
 {
-    if (a._fixedPointValue < b._fixedPointValue)
+    if (a._fixedPointValue <= b._fixedPointValue)
         return (a);
     return (b);
 }
 
 Fixed &Fixed::max(Fixed &a, Fixed& b)
 {
-    if (a._fixedPointValue > b._fixedPointValue)
+    if (a._fixedPointValue >= b._fixedPointValue)
         return (a);
     return (b);
 }
 
 const Fixed &Fixed::max(const Fixed &a, const Fixed& b)
 {
-    if (a._fixedPointValue > b._fixedPointValue)
+    if (a._fixedPointValue >= b._fixedPointValue)
         return (a);
     return (b);
 }
