@@ -46,6 +46,8 @@ std::cout << "a is " << a << std::endl;
 << a = operator<<(std::cout, a) 
 WHYYY: because a is a Fix, self_defined class, 
 
+
+---------------->  one edge case testing and exlpaination
 Fixed a = Fixed(2.4f);
 Fixed b = Fixed(2);
 Fixed c = Fixed(0);
@@ -61,3 +63,9 @@ When you do d * d, the multiplication gives a huge number: 2147483647 * 21474836
 After shifting right by 8 bits (for fixed-point scaling), it becomes ≈ 1.8 × 10¹⁶.
 Casting this huge number to a 32-bit int causes overflow, and it wraps around.
 The wrapped value ends up being -65536, which is why you see that output.
+
+
+----------------> more testing idea
+    - Fixed a(a);
+    - Fixed a = Fixed(3), ++(++a)
+    - more max / min

@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:54:14 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/17 16:42:49 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/17 18:35:46 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,12 @@ int Fixed::getRawBits(void) const
 
 void Fixed::setRawBits(int const raw)
 {
-    _fixedPointValue = raw;
+    if (raw > INT_MAX)
+        _fixedPointValue = INT_MAX;
+    else if (raw < INT_MIN)
+        _fixedPointValue = INT_MIN;
+    else
+        _fixedPointValue = raw;
 }
 
 //-------------------------------------- toFloat and toInt --------------------------------------
