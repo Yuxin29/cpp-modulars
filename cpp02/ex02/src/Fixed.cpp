@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:55:14 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/16 16:38:01 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/17 12:01:40 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ int Fixed::toInt( void ) const
 
 //-------------------------------------- 6 comparison operators  --------------------------------------
 //The 6 comparison operators: >, <, >=, <=, == and !=.
+
 //the  const at the end make sure that this is not modified
 bool Fixed::operator>(const Fixed &another) const
 {
@@ -128,75 +129,92 @@ bool Fixed::operator!=(const Fixed &another) const
 }    
 
 //-------------------------------------- 4 arithmetic operators  --------------------------------------
+
 // Fixed const b(Fixed(5.05f) * Fixed(2));  Usage
-//return a new Fixed !!!!!!!!!!!!!!!!!why not static at the begining
+// return a new Fixed !!!!!!!!!!!!!!!!!
+// overflow is absolutely needed in *, but only optional/ couldb be there in + and -
+
 Fixed Fixed::operator+(const Fixed &another) const
 {
+    long long tmp = static_cast<long long>(_fixedPointValue) + another._fixedPointValue;
     Fixed res;
-    res._fixedPointValue = _fixedPointValue + another._fixedPointValue;
+    res._fixedPointValue = static_cast<int>(tmp);
     return res;
 }
 
 Fixed Fixed::operator-(const Fixed &another) const
 {
+    long long tmp = static_cast<long long>(_fixedPointValue) - another._fixedPointValue;
     Fixed res;
-    res._fixedPointValue = _fixedPointValue - another._fixedPointValue;
+    res._fixedPointValue = static_cast<int>(tmp);
     return res;
 }   
 
 Fixed Fixed::operator*(const Fixed &another) const
 {
+    long long tmp = static_cast<long long>(_fixedPointValue) * another._fixedPointValue;
     Fixed res;
-    res._fixedPointValue = _fixedPointValue * another._fixedPointValue;
+    res._fixedPointValue = static_cast<int>(tmp >> _fractionalBitsNumber);
     return res;
 }
 
 Fixed Fixed::operator/(const Fixed &another) const
 {
+    if (another._fixedPointValue == 0)
+    {
+        std::cout << "Error: division by zero." << std::endl;
+        return Fixed();
+    }
+    long long tmp = static_cast<long long>(_fixedPointValue << _fractionalBitsNumber);
     Fixed res;
-    res._fixedPointValue = _fixedPointValue / another._fixedPointValue;  // RETHINK need to consider devider can not be minus
+    res._fixedPointValue = static_cast<int>(tmp / another._fixedPointValue);
     return res;
 }
-    
+
 //-------------------------------------- 4 4 increment/decrement (pre and post) operators  --------------------------------------
+
 // that will increase or decrease the fixed-point value from the smallest representable ϵ such as 1 + ϵ > 1.
 // ++i      pre increment
 // i++      post increment
 // why not void &operator++();   //pre  ++i
 // because in cpp, pre-increment should allow chaining pre-increment
 // like ++(++a); (++a).operator++(); 
+
+//this is pre
 Fixed &Fixed::operator++()
 {
     ++_fixedPointValue; //this is pre
     return *this;  
 }
 
-//int no use, just to differentia.
+//this is post. int no use, just to differentia.
 Fixed Fixed::operator++(int)
 {
     Fixed old(*this);
-    ++_fixedPointValue; //this is post
+    ++_fixedPointValue;
     return old;
 }
 
 Fixed &Fixed::operator--()
 {
-    --_fixedPointValue; //this is pre
+    --_fixedPointValue;
     return *this;  
 }
 
 Fixed Fixed::operator--(int)
 {
     Fixed old(*this);
-    --_fixedPointValue; //this is post
+    --_fixedPointValue;
     return old;
 }
     
 //-------------------------------------- max and min operators  --------------------------------------
-// • A static member function min that takes as parameters two references on fixed-point numbers, 
+
+// A static member function min that takes as parameters two references on fixed-point numbers, 
 // and returns a reference to the smallest one.
-// • A static member function min that takes as parameters two references to constant fixed-point numbers, 
+// A static member function min that takes as parameters two references to constant fixed-point numbers, 
 // and returns a reference to the smallest one.
+
 // in cpp, static is only in hpp file
 Fixed &Fixed::min(Fixed& a, Fixed& b) //static at hte beginging
 {
@@ -221,7 +239,6 @@ Fixed &Fixed::max(Fixed &a, Fixed& b)
     return (b);
 }
 
-//if input is const, return also const
 const Fixed &Fixed::max(const Fixed &a, const Fixed& b)
 {
     if (a._fixedPointValue > b._fixedPointValue)
