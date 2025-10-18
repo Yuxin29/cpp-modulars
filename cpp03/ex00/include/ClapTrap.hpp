@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 14:10:33 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/18 14:32:53 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/18 15:53:01 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ private:
     std::string _name;
     int         _hitPoint = 10;
     int         _energyPoint = 10;
-    int         _attackPoint = 10;
+    int         _attackDamagePoint = 10;
 
 public:
     ClapTrap(std::string name);

@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 14:22:07 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/18 14:38:37 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/18 16:04:54 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 //Implement and turn in your own tests to ensure your code works as expected.
 int main()
 {
+    ClapTrap Mike = ClapTrap("Mike");
+    ClapTrap Adam = ClapTrap("Adam");
 
-    
+    Mike.attack(Adam);
+    Adam.beRepaired(1);
 }

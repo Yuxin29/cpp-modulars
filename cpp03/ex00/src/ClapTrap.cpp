@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 14:22:59 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/18 14:39:44 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/18 16:00:01 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,26 @@
 
 // The constructors and destructor must also display a message, 
 // so your peer-evaluators can easily see they have been called.
-ClapTrap(std::string name)
+ClapTrap::ClapTrap(std::string name)
 {
     std::cout << "ClapTrap being constructed: " << name << std::endl;
+    _name = name;
 }
 
-ClapTrap(const ClapTrap& another)
+ClapTrap::ClapTrap(const ClapTrap& another)
+    :_name = another.name;
 {
     std::cout << "msg" << std::endl;
 }
 
-ClapTrap& operator=(const ClapTrap &other)
+ClapTrap& ClapTrap::operator=(const ClapTrap &other)
 {
-    std::cout << "msg" << std::endl;
+    this->_name = other._name;
+    return *this;
+
 }
 
-~ClapTrap()
+ClapTrap::~ClapTrap()
 {
     std::cout << "ClapTrap being deconstructed" << std::endl;
 }
@@ -42,17 +46,28 @@ ClapTrap& operator=(const ClapTrap &other)
 
 // In all of these member functions, you have to print a message to describe what happens. 
 // ClapTrap <name> attacks <target>, causing <damage> points of damage!
+
 void ClapTrap::attack(const std::string& target)
 {
-     std::cout << "msg" << std::endl;
+    if (_hitPoint <= 0)
+    {
+        std::cout << _name << " is runnign out of attacking-points." << std::endl;
+        return;
+    }
+    std::cout << _name << " is attacking " << target._name << std::endl;
+    _energyPoint -= 1;
+    target.takeDamage(1);
 }
     
 void ClapTrap::takeDamage(unsigned int amount)
 {
-     std::cout << "msg" << std::endl;
+    std::cout << _name << " is takeing damage points: " << amount << std::endl;
+    _attackDamagePoint -= amount;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-     std::cout << "msg" << std::endl;
+    std::cout << _name << " is reparing itself with points: " << amount << std::endl;
+    _attackDamagePoint -= amount;
+    _energyPoint -= 1;
 }
