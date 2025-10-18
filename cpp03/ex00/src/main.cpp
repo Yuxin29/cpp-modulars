@@ -18,6 +18,7 @@ int main()
     ClapTrap Mike = ClapTrap("Mike");
     ClapTrap Adam = ClapTrap("Adam");
 
-    Mike.attack(Adam);
+    Mike.attack("someone");
+    Mike.takeDamage(10);
     Adam.beRepaired(1);
 }
