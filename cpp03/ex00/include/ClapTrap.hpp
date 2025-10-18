@@ -1,0 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/18 14:10:33 by yuwu              #+#    #+#             */
+/*   Updated: 2025/10/18 14:32:53 by yuwu             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#pragma once
+
+#include <string>
+#include <iostream>
+
+class ClapTrap
+{
+private:
+    std::string _name;
+    int         _hitPoint = 10;
+    int         _energyPoint = 10;
+    int         _attackPoint = 10;
+
+public:
+    ClapTrap(std::string name);
+    ClapTrap(const ClapTrap& another);
+    ClapTrap& operator=(const ClapTrap &other);
+    ~ClapTrap(); 
+    
+    void attack(const std::string& target);
+    void takeDamage(unsigned int amount);
+    void beRepaired(unsigned int amount);
+};
