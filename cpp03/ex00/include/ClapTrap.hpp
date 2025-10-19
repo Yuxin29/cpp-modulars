@@ -24,6 +24,7 @@ private:
     int         _attackDamagePoint = 10;
 
 public:
+    ClapTrap();
     ClapTrap(std::string name);
     ClapTrap(const ClapTrap& another);
     ClapTrap& operator=(const ClapTrap &other);
@@ -32,4 +33,5 @@ public:
     void attack(const std::string& target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
+    void print_state(); //testing print, delete later
 };

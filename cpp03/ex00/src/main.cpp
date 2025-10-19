@@ -15,10 +15,20 @@
 //Implement and turn in your own tests to ensure your code works as expected.
 int main()
 {
-    ClapTrap Mike = ClapTrap("Mike");
-    ClapTrap Adam = ClapTrap("Adam");
-
-    Mike.attack("someone");
-    Mike.takeDamage(10);
-    Adam.beRepaired(1);
+    {
+        ClapTrap Adam = ClapTrap("Adam");
+        ClapTrap Bob(Adam);
+        Adam = ClapTrap("Charles");
+    } std::cout << "----------" << std::endl;
+    
+    {
+        ClapTrap Adam = ClapTrap("Adam");
+        Adam.print_state();
+        Adam.attack("someone");
+        Adam.print_state();
+        Adam.takeDamage(2);
+        Adam.print_state();
+        Adam.beRepaired(1);
+        Adam.print_state();
+    }
 }
