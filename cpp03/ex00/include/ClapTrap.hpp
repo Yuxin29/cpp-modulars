@@ -15,6 +15,10 @@
 #include <string>
 #include <iostream>
 
+// Access-right    internal  child-class   external
+// private	        yes	        no	        no
+// protected	    yes	        yes	        no
+// public	        yes	        yes	        yes
 class ClapTrap
 {
 private:

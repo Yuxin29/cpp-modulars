@@ -11,24 +11,18 @@
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
-#include "ClapTrap.hpp"
 
 int main()
 {
     {
-        ClapTrap Adam = ClapTrap("Adam");
-        ClapTrap Bob(Adam);
-        Adam = ClapTrap("Charles");
+        ScavTrap Adam = ScavTrap("Adam");
+        ScavTrap Bob(Adam);
+        Adam = ScavTrap("Charles");
     } std::cout << "----------" << std::endl;
     
     {
-        ClapTrap Adam = ClapTrap("Adam");
+        ScavTrap Adam = ScavTrap("Adam");
         Adam.print_state();
-        Adam.attack("someone");
-        Adam.print_state();
-        Adam.takeDamage(2);
-        Adam.print_state();
-        Adam.beRepaired(1);
-        Adam.print_state();
-    }
+        Adam.guardGate();
+    } std::cout << "----------" << std::endl;
 }
