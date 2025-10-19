@@ -5,7 +5,7 @@ SRC_DIR := src
 OBJ_DIR := obj
 INCLUDE_DIR := include
 
-SRCS := $(SRC_DIR)/FragTrap.cpp
+SRCS := $(SRC_DIR)/main.cpp $(SRC_DIR)/ClapTrap.cpp $(SRC_DIR)/FragTrap.cpp
 OBJS := $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
