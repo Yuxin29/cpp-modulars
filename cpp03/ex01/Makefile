@@ -5,7 +5,7 @@ SRC_DIR := src
 OBJ_DIR := obj
 INCLUDE_DIR := include
 
-SRCS := $(SRC_DIR)/ScavTrap.cpp
+SRCS := $(SRC_DIR)/main.cpp $(SRC_DIR)/ScavTrap.cpp $(SRC_DIR)/ClapTrap.cpp
 OBJS := $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
