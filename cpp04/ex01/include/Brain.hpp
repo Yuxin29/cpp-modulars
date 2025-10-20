@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/20 19:08:42 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/20 20:51:15 by yuwu             ###   ########.fr       */
+/*   Created: 2025/10/20 20:44:05 by yuwu              #+#    #+#             */
+/*   Updated: 2025/10/20 21:06:04 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "Animal.hpp"
+#include <string>
+#include <iostream>
 
-class Dog
-    : public Animal
+class Brain
 {
 private:
-	std::string type;
-	
-public:
-	Dog();
-    Dog(const Dog& other);
-    Dog& operator=(const Dog &other);
-    ~Dog(); 
+	std::string _ideas[100];
 
-    void makeSound() const;
-	std::string getType() const;
+public:
+	Brain();
+    //Animal(std::string type); No need because the tyep is by defualt;
+    Brain(const Brain& other);               
+    Brain& operator=(const Brain &other);
+    ~Brain();
 };

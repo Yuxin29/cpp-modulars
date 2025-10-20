@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/20 19:08:42 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/20 20:51:15 by yuwu             ###   ########.fr       */
+/*   Created: 2025/10/20 19:05:49 by yuwu              #+#    #+#             */
+/*   Updated: 2025/10/20 20:57:28 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-
 #include "Animal.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
 
-class Dog
-    : public Animal
+int main()
 {
-private:
-	std::string type;
+	std::cout << "------------ testing single ------------" << std::endl;
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+	delete(j);
+	delete(i);
 	
-public:
-	Dog();
-    Dog(const Dog& other);
-    Dog& operator=(const Dog &other);
-    ~Dog(); 
+	return 0;
+}
 
-    void makeSound() const;
-	std::string getType() const;
-};

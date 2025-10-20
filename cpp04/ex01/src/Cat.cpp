@@ -1,48 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/20 19:23:58 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/20 20:42:37 by yuwu             ###   ########.fr       */
+/*   Created: 2025/10/20 19:24:31 by yuwu              #+#    #+#             */
+/*   Updated: 2025/10/20 20:56:01 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Cat.hpp"
 
-Dog::Dog()
+Cat::Cat()
     : Animal()
 {
-    type = "Dog";
-    std::cout << "Dog: " << type << " begin constructed." << std::endl;
+    type = "Cat";
+    std::cout << "Cat: " << type << " begin constructed." << std::endl;
 }
 
-Dog::Dog(const Dog& other)
-   : Animal(other)
+Cat::Cat(const Cat& other)
+    : Animal(other)
 {
     this->type = other.type;
 }
 
-Dog& Dog::operator=(const Dog &other)
+Cat& Cat::operator=(const Cat &other)
 {
     Animal::operator=(other);
     this->type = other.type;
     return *this;
 }
 
-Dog::~Dog()
-{    
-    std::cout << "Dog: " << type << " begin deconstructed." << std::endl;
-}
-
-void Dog::makeSound() const
+Cat::~Cat()
 {
-    std::cout << "wuffffff" << std::endl;
+    delete _brain;    
+    std::cout << "Cat: " << type << " begin deconstructed." << std::endl;
 }
 
-std::string Dog::getType() const
+void Cat::makeSound() const
+{
+    std::cout << "miaoooooo." << std::endl;
+}
+
+std::string Cat::getType() const
 {
     return type;
 }
+

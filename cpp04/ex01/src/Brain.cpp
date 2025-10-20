@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/20 19:08:42 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/20 20:51:15 by yuwu             ###   ########.fr       */
+/*   Created: 2025/10/20 20:45:51 by yuwu              #+#    #+#             */
+/*   Updated: 2025/10/20 21:07:09 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "Brain.hpp"
 
-#include "Animal.hpp"
-
-class Dog
-    : public Animal
+Brain::Brain()
 {
-private:
-	std::string type;
-	
-public:
-	Dog();
-    Dog(const Dog& other);
-    Dog& operator=(const Dog &other);
-    ~Dog(); 
+    std::cout << "Brain begin constructed." << std::endl;
+}
 
-    void makeSound() const;
-	std::string getType() const;
-};
+Brain::Brain(const Brain& other)
+{
+    this->_ideas = other->_ideas;
+}
+
+Brain& Brain::operator=(const Brain &other)
+{
+    this->_ideas = other->_ideas;
+    return *this;
+}
+    
+Brain::~Brain()
+{
+    std::cout << "Brain begin deconstructed." << std::endl;
+}

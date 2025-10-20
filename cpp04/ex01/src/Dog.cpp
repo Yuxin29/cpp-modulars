@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 19:23:58 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/20 20:42:37 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/20 20:56:09 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ Dog& Dog::operator=(const Dog &other)
 
 Dog::~Dog()
 {    
+    delete _brain;   
     std::cout << "Dog: " << type << " begin deconstructed." << std::endl;
 }
 

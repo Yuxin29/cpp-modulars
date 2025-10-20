@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 19:08:53 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/20 20:11:23 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/20 20:51:02 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 class Cat
     : public Animal
 {
-protected:
+private:
 	std::string type;
-	
+    
 public:
 	Cat();
     Cat(const Cat& other);
