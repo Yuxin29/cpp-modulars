@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 14:10:33 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/18 15:53:01 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/20 18:21:46 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,6 @@
 #include <string>
 #include <iostream>
 
-// Access-right    internal  child-class   external
-// private	        yes	        no	        no
-// protected	    yes	        yes	        no
-// public	        yes	        yes	        yes
 class ClapTrap
 {
 protected:

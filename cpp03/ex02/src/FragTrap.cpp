@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuwu <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 14:27:59 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/18 14:28:08 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/20 18:23:43 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,5 @@ FragTrap::~FragTrap()
 //This member function displays a positive high fives request on the standard output.
 void FragTrap::highFivesGuys()
 {
-    std::cout << _name << ": a positive high fives request." << std::endl;
+    std::cout << "FragTrap: " << _name << ": requests a positive high five!" << std::endl;
 }
