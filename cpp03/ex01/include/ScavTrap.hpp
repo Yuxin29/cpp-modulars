@@ -23,5 +23,6 @@ public:
 
     //This member function will display a message informing that ScavTrap is now in Gate keeper mode.
     void guardGate();
+    void attack(const std::string& target);
 };
 

@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 14:22:59 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/18 16:00:01 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/20 18:05:23 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,22 @@ ClapTrap::~ClapTrap()
     std::cout << "ClapTrap being deconstructed: " << _name << std::endl;
 }
 
+//_hitPoint = 10;           health level            生命值（血量）
+//_energyPoint = 10;        Energy level            能量值（行动力）
+//_attackDamagePoint = 0;   Attack damage level     攻击力 
 // ClapTrap <name> attacks <target>, causing <damage> points of damage!
 // Attacking and repairing cost 1 energy point each. 
 // When ClapTrack attacks, it causes its target to lose <attack damage> hit points.
 void ClapTrap::attack(const std::string& target)
 {
-    if (_hitPoint <= 0 || _energyPoint <= 0)
+    if (_hitPoint <= 0)
     {
-        std::cout << _name << " is runnign out of hit- or ennerge- points." << std::endl;
+        std::cout << _name << " is dead: out of hit-points." << std::endl;
+        return;
+    }
+    if (_energyPoint <= 0)
+    {
+        std::cout << _name << " is out of energy points to attack." << std::endl;
         return;
     }
     std::cout << "ClapTrap " << _name << " attacks " << target 
@@ -62,6 +70,7 @@ void ClapTrap::attack(const std::string& target)
     _energyPoint -= 1;
 }
     
+//health level down when take damage
 void ClapTrap::takeDamage(unsigned int amount)
 {
     std::cout << "ClapTrap " << _name << " takes damages of " << amount << " points."<< std::endl;
@@ -71,12 +80,18 @@ void ClapTrap::takeDamage(unsigned int amount)
 }
 
 // Attacking and repairing cost 1 energy point each. 
-// When ClapTrap repairs itself, it gets <amount> hit points back. 
+// When ClapTrap repairs itself, it gets <amount> hit points back.
+// use energy but get nore ehlting
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    if (_hitPoint <= 0 || _energyPoint <= 0)
+    if (_hitPoint <= 0)
     {
-        std::cout << _name << " is running out of energe-points to repair." << std::endl;
+        std::cout << _name << " is dead: out of hit-points." << std::endl;
+        return;
+    }
+    if (_energyPoint <= 0)
+    {
+        std::cout << _name << " is out of energy points to repair." << std::endl;
         return;
     }
     std::cout << _name << " is repairing itself with points: " << amount << std::endl;
