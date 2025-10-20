@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 14:27:59 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/20 18:23:43 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/20 18:59:00 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ FragTrap::FragTrap(const FragTrap& another)
     :ClapTrap(another)
 {
     //do I need to do something:
-    std::cout << "copy FragTrap: " << another._name << std::endl;
+    std::cout << "copy FragTrap from: " << another._name << std::endl;
 }
 
 FragTrap& FragTrap::operator=(const FragTrap &other)
 {
     ClapTrap::operator=(other);
-    std::cout << "copy assign FragTrap: " << other._name << " to this one." << std::endl;
+    std::cout << "copy assign FragTrap from: " << other._name << " to this one." << std::endl;
     return *this;
 }
 

@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 14:25:27 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/20 18:17:10 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/20 18:58:38 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void ScavTrap::attack(const std::string& target)
         std::cout << "ScavTrap: " << _name << " is out of energy points to attack." << std::endl;
         return;
     }
-    std::cout << "ScavTrap: " << _name << " attacks " << target 
-    << " causing " << _attackDamagePoint << " points of damage!" << std::endl;
+    std::cout << "ScavTrap " << _name << " attacks " << target 
+    << ", causing " << _attackDamagePoint << " points of damage!" << std::endl;
     _energyPoint -= 1;
 }
