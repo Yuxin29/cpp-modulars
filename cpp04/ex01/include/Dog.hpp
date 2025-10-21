@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 19:08:42 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/20 20:53:49 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/21 19:12:26 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,6 @@ public:
 
     void makeSound() const;
 	std::string getType() const;
+
+    const Brain &getBrain() const;
 };

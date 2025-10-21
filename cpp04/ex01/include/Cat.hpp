@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 19:08:53 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/20 20:53:45 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/21 19:07:38 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ class Cat
     : public Animal
 {
 private:
-	std::string type;
     Brain*      _brain;
 	
 public:
@@ -31,5 +30,7 @@ public:
 
     void makeSound() const;
 	std::string getType() const;
+
+    const Brain &getBrain() const;
 };
 

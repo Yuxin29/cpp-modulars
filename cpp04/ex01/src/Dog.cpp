@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 19:23:58 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/20 20:56:09 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/21 19:12:39 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,9 @@ void Dog::makeSound() const
 std::string Dog::getType() const
 {
     return type;
+}
+
+const Brain &Dog::getBrain() const
+{
+    return *_brain;
 }

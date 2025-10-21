@@ -1,4 +1,4 @@
-NAME := PhoneBook
+NAME := WithBrain
 CXX := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++17 -I include
 SRC_DIR := src
