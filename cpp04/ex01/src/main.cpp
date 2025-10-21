@@ -41,30 +41,44 @@ int main()
 		if (i < n / 2)
 		{
 			Dog *dog = dynamic_cast<Dog*>(animal_arr[i]);
-			Brain br = dog->getBrain();
-			br.get_idea(1);
+			dog->getBrain().get_idea(1);
 		}
-		// else
-		// {
-		// 	Cat *cat = dynamic_cast<Cat*>(animal_arr[i]);
-		// 	Brain br = cat->getBrain();
-		// 	br.get_idea(1);
-		// }	
+		else
+		{
+			Cat *cat = dynamic_cast<Cat*>(animal_arr[i]);
+			cat->getBrain().get_idea(1);
+		}	
 	}
 
-	// std::cout << "------------ set ideas ------------" << std::endl;
-	// for (int i = 0; i < n; i++)
-	// {
-	// 	if (i < n / 2)
-	// 		animal_arr[i]->_brain.set_idea(1, "I love human\n");
+	std::cout << "------------ set ideas ------------" << std::endl;
+	for (int i = 0; i < n; i++)
+	{
+		if (i < n / 2)
+		{
+			Dog *dog = dynamic_cast<Dog*>(animal_arr[i]);
+			dog->getBrain().set_idea(1, "I love human\n");
+		}
+		else	
+		{
+			Cat *cat = dynamic_cast<Cat*>(animal_arr[i]);
+			cat->getBrain().set_idea(1, "I hate human\n");
+		}
+	}
 
-	// 	else	
-	// 		animal_arr[i]->_brain.set_idea(1, "I hate human\n");
-	// }
-
-	// std::cout << "------------ get ideas ------------" << std::endl;
-	// for (int i = 0; i < n; i++)
-	// 	animal_arr[i]->_brain->get_idea(1);
+	std::cout << "------------ get ideas again------------" << std::endl;
+	for (int i = 0; i < n / 2; i++)
+	{
+		if (i < n / 2)
+		{
+			Dog *dog = dynamic_cast<Dog*>(animal_arr[i]);
+			std::cout << dog->getBrain().get_idea(1) ;
+		}
+		else
+		{
+			Cat *cat = dynamic_cast<Cat*>(animal_arr[i]);
+			std::cout << cat->getBrain().get_idea(1);
+		}	
+	}
 		
 	std::cout << "------------ n array deconstruct ------------" << std::endl;
 	for (int i = 0; i < n; i++)

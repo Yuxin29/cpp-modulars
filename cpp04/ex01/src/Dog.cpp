@@ -16,6 +16,7 @@ Dog::Dog()
     : Animal()
 {
     type = "Dog";
+    _brain = new Brain();
     std::cout << "Dog: " << type << " begin constructed." << std::endl;
 }
 
@@ -23,6 +24,7 @@ Dog::Dog(const Dog& other)
    : Animal(other)
 {
     this->type = other.type;
+    _brain = other._brain;
 }
 
 Dog& Dog::operator=(const Dog &other)
@@ -50,5 +52,10 @@ std::string Dog::getType() const
 
 const Brain &Dog::getBrain() const
 {
+    return *_brain;
+}
+
+Brain &Dog::getBrain()
+{   
     return *_brain;
 }

@@ -24,6 +24,7 @@ Cat::Cat(const Cat& other)
     : Animal(other)
 {
     this->type = other.type;
+    _brain = other._brain;
 }
 
 Cat& Cat::operator=(const Cat &other)
@@ -51,5 +52,10 @@ std::string Cat::getType() const
 
 const Brain &Cat::getBrain() const
 {
+    return *_brain;
+}
+
+Brain &Cat::getBrain()
+{   
     return *_brain;
 }

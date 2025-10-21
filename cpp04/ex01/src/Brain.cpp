@@ -48,9 +48,9 @@ void Brain::set_idea(int index, std::string idea)
     return ;
 }
 
-std::string Brain::get_idea(int index)
+std::string Brain::get_idea(int index) const
 {
-    if (index < 100)
+    if (index < 100 && index >= 0)
         return (_ideas[index]);
-    return nullptr;
+    return "";
 }

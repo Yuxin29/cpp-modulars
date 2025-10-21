@@ -28,5 +28,5 @@ public:
     ~Brain();
 
     void set_idea(int index, std::string idea);
-    std::string get_idea(int index);
+    std::string get_idea(int index) const;
 };

@@ -33,4 +33,5 @@ public:
 	std::string getType() const;
 
     const Brain &getBrain() const;
+    Brain &getBrain();
 };
