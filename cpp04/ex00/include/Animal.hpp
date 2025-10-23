@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 19:05:02 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/20 20:39:53 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/23 13:11:34 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Animal
 {
 protected:
-	std::string type;
+	std::string _type;
 	
 public:
 	Animal();

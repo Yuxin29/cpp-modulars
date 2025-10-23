@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 19:08:42 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/20 20:51:15 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/23 13:21:57 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,11 @@
 class Dog
     : public Animal
 {
-private:
-	std::string type;
-	
 public:
 	Dog();
     Dog(const Dog& other);
     Dog& operator=(const Dog &other);
     ~Dog(); 
 
-    void makeSound() const;
-	std::string getType() const;
+    void makeSound() const override;
 };

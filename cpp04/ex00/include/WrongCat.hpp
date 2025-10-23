@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/20 19:08:53 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/23 14:03:45 by yuwu             ###   ########.fr       */
+/*   Created: 2025/10/23 13:29:19 by yuwu              #+#    #+#             */
+/*   Updated: 2025/10/23 13:55:59 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include "WrongAnimal.hpp"
 
-class Cat
-    : public Animal
-{
-private:
-    Brain*      _brain;
-	
+class WrongCat
+    : public WrongAnimal
+{   
 public:
-	Cat();
-    Cat(const Cat& other);
-    Cat& operator=(const Cat &other);
-    ~Cat(); 
+	WrongCat();
+    WrongCat(const WrongCat& other);
+    WrongCat& operator=(const WrongCat &other);
+    ~WrongCat(); 
 
-    void makeSound() const override;
-
-    const Brain &getBrain() const;
-    Brain &getBrain();
+    void makeSound() const;
 };
-
