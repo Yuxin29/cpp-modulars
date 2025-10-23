@@ -6,16 +6,19 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 14:10:33 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/20 18:21:46 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/23 11:45:28 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "ClapTrap.hpp"
 #include <string>
 #include <iostream>
 
+// Access-right    internal  child-class   external
+// private	        yes	        no	        no
+// protected	    yes	        yes	        no
+// public	        yes	        yes	        yes
 class ClapTrap
 {
 protected:

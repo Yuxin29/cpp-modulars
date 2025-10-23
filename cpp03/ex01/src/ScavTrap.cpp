@@ -6,19 +6,19 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 14:25:27 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/20 18:58:38 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/23 11:54:30 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap()
-    :ClapTrap() //do I need this ??
+    :ClapTrap()
 {
     _hitPoint = 100;
     _energyPoint = 50;
     _attackDamagePoint = 20;
-    std::cout << "ScavTrap being constructed without name." << std::endl;
+    std::cout << "ScavTrap: ScavTrap being constructed without name." << std::endl;
 }
 
 // cavTrap will use the attributes of ClapTrap (update ClapTrap in consequence) and
@@ -32,30 +32,30 @@ ScavTrap::ScavTrap(std::string name)
     _hitPoint = 100;
     _energyPoint = 50;
     _attackDamagePoint = 20;
-    std::cout << "ScavTrap being constructed: " << _name << std::endl;
+    std::cout << "ScavTrap: ScavTrap being constructed: " << _name << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& another)
     :ClapTrap(another)
 {
-    std::cout << "copy ScavTrap from: " << another._name << std::endl;
+    std::cout << "ScavTrap: copy ScavTrap from: " << another._name << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap &other)
 {
     ClapTrap::operator=(other);  //first copy assint in parerent clase.
-    std::cout << "copy assign ScavTrap from: " << other._name << " to this one." << std::endl;
+    std::cout << "ScavTrap: copy assign ScavTrap from: " << other._name << " to this one." << std::endl;
     return *this;
 }
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << "ScavTrap being deconstructed: " << _name << std::endl;
+    std::cout << "ScavTrap: ScavTrap being deconstructed: " << _name << std::endl;
 }
 
 void ScavTrap::guardGate()
 {
-    std::cout << "ScavTrap: " << _name << ": gate protection mode is on." << std::endl;
+    std::cout << "ScavTrap: " << _name << " gate protection mode is on." << std::endl;
 }
 
 void ScavTrap::attack(const std::string& target)

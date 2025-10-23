@@ -6,15 +6,13 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 14:27:35 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/20 18:21:52 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/23 11:59:31 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "ClapTrap.hpp"
-#include <string>
-#include <iostream>
 
 class FragTrap
     : public ClapTrap
