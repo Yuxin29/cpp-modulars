@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 19:08:53 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/23 14:03:45 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/23 14:28:07 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ public:
 
     void makeSound() const override;
 
-    const Brain &getBrain() const;
     Brain &getBrain();
-};
 
+};

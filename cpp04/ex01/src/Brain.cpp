@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 20:45:51 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/21 18:52:16 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/23 14:30:05 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 Brain::Brain()
 {
     std::cout << "Brain begin constructed." << std::endl;
+    for (int i = 0; i < 100; i++)
+        _ideas[i] = "";    
 }
 
 Brain::Brain(const Brain& other)
@@ -43,7 +45,7 @@ Brain::~Brain()
 
 void Brain::set_idea(int index, std::string idea)
 {
-    if (index < 100)
+    if (index < 100 && index >= 0)
         _ideas[index] = idea;
     return ;
 }
