@@ -13,17 +13,26 @@
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
-#include "Brain.hpp"
 
 int main()
 {
-	std::cout << "------------ testing construct ------------" << std::endl;
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	std::cout << "============ TESTING SINGLE DOG AND CAT ============" << std::endl;
+	std::cout << "------------ testing constructor ------------" << std::endl;
+	const Animal* i = new Dog();
+	const Animal* j = new Cat();
 	
-	std::cout << "------------ testing deconstruct ------------" << std::endl;
-	delete(j);
-	delete(i);
+	std::cout << "------------ testing get type ------------" << std::endl;
+    std::cout << "Dog type: " << i->getType() << std::endl;
+    std::cout << "Cat type: " << j->getType() << std::endl;
+
+	std::cout << "------------ testing makeSound  ------------" << std::endl;
+    i->makeSound();
+    j->makeSound();
+
+	std::cout << "------------ Deleting objects  ------------" << std::endl;
+    delete i;
+    delete j;
+	std::cout << "============ TESTING SINGLE DOG AND CAT DONE ============" << std::endl << std::endl;
 	
 	std::cout << "------------ n array construct ------------" << std::endl;
 	int n = 4;
@@ -32,7 +41,6 @@ int main()
 		animal_arr[i] = new Dog();
 	for (int i = n / 2; i < n; i++)
 		animal_arr[i] = new Cat();
-	
 	std::cout << "------------ get ideas ------------" << std::endl;
 	for (int i = 0; i < n / 2; i++)
 	{
