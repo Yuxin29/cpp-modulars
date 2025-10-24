@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 19:23:58 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/23 14:28:21 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/24 12:46:01 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 Dog::Dog()
     : Animal()
 {
-    std::cout << "Dog: " << _type << " begin constructed." << std::endl;
     _type = "Dog";
+    std::cout << "Dog: " << _type << " constructed." << std::endl;
     _brain = new Brain();
 }
 
@@ -32,8 +32,7 @@ Dog& Dog::operator=(const Dog &other)
     if (this != &other) 
     {
         Animal::operator=(other);
-        delete _brain;                     // replease old copy
-        _brain = new Brain(*other._brain); // deep copy
+        *_brain = *other._brain; //deepcopy
     }
     return *this;
 }
@@ -41,7 +40,7 @@ Dog& Dog::operator=(const Dog &other)
 Dog::~Dog()
 {    
     delete _brain;
-    std::cout << "Dog: " << _type << " begin deconstructed." << std::endl;
+    std::cout << "Dog: " << _type << " deconstructed." << std::endl;
 }
 
 void Dog::makeSound() const

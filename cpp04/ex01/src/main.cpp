@@ -6,12 +6,14 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 19:05:49 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/23 14:21:44 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/24 12:51:04 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
+#include "WrongAnimal.hpp"
 #include "Cat.hpp"
+#include "WrongCat.hpp"
 #include "Dog.hpp"
 
 int main()
@@ -34,8 +36,9 @@ int main()
     delete j;
 	std::cout << "============ TESTING SINGLE DOG AND CAT DONE ============" << std::endl << std::endl;
 	
+	std::cout << "============ TESTING ARRAY OF ANIMALS WITH BRAINS ============" << std::endl;
 	std::cout << "------------ n array construct ------------" << std::endl;
-	int n = 4;
+	int n = 4;  // in case of n is 5, there will be 3 cats and 2 dogs
 	Animal *animal_arr[n];
 	for (int i = 0; i < n / 2; i++)
 		animal_arr[i] = new Dog();
@@ -69,7 +72,7 @@ int main()
 	for (int i = 0; i < n / 2; i++)
 	{
 		Dog *dog = dynamic_cast<Dog*>(animal_arr[i]);
-		std::cout << dog->getBrain().get_idea(1) ;
+		std::cout << dog->getBrain().get_idea(1);
 	}
 	for (int i = n / 2; i < n; i++)
 	{
@@ -80,6 +83,25 @@ int main()
 	std::cout << "------------ n array deconstruct ------------" << std::endl;
 	for (int i = 0; i < n; i++)
 		delete (animal_arr[i]);
+	std::cout << "============ TESTING ARRAY OF ANIMALS WITH BRAINS DONE ============" << std::endl << std::endl;
+	
+	std::cout << "============ TESTING DEEP COPY ============" << std::endl;
+	{
+		Dog original;
+		Brain &brain1 = original.getBrain();
+		brain1.set_idea(0, "Chase the mailman!");
+		std::cout << "------------" << std::endl;
+		Dog copy = original; // calls deep copy constructor
+		std::cout << "Original idea: " << original.getBrain().get_idea(0) << std::endl;
+		std::cout << "Copy idea: " << copy.getBrain().get_idea(0) << std::endl;
+		std::cout << "------------" << std::endl;
+		Brain &brain2 = original.getBrain();
+		brain2.set_idea(0, "Sleep on the couch.");
+		std::cout << "After modifying original:" << std::endl;
+		std::cout << "Original idea: " << original.getBrain().get_idea(0) << std::endl;
+		std::cout << "Copy idea: " << copy.getBrain().get_idea(0) << std::endl;
+	}
+	std::cout << "============ TESTING DEEP COPY DONE ============" << std::endl << std::endl;
 	
 	return 0;
 }

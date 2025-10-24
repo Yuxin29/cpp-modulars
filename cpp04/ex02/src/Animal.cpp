@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 19:20:59 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/23 13:11:57 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/24 12:48:48 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Animal::Animal()
 {
     _type = "Pet";
-    std::cout << "Animal: " << _type << " begin constructed." << std::endl;
+    std::cout << "Animal: " << _type << " constructed." << std::endl;
 }
 
 Animal::Animal(const Animal& other)
@@ -31,9 +31,10 @@ Animal& Animal::operator=(const Animal &other)
 
 Animal::~Animal()
 {    
-    std::cout << "Animal: " << _type << " begin deconstructed." << std::endl;
+    std::cout << "Animal: " << _type << " deconstructed." << std::endl;
 }
 
+//this is not necessary, because pure abstract function never needs to be called
 void Animal::makeSound() const
 {
     std::cout << "woaaa I am an animal." << std::endl;

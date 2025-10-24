@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 19:20:59 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/23 13:11:57 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/24 11:59:00 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,25 @@
 Animal::Animal()
 {
     _type = "Pet";
-    std::cout << "Animal: " << _type << " begin constructed." << std::endl;
+    std::cout << "Animal: " << _type << " constructed." << std::endl;
 }
 
 Animal::Animal(const Animal& other)
 {
     this->_type = other._type;
+    std::cout << "Copy animal " << _type << "." << std::endl;
 }
 
 Animal& Animal::operator=(const Animal &other)
 {
     this->_type = other._type;
+    std::cout << "Copy assign animal " << _type << "." << std::endl;
     return *this;
 }
 
 Animal::~Animal()
 {    
-    std::cout << "Animal: " << _type << " begin deconstructed." << std::endl;
+    std::cout << "Animal: " << _type << " deconstructed." << std::endl;
 }
 
 void Animal::makeSound() const
