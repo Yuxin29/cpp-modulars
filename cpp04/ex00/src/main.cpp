@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 19:05:49 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/23 13:51:31 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/24 12:01:08 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,18 @@
 #include "Cat.hpp"
 #include "WrongCat.hpp"
 #include "Dog.hpp"
-
+	
 int main()
 {
+	std::cout << "------------ testing copy & copy assign on dog ------------" << std::endl;
+	Dog a;
+	std::cout << "------------" << std::endl;
+	Dog b = a;   
+	std::cout << "------------" << std::endl;           
+	Dog c;
+	std::cout << "------------" << std::endl;  
+	c = Dog();
+	
 	std::cout << "------------ testing parent ------------" << std::endl;
 	const Animal* meta = new Animal();
 	const WrongAnimal* wrong_meta = new WrongAnimal();
@@ -36,13 +45,13 @@ int main()
 	
 	std::cout << "------------ testing make sound ------------" << std::endl;
 	meta->makeSound();
-	i->makeSound(); //will output the cat sound!
+	i->makeSound();
 	j->makeSound();
 	
 	std::cout << "------------ testing make wrong sound ------------" << std::endl;
 	wrong_meta->makeSound();
-	k->makeSound();
-
+	k->makeSound(); // will output WrongAnimal sound due to missing virtual
+	
 	std::cout << "------------ Manually delete ------------" << std::endl;
 	delete(meta);
 	delete(wrong_meta);
@@ -51,4 +60,3 @@ int main()
 	delete(k);
 	return 0;
 }
-

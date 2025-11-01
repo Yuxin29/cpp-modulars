@@ -15,7 +15,7 @@
 WrongAnimal::WrongAnimal()
 {
     _type = "WrongPet";
-    std::cout << "WrongAnimal: " << _type << " begin constructed." << std::endl;
+    std::cout << "WrongAnimal: " << _type << " constructed." << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& other)
@@ -31,7 +31,7 @@ WrongAnimal& WrongAnimal::operator=(const WrongAnimal &other)
 
 WrongAnimal::~WrongAnimal()
 {    
-    std::cout << "WrongAnimal: " << _type << " begin deconstructed." << std::endl;
+    std::cout << "WrongAnimal: " << _type << " deconstructed." << std::endl;
 }
 
 void WrongAnimal::makeSound() const

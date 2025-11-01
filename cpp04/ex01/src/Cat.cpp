@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 19:24:31 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/23 14:28:10 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/24 12:46:11 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 Cat::Cat()
     : Animal()
 {
-    std::cout << "Cat: " << _type << " begin constructed." << std::endl;
     _type = "Cat";
+    std::cout << "Cat: " << _type << " constructed." << std::endl;
     _brain = new Brain();
 }
 
@@ -31,9 +31,8 @@ Cat& Cat::operator=(const Cat &other)
 {
     if (this != &other) 
     {
-         Animal::operator=(other);
-        delete _brain;                     // replease old copy
-        _brain = new Brain(*other._brain); // deep copy
+        Animal::operator=(other);
+        *_brain = *other._brain; //deepcopy
     }
     return *this;
 }
@@ -41,7 +40,7 @@ Cat& Cat::operator=(const Cat &other)
 Cat::~Cat()
 {    
     delete _brain;
-    std::cout << "Cat: " << _type << " begin deconstructed." << std::endl;
+    std::cout << "Cat: " << _type << " deconstructed." << std::endl;
 }
 
 void Cat::makeSound() const
