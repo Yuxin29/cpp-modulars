@@ -1,3 +1,3 @@
-s:x
-:x
+#pragma once
 
+#include "AMateria.hpp"
