@@ -4,6 +4,20 @@
 #include <iostream>
 #include <stdexcept>
 
+class GradeTooHighException
+    :public std::exception //inhariting exception from stdexcept
+{
+    public:
+    const char* what() const throw();
+};
+
+class GradeTooLowException
+    :public std::exception //inhariting exception from stdexcept
+{
+    public:
+    const char* what() const throw();
+};
+
 class Bureaucrat
 {
 private:
@@ -22,19 +36,6 @@ public:
     int getGrade() const;
     void incre_grade();
     void decre_grade();
-
-    class GradeTooHighException
-        :public std::exception //inhariting exception from stdexcept
-    {
-        public:
-        const char* what() const throw();
-    };
-    class GradeTooLowException
-        :public std::exception //inhariting exception from stdexcept
-    {
-        public:
-        const char* what() const throw();
-    };
 };
 
 //later

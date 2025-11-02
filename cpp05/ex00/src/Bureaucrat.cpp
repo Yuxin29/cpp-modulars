@@ -1,8 +1,17 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(){
+const char* GradeTooHighException::what() const throw()
+{   
+    return "grade too high";
 }
 
+const char* GradeTooLowException::what() const throw()
+{   
+    return "grade too low";
+}
+
+Bureaucrat::Bureaucrat(){
+}
 
 Bureaucrat::Bureaucrat(const std::string name, int grade)
     :_name(name){
@@ -48,16 +57,6 @@ void Bureaucrat::incre_grade(){
 void Bureaucrat::decre_grade(){
     checkGrade(_grade + 1);
     _grade++;
-}
-
-const char* Bureaucrat::GradeTooHighException::what() const throw()
-{   
-    return "grade too high";
-}
-
-const char* Bureaucrat::GradeTooLowException::what() const throw()
-{   
-    return "grade too low";
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
