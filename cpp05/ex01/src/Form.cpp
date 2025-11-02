@@ -1,18 +1,13 @@
 #include "Form.hpp"
-
-Form::Form(){
-}
+#include "Bureaucrat.hpp"
 
 Form::Form(std::string name, int gradeToSign, int gradeToExecute)
-    :_name(name){
+    :_name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute){
     checkGrade(gradeToSign);
-    checkGrade(gradeToExecute);
-    _gradeToSign = gradeToSign;
-    _gradeToExecute = gradeToExecute;
-    _signed = false;
 }
 
-Form::Form(const Bureaucrat& other){
+Form::Form(const Form& other)
+    : _name(other._name), _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute) {
     this->_signed = other._signed;
 }            
     
@@ -33,9 +28,4 @@ void Form::beSigned(Bureaucrat& b){
     if (b.getGrade() > _gradeToSign)
         throw GradeTooLowException();
     _signed = true;
-}
-
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& b){
-    os << b.getName() << ", bureaucrat grade " << b.getGrade() << ".";
-    return os;
 }

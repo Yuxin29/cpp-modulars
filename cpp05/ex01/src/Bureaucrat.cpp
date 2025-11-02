@@ -11,6 +11,13 @@ const char* GradeTooLowException::what() const throw()
     return "grade too low";
 }
 
+void checkGrade(int grade){
+    if (grade < 1)
+        throw GradeTooHighException();
+     if (grade > 150)
+        throw GradeTooLowException();
+}
+
 Bureaucrat::Bureaucrat(){
 }
 
@@ -30,13 +37,6 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other){
 }
 
 Bureaucrat::~Bureaucrat(){
-}
-
-void Bureaucrat::checkGrade(int grade){
-    if (grade < 1)
-        throw GradeTooHighException();
-     if (grade > 150)
-        throw GradeTooLowException();
 }
 
 const std::string& Bureaucrat::getName() const{
@@ -62,7 +62,7 @@ void Bureaucrat::decre_grade(){
 
 void Bureaucrat::signForm(Form& f){
     try {
-        f.beSigned(*this)
+        f.beSigned(*this);
         std::cout << _name << " signed " << f.getName() << std::endl;
     }
     catch (std::exception& e){

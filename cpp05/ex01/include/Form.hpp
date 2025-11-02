@@ -1,6 +1,10 @@
 #pragma once
 
-#include "Bureaucrat.hpp"
+#include <string>
+#include <iostream>
+#include <stdexcept>
+
+class Bureaucrat;
 
 class Form
 {
@@ -8,10 +12,9 @@ private:
 	const std::string   _name;
     const int           _gradeToSign;
     const int           _gradeToExecute;
-    bool                _signed; // true for signed, false for not signed
+    bool                _signed = false; // true for signed, false for not signed
 	
 public:
-    Form();
 	Form(std::string name, int gradeToSign, int gradeToExecute);
     Form(const Form& other);               
     Form& operator=(const Form &other);

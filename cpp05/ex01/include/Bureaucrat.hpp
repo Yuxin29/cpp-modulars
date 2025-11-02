@@ -4,6 +4,8 @@
 #include <iostream>
 #include <stdexcept>
 
+class Form;
+
 class GradeTooHighException
     :public std::exception //inhariting exception from stdexcept
 {
@@ -23,7 +25,6 @@ class Bureaucrat
 private:
 	const std::string   _name;
     int                 _grade; //from 1 to 150: highest to lowese
-    void checkGrade(int grade);
 	
 public:
     Bureaucrat();
@@ -45,6 +46,7 @@ public:
 // <name>, bureaucrat grade <grade>.
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
 
+void checkGrade(int grade);
 
 // Any attempt to instantiate a Bureaucrat using an invalid grade must throw an exception:
 // either a         Bureaucrat::GradeTooHighException 
