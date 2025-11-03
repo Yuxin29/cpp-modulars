@@ -2,28 +2,42 @@
 
 int main(void)
 {
+    //upper limit
     try {
         Bureaucrat a("Alice", 1);
         std::cout << a << std::endl;
-        a.incre_grade();
+        a.incrementGrade();
     }
     catch (std::exception& e){
         std::cout << e.what() << std::endl;
     }
 
+    //lower limit
     try {
         Bureaucrat b("Boris", 150);
         std::cout << b << std::endl;
-        b.decre_grade();
+        b.decrementGrade();
     }
     catch (std::exception& e){
         std::cout << e.what() << std::endl;
     }
 
+    //illegal construction
     try {
         Bureaucrat c("Colin", 0);
     }
     catch (std::exception& e){
+        std::cout << e.what() << std::endl;
+    }
+
+    //normal functioning
+    try {
+        Bureaucrat d("David", 15);
+        std::cout << d << std::endl;
+        d.incrementGrade();
+        std::cout << d << std::endl;
+    }
+    catch (std::exception &e){
         std::cout << e.what() << std::endl;
     }
 

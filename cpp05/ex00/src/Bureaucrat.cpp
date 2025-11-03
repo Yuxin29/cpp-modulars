@@ -1,26 +1,15 @@
 #include "Bureaucrat.hpp"
 
-const char* GradeTooHighException::what() const throw()
-{   
-    return "grade too high";
-}
-
-const char* GradeTooLowException::what() const throw()
-{   
-    return "grade too low";
-}
-
-Bureaucrat::Bureaucrat(){
-}
-
+//const var must be initiated at the begining of the declaration
 Bureaucrat::Bureaucrat(const std::string name, int grade)
-    :_name(name){
+    :_name(name)
+{
     checkGrade(grade);
     _grade = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& other){
-    this->_grade = other._grade;
+Bureaucrat::Bureaucrat(const Bureaucrat& other) 
+:_name(other._name), _grade(other._grade){
 }            
     
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other){
@@ -31,7 +20,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other){
 Bureaucrat::~Bureaucrat(){
 }
 
-void Bureaucrat::checkGrade(int grade){
+void Bureaucrat::checkGrade(int grade) const{
     if (grade < 1)
         throw GradeTooHighException();
      if (grade > 150)
@@ -47,16 +36,25 @@ int Bureaucrat::getGrade() const{
 }
 
 //Implement also two member functions to increment or decrement the bureaucrat grade. 
-// Ifthe grade is out of range, both of them will throw the same exceptions as the constructor.
-//incrementing a grade 3 should give a grade 2 to the bureaucrat.
-void Bureaucrat::incre_grade(){
+// If the grade is out of range, both of them will throw the same exceptions as the constructor.
+void Bureaucrat::incrementGrade(){
     checkGrade(_grade - 1);
     _grade--;
 }
 
-void Bureaucrat::decre_grade(){
+void Bureaucrat::decrementGrade(){
     checkGrade(_grade + 1);
     _grade++;
+}
+
+const char* Bureaucrat::GradeTooHighException::what() const throw()
+{   
+    return "grade too high";
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{   
+    return "grade too low";
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
