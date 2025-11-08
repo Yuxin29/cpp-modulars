@@ -1,72 +1,82 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main(void)
 {
-    // can signed the for.
+    // can sign and exect the ShrubberyCreationForm.
+    // ShrubberyCreationForm: Required grades: sign 145, exec 137
     try {
         Bureaucrat a("Alice", 1);
-        AForm fa("AForm_Alice", 1, 1);
-        std::cout << a << std::endl;
-        std::cout << fa << std::endl;
-        a.signAForm(fa);
-        std::cout << fa << std::endl;
+        ShrubberyCreationForm scf("scf_Alice");
+        a.signAForm(scf);
+        a.executeForm(scf);
     }
     catch (std::exception& e){
         std::cout << e.what() << std::endl;
     }
     std::cout << std::endl;
 
-    // cannot signed the for.
+    // can signed but cannot exect the RobotomyRequestForm.
+    // RobotomyRequestForm: Required grades: sign 72, exec 45
     try {
-        Bureaucrat b("Boris", 150);
+        Bureaucrat b("Boris", 70);
         std::cout << b << std::endl;
-        AForm fb("AForm_Boris", 149, 149);
-        std::cout << fb << std::endl;
-        b.signAForm(fb);
+        RobotomyRequestForm rrf("rrf_Boris");
+        std::cout << rrf << std::endl;
+        b.signAForm(rrf);
+        std::cout << rrf << std::endl;
+        b.executeForm(rrf);
+        std::cout << rrf << std::endl;
     }
     catch (std::exception& e){
         std::cout << e.what() << std::endl;
     }
     std::cout << std::endl;
 
-    //can not sign first but can after increment grade for bureact
+    // cannot sign or exect the PresidentialPardonForm.
+    // PresidentialPardonForm: Required grades: sign 25, exec 5
     try {
-        Bureaucrat c("Colin", 76);
+        Bureaucrat c("Colin", 30);
         std::cout << c << std::endl;
-        AForm fc("AForm_Colin", 75, 75);
-        std::cout << fc << std::endl;
-        c.signAForm(fc);
-        c.incrementGrade();
-        std::cout << c << std::endl;
-        c.signAForm(fc);
+        PresidentialPardonForm ppf("ppf_Colin");
+        std::cout << ppf << std::endl;
+        c.signAForm(ppf);
+        std::cout << ppf << std::endl;
+        c.executeForm(ppf);
+        std::cout << ppf << std::endl;
     }
     catch (std::exception& e){
         std::cout << e.what() << std::endl;
     }
     std::cout << std::endl;
 
-    //trying to sign AForm repeatedlt
+    // cannot exect when not signed the PresidentialPardonForm.
     try {
-        Bureaucrat d("David", 10);
+        Bureaucrat d("David", 5);
         std::cout << d << std::endl;
-        AForm fd("AForm_Colin", 20, 20);
-        std::cout << fd << std::endl;
-        d.signAForm(fd);
-        std::cout << fd << std::endl;
-        d.signAForm(fd);
+        PresidentialPardonForm ppf_2("ppf_2_David");
+        std::cout << ppf_2 << std::endl;
+        d.executeForm(ppf_2);
     }
     catch (std::exception& e){
         std::cout << e.what() << std::endl;
     }
     std::cout << std::endl;
 
-    //trying to sign AForm repeatedlt
+    //trying to exect AForm repeatedlt
     try {
-        Bureaucrat e("Emily", 10);
-        std::cout << e << std::endl;
-        AForm fe("AForm_Emily", 20, 200);
-        std::cout << fe << std::endl;
+        Bureaucrat d("David", 5);
+        std::cout << d << std::endl;
+        PresidentialPardonForm ppf_2("ppf_2_David");
+        std::cout << ppf_2 << std::endl;
+        d.signAForm(ppf_2);
+        std::cout << ppf_2 << std::endl;
+        d.executeForm(ppf_2);
+        d.executeForm(ppf_2);
+        std::cout << ppf_2 << std::endl;
     }
     catch (std::exception& e){
         std::cout << e.what() << std::endl;

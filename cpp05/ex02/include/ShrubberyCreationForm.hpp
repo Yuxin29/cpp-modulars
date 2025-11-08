@@ -5,14 +5,14 @@
 // private：child class cannot visit, only self can visit
 // protected：child class can visit
 class ShrubberyCreationForm
-    : Public AForm
+    : public AForm
     // : Form  default inharitance only inharites the private attr, needs a pubic one
 {
 private:
 	const std::string   _target;
 	
 public:
-	ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
+	ShrubberyCreationForm(std::string target);
     ShrubberyCreationForm(const ShrubberyCreationForm& other);               
     ShrubberyCreationForm& operator=(const ShrubberyCreationForm &other);
     ~ShrubberyCreationForm();

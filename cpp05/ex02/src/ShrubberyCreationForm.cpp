@@ -27,22 +27,22 @@ const std::string& ShrubberyCreationForm::getTarget() const{
 
 //just a tree
 void ShrubberyCreationForm::executeAction() const{
-    std::ofstream file((_target + "_Shrubbery").c_str())
+    std::ofstream file((_target + "_Shrubbery").c_str()); // check this later
     if (!file.is_open())
     {
         std::cout << "Error: cannot open output file." << std::endl;
         return;
     }
-    file << "        /\\\n";
-            "       /  \\\n";
-            "      / /\\ \\\n";
-            "     / /  \\ \\\n";
-            "    / /    \\ \\\n";
-            "   / /      \\ \\\n";
-            "  /_/________\\_\\\n";
-            "       ||||\n";
-            "       ||||\n";
-            "       ||||\n";
-            "       ||||\n";
+    file << "        /\\\n"
+        <<  "       /  \\\n"
+        <<  "      / /\\ \\\n"
+        <<  "     / /  \\ \\\n"
+        <<  "    / /    \\ \\\n"
+        <<  "   / /      \\ \\\n"
+        <<  "  /_/________\\_\\\n"
+        <<  "       ||||\n"
+        <<  "       ||||\n"
+        <<  "       ||||\n"
+        <<  "       ||||\n"
     file.close();
 }
