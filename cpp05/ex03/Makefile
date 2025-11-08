@@ -1,11 +1,11 @@
-NAME := BureaucratSigning3Form
+NAME := BureaucratSigning3FormWithInterns
 CXX := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++17 -I include
 SRC_DIR := src
 OBJ_DIR := obj
 INCLUDE_DIR := include
 
-SRCS := $(SRC_DIR)/Bureaucrat.cpp $(SRC_DIR)/AForm.cpp $(SRC_DIR)/main.cpp \
+SRCS := $(SRC_DIR)/Bureaucrat.cpp $(SRC_DIR)/AForm.cpp $(SRC_DIR)/main.cpp $(SRC_DIR)/Intern.cpp \
 		$(SRC_DIR)/ShrubberyCreationForm.cpp  $(SRC_DIR)/RobotomyRequestForm.cpp  $(SRC_DIR)/PresidentialPardonForm.cpp 
 OBJS := $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
