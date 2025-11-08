@@ -26,8 +26,6 @@ public:
     void incrementGrade();
     void decrementGrade();
 
-    void signAForm(AForm& f);
-
     // Any attempt to instantiate a Bureaucrat using an invalid grade must throw an exception:
     // Bureaucrat::GradeTooHighException  or   Bureaucrat::GradeTooLowException.
     // it needs to be nested
@@ -41,12 +39,9 @@ public:
         const char* what() const throw();
     };
 
+    void signAForm(AForm& f);
     // !!!!!!!!!!!!!  NEW HEWE !!!!!!!!!!!!!!
-    // Lastly, add the executeForm(AForm const & form) member function to the Bureaucrat. 
-    // It must attempt to execute the form. If it’s successful, print something like:
-    // <bureaucrat> executed <form>
-    // If not, print an explicit error message
-    void executeForm(AForm const & form);
+    void executeForm(AForm const &form);
 
 };
 

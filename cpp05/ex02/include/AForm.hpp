@@ -6,7 +6,6 @@
 
 class Bureaucrat;
 
-
 // private：child class cannot visit, only self can visit
 // protected：child class can visit
 class AForm
@@ -30,8 +29,6 @@ public:
     int getGradeToExecute() const;
     bool getSignedOrNot() const;
 
-    virtual void beSigned(const Bureaucrat& b) = 0; //make it completely pure abstract
-
     // it needs to be nested, so repeateance is unavoidable
     class GradeTooHighException :public std::exception
     {
@@ -43,12 +40,10 @@ public:
         const char* what() const throw();
     };
 
+    virtual void beSigned(const Bureaucrat& b);
     // !!!!!!!!!!!!!  NEW HEWE !!!!!!!!!!!!!!
-    //Now, add the execute(Bureaucrat const & executor) const member function to the base form 
-    // and implement a function to execute the form’s action of the concrete classes. 
-    // You have to check that the form is signed and that the grade of the bureaucrat attempting to execute the form is high enough. 
-    // Otherwise, throw an appropriate exception.
-    void execute(Bureaucrat const & executor);
+    void execute(Bureaucrat const & executor) const;
+    virtual void executeAction() const = 0; //pure virtual. so the child can all use it
 };
 
 //an overload of the insertion («) operator that prints all the AForm’s inAFormations.

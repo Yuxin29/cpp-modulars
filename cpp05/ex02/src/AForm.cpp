@@ -43,13 +43,26 @@ bool AForm::getSignedOrNot() const{
     return _signed;
 }
 
-
 void AForm::beSigned(const Bureaucrat& b){
     if (_signed)
         throw std::runtime_error("AForm already signed");
     if (b.getGrade() > _gradeToSign)
         throw GradeTooLowException();
     _signed = true;
+}
+
+// !!!!!!!!!!!!!  NEW HEWE !!!!!!!!!!!!!!
+// Now, add the execute(Bureaucrat const & executor) const member function to the base form 
+// and implement a function to execute the form’s action of the concrete classes. 
+// You have to check that the form is signed and that the grade of the bureaucrat attempting to execute the form is high enough. 
+// Otherwise, throw an appropriate exception.
+void AForm::execute(Bureaucrat const & executor) const
+{
+    if (_signed == false)
+        throw std::runtime_error("AForm not signed, cannot execute.");
+    if (executor.getGrade() > _gradeToExecute)
+        throw GradeTooLowException();
+    this->executeAction();
 }
 
 const char* AForm::GradeTooHighException::what() const throw(){   
@@ -59,7 +72,6 @@ const char* AForm::GradeTooHighException::what() const throw(){
 const char* AForm::GradeTooLowException::what() const throw(){   
     return "grade too low";
 }
-
 
 std::ostream& operator<<(std::ostream& os, const AForm& f)
 {
