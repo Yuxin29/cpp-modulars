@@ -6,8 +6,8 @@ int main(void)
     // can signed the for.
     try {
         Bureaucrat a("Alice", 1);
-        Form fa("Form_Alice", 1, 1);
         std::cout << a << std::endl;
+        Form fa("Form_Alice", 1, 1);
         std::cout << fa << std::endl;
         a.signForm(fa);
         std::cout << fa << std::endl;
@@ -24,6 +24,7 @@ int main(void)
         Form fb("Form_Boris", 149, 149);
         std::cout << fb << std::endl;
         b.signForm(fb);
+        std::cout << fb << std::endl;
     }
     catch (std::exception& e){
         std::cout << e.what() << std::endl;
@@ -40,6 +41,7 @@ int main(void)
         c.incrementGrade();
         std::cout << c << std::endl;
         c.signForm(fc);
+        std::cout << fc << std::endl;
     }
     catch (std::exception& e){
         std::cout << e.what() << std::endl;
@@ -61,7 +63,7 @@ int main(void)
     }
     std::cout << std::endl;
 
-    //trying to sign form repeatedlt
+    //Form grade too low, cannot be constructed
     try {
         Bureaucrat e("Emily", 10);
         std::cout << e << std::endl;

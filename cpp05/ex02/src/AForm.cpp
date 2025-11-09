@@ -1,10 +1,18 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include <stdexcept>
 
-AForm::AForm(std::string name, int gradeToSign, int gradeToExecute)
+AForm::AForm(const std::string& name, int gradeToSign, int gradeToExecute)
     :_name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute){
     checkGrade(gradeToSign);
     checkGrade(gradeToExecute);
+}
+
+void AForm::checkGrade(int grade) const{
+    if (grade < 1)
+        throw GradeTooHighException();
+     if (grade > 150)
+        throw GradeTooLowException();
 }
 
 AForm::AForm(const AForm& other)
@@ -18,13 +26,6 @@ AForm& AForm::operator=(const AForm &other){
 }
 
 AForm::~AForm(){
-}
-
-void AForm::checkGrade(int grade) const{
-    if (grade < 1)
-        throw GradeTooHighException();
-     if (grade > 150)
-        throw GradeTooLowException();
 }
 
 const std::string& AForm::getName() const{
@@ -56,8 +57,7 @@ void AForm::beSigned(const Bureaucrat& b){
 // and implement a function to execute the form’s action of the concrete classes. 
 // You have to check that the form is signed and that the grade of the bureaucrat attempting to execute the form is high enough. 
 // Otherwise, throw an appropriate exception.
-void AForm::execute(Bureaucrat const & executor) const
-{
+void AForm::execute(Bureaucrat const & executor) const {
     if (_signed == false)
         throw std::runtime_error("AForm not signed, cannot execute.");
     if (executor.getGrade() > _gradeToExecute)
@@ -73,8 +73,7 @@ const char* AForm::GradeTooLowException::what() const throw(){
     return "grade too low";
 }
 
-std::ostream& operator<<(std::ostream& os, const AForm& f)
-{
+std::ostream& operator<<(std::ostream& os, const AForm& f) {
     os << f.getName() << ", grade to Sign " << f.getGradeToSign () << ", grade to Execute " << f.getGradeToExecute () << ", signed or not: " << f.getSignedOrNot() <<  ".";
     return os;
 }

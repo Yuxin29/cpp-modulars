@@ -2,9 +2,8 @@
 
 #include <string>
 #include <iostream>
-#include <stdexcept>
 
-// _grade; from 1 to 150: highest to lowese
+// _grade; from 1 to 150: highest to lowest
 class Bureaucrat
 {
 private:
@@ -13,7 +12,7 @@ private:
     void checkGrade(int grade) const;
 	
 public:
-	Bureaucrat(std::string name, int grade);
+	Bureaucrat(const std::string& name, int grade);
     Bureaucrat(const Bureaucrat& other);               
     Bureaucrat& operator=(const Bureaucrat &other);
     ~Bureaucrat();
@@ -23,9 +22,7 @@ public:
     void incrementGrade();
     void decrementGrade();
 
-    // Any attempt to instantiate a Bureaucrat using an invalid grade must throw an exception:
-    // Bureaucrat::GradeTooHighException  or   Bureaucrat::GradeTooLowException.
-    // it needs to be nested
+    // it needs to be nested, indicated by the subject example
     class GradeTooHighException :public std::exception
     {
         const char* what() const throw();
@@ -37,6 +34,4 @@ public:
     };
 };
 
-// you will implement an overload of the insertion («) operator to print something like
-// <name>, bureaucrat grade <grade>.
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);

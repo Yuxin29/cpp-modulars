@@ -10,8 +10,11 @@ int main(void)
     // ShrubberyCreationForm: Required grades: sign 145, exec 137
     try {
         Bureaucrat a("Alice", 1);
+        std::cout << a << std::endl;
         ShrubberyCreationForm scf("scf_Alice");
+        std::cout << scf << std::endl;
         a.signAForm(scf);
+        std::cout << scf << std::endl;
         a.executeForm(scf);
     }
     catch (std::exception& e){

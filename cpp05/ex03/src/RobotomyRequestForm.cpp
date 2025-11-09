@@ -1,6 +1,7 @@
 #include "RobotomyRequestForm.hpp"
+#include <random>  
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target)
+RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
     :AForm("other forms", 72, 45), _target(target){
 }
 
@@ -21,13 +22,13 @@ const std::string& RobotomyRequestForm::getTarget() const{
     return _target;
 }
 
-#include <random>  
-
-//just a tree
+// unsigned seed = rd(); random seed get a ramdom seed from hardware
+// generate a random nbr using this seed.
+//define a range
 void RobotomyRequestForm::executeAction() const{
-    std::random_device rd;  // unsigned seed = rd(); // random seed get a ramdom seed from hardware
-    std::mt19937 gen(rd()); //generate a random nbr using this seed.
-    std::uniform_int_distribution<> dist(0, 1); //define a range
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dist(0, 1);
 
     std::cout << "zzzzzzzzzzzzzzz" << std::endl;
     if (dist(gen))

@@ -1,10 +1,18 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
+#include <stdexcept>
 
-Form::Form(std::string name, int gradeToSign, int gradeToExecute)
+Form::Form(const std::string& name, int gradeToSign, int gradeToExecute)
     :_name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute){
     checkGrade(gradeToSign);
     checkGrade(gradeToExecute);
+}
+
+void Form::checkGrade(int grade) const{
+    if (grade < 1)
+        throw GradeTooHighException();
+     if (grade > 150)
+        throw GradeTooLowException();
 }
 
 Form::Form(const Form& other)
@@ -18,13 +26,6 @@ Form& Form::operator=(const Form &other){
 }
 
 Form::~Form(){
-}
-
-void Form::checkGrade(int grade) const{
-    if (grade < 1)
-        throw GradeTooHighException();
-     if (grade > 150)
-        throw GradeTooLowException();
 }
 
 const std::string& Form::getName() const{
@@ -60,9 +61,7 @@ const char* Form::GradeTooLowException::what() const throw(){
     return "grade too low";
 }
 
-
-std::ostream& operator<<(std::ostream& os, const Form& f)
-{
+std::ostream& operator<<(std::ostream& os, const Form& f) {
     os << f.getName() << ", grade to Sign " << f.getGradeToSign () << ", grade to Execute " << f.getGradeToExecute () << ", signed or not: " << f.getSignedOrNot() <<  ".";
     return os;
 }

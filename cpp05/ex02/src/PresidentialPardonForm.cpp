@@ -1,6 +1,6 @@
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target)
+PresidentialPardonForm::PresidentialPardonForm(const std::string& target)
     :AForm("other forms", 25, 5), _target(target){
 }
 
@@ -21,7 +21,6 @@ const std::string& PresidentialPardonForm::getTarget() const{
     return _target;
 }
 
-//just a tree
 void PresidentialPardonForm::executeAction() const{
     std::cout << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }

@@ -11,6 +11,7 @@ int main(void)
     catch (std::exception& e){
         std::cout << e.what() << std::endl;
     }
+    std::cout << std::endl;
 
     //lower limit
     try {
@@ -21,6 +22,7 @@ int main(void)
     catch (std::exception& e){
         std::cout << e.what() << std::endl;
     }
+    std::cout << std::endl;
 
     //illegal construction
     try {
@@ -29,6 +31,7 @@ int main(void)
     catch (std::exception& e){
         std::cout << e.what() << std::endl;
     }
+    std::cout << std::endl;
 
     //normal functioning
     try {
@@ -40,5 +43,5 @@ int main(void)
     catch (std::exception &e){
         std::cout << e.what() << std::endl;
     }
-
+    std::cout << std::endl;
 }

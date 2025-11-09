@@ -1,6 +1,7 @@
 #include "ShrubberyCreationForm.hpp"
+#include <fstream>
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target)
     :AForm("other forms", 145, 137), _target(target){
 }
 
@@ -21,13 +22,11 @@ const std::string& ShrubberyCreationForm::getTarget() const{
     return _target;
 }
 
-#include <fstream>
-
-//just a tree
+// just a tree
+// std::ofstream file(std::string filename)
 void ShrubberyCreationForm::executeAction() const{
-    std::ofstream file((_target + "_Shrubbery").c_str()); // check this later
-    if (!file.is_open())
-    {
+    std::ofstream file((_target + "_Shrubbery")); // create and open outfile
+    if (!file.is_open()) {
         std::cout << "Error: cannot open output file." << std::endl;
         return;
     }

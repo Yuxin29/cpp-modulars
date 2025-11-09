@@ -1,9 +1,4 @@
-#include "Bureaucrat.hpp"
-#include "AForm.hpp"
 #include "Intern.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
 
 int main(void)
 {
@@ -14,23 +9,29 @@ int main(void)
     AForm* formInvalid;
 
     // Test creating valid forms
-    form1 = someRandomIntern.makeForm("ShrubberyCreationForm request", "Home");
-    form2 = someRandomIntern.makeForm("RobotomyRequestForm request", "Bender");
-    form3 = someRandomIntern.makeForm("PresidentialPardonForm request", "Alice");
+    form1 = someRandomIntern.makeForm("shrubbery creation", "Home");
+    form2 = someRandomIntern.makeForm("robotomy request", "Bender");
+    form3 = someRandomIntern.makeForm("presidential pardon", "Alice");
 
     // Test creating an invalid form
     formInvalid = someRandomIntern.makeForm("unknown form", "Target");
 
-    std::cout << form1 << std::endl;
-    std::cout << form2 << std::endl;
-    std::cout << form3 << std::endl;
-    std::cout << formInvalid << std::endl;
-
-    std::cout << "\n--- Clean up ---\n";
-    // delete form1;
-    // delete form2;
-    // delete form3;
-    // delete formInvalid; // safe even if nullptr
+    if (form1){
+        std::cout << *form1 << std::endl;
+        delete form1;
+    }
+    if (form2){
+        std::cout << *form2 << std::endl;
+        delete form2;
+    }
+    if (form3){
+        std::cout << *form3 << std::endl;
+        delete form3;
+    }
+    if (formInvalid){
+        std::cout << *formInvalid << std::endl;
+        delete formInvalid;
+    }
 
     return 0;
 }
