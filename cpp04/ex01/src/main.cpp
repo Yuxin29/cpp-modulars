@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 19:05:49 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/24 14:29:32 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/24 14:42:31 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,10 @@ int main()
 		return 1;
     }
 	
-	int n = 4;  // in case of n is 5, there will be 3 cats and 2 dogs
-	Animal* animal_arr[n] = {nullptr};
+	const int n = 4;  // in case of n is 5, there will be 3 cats and 2 dogs
+	Animal* animal_arr[n];
+	for (int i = 0; i < n; ++i)
+		animal_arr[i] = nullptr;
 	try
 	{
 		std::cout << "============ TESTING ARRAY OF ANIMALS WITH BRAINS ============" << std::endl;

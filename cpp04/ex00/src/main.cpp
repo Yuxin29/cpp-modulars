@@ -6,7 +6,7 @@
 /*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 19:05:49 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/24 12:01:08 by yuwu             ###   ########.fr       */
+/*   Updated: 2025/10/24 14:35:41 by yuwu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,32 @@ int main()
 	std::cout << "------------" << std::endl;  
 	c = Dog();
 	
-	std::cout << "------------ testing parent ------------" << std::endl;
-	const Animal* meta = new Animal();
-	const WrongAnimal* wrong_meta = new WrongAnimal();
-	
-	std::cout << "------------ testing child ------------" << std::endl;
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	const WrongAnimal* k = new WrongCat();
+	const Animal* meta = nullptr;
+	const WrongAnimal* wrong_meta = nullptr;
+	const Animal* j = nullptr;
+	const Animal* i = nullptr;
+	const WrongAnimal* k = nullptr;
+	try
+	{
+		std::cout << "------------ testing parent ------------" << std::endl;
+		meta = new Animal();
+		wrong_meta = new WrongAnimal();
+		
+		std::cout << "------------ testing child ------------" << std::endl;
+		j = new Dog();
+		i = new Cat();
+		k = new WrongCat();
+	}
+	catch (const std::bad_alloc& e)
+	{
+		std::cout << "Error: Allocation failed: " << e.what() << std::endl;
+		delete(meta);
+		delete(wrong_meta);
+		delete(j);
+		delete(i);
+		delete(k);
+		return 1;
+	}
 
 	std::cout << "------------ testing getter ------------" << std::endl;
 	std::cout << meta->getType() << " " << std::endl;
