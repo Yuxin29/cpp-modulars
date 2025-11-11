@@ -22,17 +22,24 @@ This repository contains a set of **independent C++ modules**, each designed to 
 
 ***C++ Module 00***
 Namespaces, classes, member functions, stdio streams, initialization lists, static, const, and some other basic stuff
-***C++ Module 01***
-Memory allocation, pointers to members, references, switch statement
-***C++ Module 02***
-Ad-hoc polymorphism, operator overloading and Orthodox Canonical class form
-***C++ Module 03***
-Inheritance
-***C++ Module 01***
-Memory allocation, pointers to members, references, switch statement
+
 ***C++ Module 01***
 Memory allocation, pointers to members, references, switch statement
 
+***C++ Module 02***
+Ad-hoc polymorphism, operator overloading and Orthodox Canonical class form
+
+***C++ Module 03***
+Inheritance
+
+***C++ Module 04***
+Subtype polymorphism, abstract classes, interfaces
+
+***C++ Module 05***
+Repetition and Exceptions
+
+***C++ Module 06***
+C++ casts
 
 🚀 **Build & Run**  
 ⚙️ ***Requirements***
