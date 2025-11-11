@@ -18,8 +18,16 @@ This repository contains a set of **independent C++ modules**, each designed to 
   - Other `.cpp` and `.hpp` files — modular implementation of features  
   - Optional `Makefile` for easy compilation  
 
+🏗️ **what I learned**
+
+# 🕹️ C++ Module 00
+
+C++ Module 00 introduces new coders to the basics of C++, including namespaces, classes, member functions, constructors, initialization lists, static and const variables, and standard I/O streams. Through exercises like Megaphone, My Awesome PhoneBook, and recreating Account.cpp, students practice class design, object instantiation, encapsulation, and basic string and array manipulation while gaining confidence compiling and running C++ programs.
+
+
+
 🚀 **Build & Run**  
-⚙️ **Requirements**
+⚙️ ***Requirements***
 
 - `g++` or `clang++`  
 - Standard C++17 or later  
