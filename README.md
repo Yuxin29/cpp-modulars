@@ -20,7 +20,7 @@ This repository contains a set of **independent C++ modules**, each designed to 
 
 🏗️ **what I learned**
 
-# 🕹️ C++ Module 00
+***C++ Module 00***
 
 C++ Module 00 introduces new coders to the basics of C++, including namespaces, classes, member functions, constructors, initialization lists, static and const variables, and standard I/O streams. Through exercises like Megaphone, My Awesome PhoneBook, and recreating Account.cpp, students practice class design, object instantiation, encapsulation, and basic string and array manipulation while gaining confidence compiling and running C++ programs.
 
