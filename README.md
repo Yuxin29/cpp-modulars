@@ -21,9 +21,17 @@ This repository contains a set of **independent C++ modules**, each designed to 
 🏗️ **what I learned**
 
 ***C++ Module 00***
-
-C++ Module 00 introduces new coders to the basics of C++, including namespaces, classes, member functions, constructors, initialization lists, static and const variables, and standard I/O streams. Through exercises like Megaphone, My Awesome PhoneBook, and recreating Account.cpp, students practice class design, object instantiation, encapsulation, and basic string and array manipulation while gaining confidence compiling and running C++ programs.
-
+Namespaces, classes, member functions, stdio streams, initialization lists, static, const, and some other basic stuff
+***C++ Module 01***
+Memory allocation, pointers to members, references, switch statement
+***C++ Module 02***
+Ad-hoc polymorphism, operator overloading and Orthodox Canonical class form
+***C++ Module 03***
+Inheritance
+***C++ Module 01***
+Memory allocation, pointers to members, references, switch statement
+***C++ Module 01***
+Memory allocation, pointers to members, references, switch statement
 
 
 🚀 **Build & Run**  
