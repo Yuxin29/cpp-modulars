@@ -60,7 +60,7 @@ This repository contains a set of **independent C++ modules**, each designed to 
 #### 1. Clone the Module Directory
 
 ```
-git clone github.com/snowhp/CPP-Modules](https://github.com/Yuxin29/cpp-modulars.git
+git clone https://github.com/Yuxin29/cpp-modulars.git
 ```
 
 #### 2. Navigate to the Desired Module/Exercise Directory
