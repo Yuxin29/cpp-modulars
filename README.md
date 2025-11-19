@@ -22,19 +22,11 @@ This repository contains a set of **independent C++ modules**, each designed to 
 
 - Module 00: Namespaces, classes, member functions, stdio streams, initialization lists, static, const, iostream
 - Module 01: Memory allocation, pointers to members, references, switch statement
-- Module 02: Ad-hoc polymorphism, operator overloading and Orthodox Canonical class form
-
-***C++ Module 03***
-Inheritance
-
-***C++ Module 04***
-Subtype polymorphism, abstract classes, interfaces
-
-***C++ Module 05***
-Repetition and Exceptions
-
-***C++ Module 06***
-C++ casts
+- Module 02: Fixed-point numbers, operator overloading and Orthodox Canonical class form
+- Module 03: Inheritance
+- Module 04: Subtype polymorphism, abstract classes, interfaces
+- Module 05: Repetition and Exceptions
+- Module 06: C++ casts
 
 **Build & Run**  
 ***Requirements***
