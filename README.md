@@ -57,7 +57,7 @@ This repository contains a set of **independent C++ modules**, each designed to 
 
 **Compilation**
 
-*** 1. Clone the Module Directory ***
+### 1. Clone the Module Directory
 
 ```
 git clone github.com/snowhp/CPP-Modules
