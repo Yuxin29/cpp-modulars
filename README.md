@@ -20,13 +20,9 @@ This repository contains a set of **independent C++ modules**, each designed to 
 
 **what I learned**
 
-- C++ Module 00
-    -Namespaces, classes, member functions, stdio streams, initialization lists, static, const, iostream
-***C++ Module 01***
-Memory allocation, pointers to members, references, switch statement
-
-***C++ Module 02***
-Ad-hoc polymorphism, operator overloading and Orthodox Canonical class form
+- Module 00: Namespaces, classes, member functions, stdio streams, initialization lists, static, const, iostream
+- Module 01: Memory allocation, pointers to members, references, switch statement
+- Module 02: Ad-hoc polymorphism, operator overloading and Orthodox Canonical class form
 
 ***C++ Module 03***
 Inheritance
