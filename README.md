@@ -55,21 +55,10 @@ This repository contains a set of **independent C++ modules**, each designed to 
 - Module 08 (to be done): Templated containers, iterators, algorithms
 - Module 09 (to be done):: STL
 
-**Build & Run**  
-***Requirements***
-
-- `g++` or `clang++`  
-- Standard C++17 or later  
-
 **Compilation**
 
 1. Navigate to the module directory:  
-```bash
-cd ModuleName
-
-    Compile the module using g++:
-
-g++ -std=c++17 -Wall -Wextra -Werror *.cpp -o ModuleName
+  git clone github.com/snowhp/CPP-Modules
 
     Run the module:
 
