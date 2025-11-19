@@ -1,16 +1,16 @@
-# 🕹️ C++ Modular Projects
+# C++ Modular Projects
 
 This repository contains a set of **independent C++ modules**, each designed to solve a specific task or demonstrate a particular concept. Each module is **self-contained** and can be compiled and run individually.  
 
-📦 **Features**
+**Features**
 
-- 🧱 Modular and self-contained C++ code  
-- ✅ Easy to compile and test each module separately  
-- 🧠 Demonstrates core C++ concepts like classes, inheritance, templates, and data structures  
-- 💥 Proper memory management and error handling  
-- 🔄 Designed for learning and experimentation  
+- Modular and self-contained C++ code  
+- Easy to compile and test each module separately  
+- Demonstrates core C++ concepts like classes, inheritance, templates, and data structures  
+- Proper memory management and error handling  
+- Designed for learning and experimentation  
 
-🗺️ **Project Structure**
+**Project Structure**
 
 - Each module resides in its own folder or directory  
 - Typically includes:  
@@ -18,7 +18,7 @@ This repository contains a set of **independent C++ modules**, each designed to 
   - Other `.cpp` and `.hpp` files — modular implementation of features  
   - Optional `Makefile` for easy compilation  
 
-🏗️ **what I learned**
+**what I learned**
 
 ***C++ Module 00***
 Namespaces, classes, member functions, stdio streams, initialization lists, static, const, and some other basic stuff
@@ -41,13 +41,13 @@ Repetition and Exceptions
 ***C++ Module 06***
 C++ casts
 
-🚀 **Build & Run**  
-⚙️ ***Requirements***
+**Build & Run**  
+***Requirements***
 
 - `g++` or `clang++`  
 - Standard C++17 or later  
 
-🏗️ **Compilation**
+**Compilation**
 
 1. Navigate to the module directory:  
 ```bash
@@ -68,11 +68,3 @@ g++ -std=c++17 -Wall -Wextra -Werror *.cpp -o ModuleName
 cd VectorModule
 g++ -std=c++17 -Wall -Wextra -Werror *.cpp -o VectorModule
 ./VectorModule
-
-📁 Module Guidelines
-
-    Each module should be independent and not rely on other modules
-
-    Use header files (.hpp) for declarations and .cpp for implementation
-
-    Keep code modular and reusable
