@@ -57,9 +57,6 @@ This repository contains a set of **independent C++ modules**, each designed to 
 
 **Compilation**
 
-
-# Compilation Guide for CPP Modules
-
 ## 1. Clone the Module Directory
 
 ```
