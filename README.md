@@ -57,14 +57,34 @@ This repository contains a set of **independent C++ modules**, each designed to 
 
 **Compilation**
 
-1. Clone the module directory:  
-  git clone github.com/snowhp/CPP-Modules
-2. Navigate to the desired module/exercise directory:
-  cd CPP00/ex00
-3. Compile and run your program:
-  make
-  ./PROGRAM_EXECUTABLE_NAME (Depends on the exercise most are default [a.out] or the number of the exercise [ex00])
-4. Also support:
-   make clean
-   make fclean
-   make re
+
+# Compilation Guide for CPP Modules
+
+## 1. Clone the Module Directory
+
+```
+git clone github.com/snowhp/CPP-Modules
+```
+
+## 2. Navigate to the Desired Module/Exercise Directory
+
+```
+cd CPP00/ex00
+```
+
+## 3. Compile and Run Your Program
+
+```
+make
+./PROGRAM_EXECUTABLE_NAME
+```
+
+**Note:** The executable name depends on the exercise. Most are either the default `a.out` or match the exercise folder name (e.g., `ex00`).
+
+## 4. Supported Make Commands
+
+```
+make clean
+make fclean
+make re
+```
