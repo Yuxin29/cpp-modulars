@@ -57,17 +57,10 @@ This repository contains a set of **independent C++ modules**, each designed to 
 
 **Compilation**
 
-1. Navigate to the module directory:  
-  git clone github.com/snowhp/CPP-Modules
+1. Clone the module directory:  
 
-    Run the module:
-
-./ModuleName
-
-💻 Usage Example
-
-    Example for a module called VectorModule:
-
+    git clone github.com/snowhp/CPP-Modules
+   
 cd VectorModule
 g++ -std=c++17 -Wall -Wextra -Werror *.cpp -o VectorModule
 ./VectorModule
