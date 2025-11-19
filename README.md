@@ -21,12 +21,18 @@ This repository contains a set of **independent C++ modules**, each designed to 
 **what I learned**
 
 - Module 00: Namespaces, classes, member functions, stdio streams, initialization lists, static, const, iostream
+  - ex00 - String manipulation and command-line argument handling
+  - ex01 - Classes, Object instantiation, Basic I/O, String manipulation
+  - ex02 - File recreation, C++ programming, Object-oriented design
 - Module 01: Memory allocation, pointers to members, references, switch statement
 - Module 02: Fixed-point numbers, operator overloading and Orthodox Canonical class form
 - Module 03: Inheritance
 - Module 04: Subtype polymorphism, abstract classes, interfaces
 - Module 05: Repetition and Exceptions
-- Module 06: C++ casts
+- Module 06 (to be done):: C++ casts
+- Module 07 (to be done): C++ templates
+- Module 08 (to be done): Templated containers, iterators, algorithms
+- Module 09 (to be done):: STL
 
 **Build & Run**  
 ***Requirements***
