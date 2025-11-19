@@ -58,9 +58,13 @@ This repository contains a set of **independent C++ modules**, each designed to 
 **Compilation**
 
 1. Clone the module directory:  
-
-    git clone github.com/snowhp/CPP-Modules
-   
-cd VectorModule
-g++ -std=c++17 -Wall -Wextra -Werror *.cpp -o VectorModule
-./VectorModule
+  git clone github.com/snowhp/CPP-Modules
+2. Navigate to the desired module/exercise directory:
+  cd CPP00/ex00
+3. Compile and run your program:
+  make
+  ./PROGRAM_EXECUTABLE_NAME (Depends on the exercise most are default [a.out] or the number of the exercise [ex00])
+4. Also support:
+   make clean
+   make fclean
+   make re
