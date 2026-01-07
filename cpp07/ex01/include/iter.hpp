@@ -3,18 +3,14 @@
 #include <string>
 #include <iostream>
 #include <cstdint>
-//uintptr_t is an unsighned int type that guaranteed to be able to hold a ptr without losing info
 
-class iter
+// Implement a function template iter that takes 3 parameters and returns nothing.
+// •The first parameter is the address of an array.
+// •The second one is the length of the array.
+// •The third one is a function that will be call on every element of the array
+template <typename T>
+void iter(T *arr, size_t length, void (*ft)(T &))
 {
-private:
-    // can not be initializable
-    Serializer() {}
-
-public:
-    //It takes a pointer and converts it to the unsigned integer type uintptr_t.
-    static uintptr_t serialize(Data* ptr);
-
-    //It takes an unsigned integer parameter and converts it to a pointer to Data.
-    static Data* deserialize(uintptr_t raw);
-};
+    for (size_t i = 0; i < length; i++)
+        ft(arr[i]);
+}

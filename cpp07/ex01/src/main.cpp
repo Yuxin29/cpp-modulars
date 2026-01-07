@@ -1,18 +1,19 @@
 #include "iter.hpp"
 
+template <typename T>
+static void print(T &x)
+{
+    std::cout << x << std::endl;
+}
+
 int main() {
-    Data test;
-    test.n = 42;
-    test.str = "hello";
+    //testing int
+    int intArr[4] = {0, 1, 2, 3};
+    iter(intArr, 4, print<int>);
 
-    uintptr_t raw = Serializer::serialize(&test);
-    Data* result = Serializer::deserialize(raw);
-    std::cout << "raw integer: " << raw << std::endl;
-    std::cout << "test printing: " << &test << std::endl;
-    std::cout << "result printing: " << result << std::endl;
-
-    if (result == &test)
-        std::cout << "working" << std::endl;
+    //testing str
+    std::string strArr[3] = {"hello", "summer", "goodbye"};
+    iter(strArr, 3, print<std::string>);
     
     return 0;
 }
