@@ -16,7 +16,7 @@ enum LiteralType
     TYPE_PSEUDO_FLOAT,              // 4    fake float            eg nanf, +inff, -inff
     TYPE_PSEUDO_DOUBLE,             // 5    fake double           eg nan, +inf, -inf
     TYPE_INVALID                    // 6    all uncategrized type
-}
+};
 
 class ScalarConverter
 {
