@@ -33,7 +33,7 @@ void Span::addNumber(int number){
 // if you prefer) between all the numbers stored, and return it. 
 // If there are no numbers stored, or only one, no span can be found. 
 // Thus, throw an exception.
-int Span::shortestSpan(){
+int Span::shortestSpan() const{
     if (_numbers.size() < 2)
         throw std::runtime_error("Span is too small");
     std::vector<int> cp = _numbers;
@@ -46,7 +46,7 @@ int Span::shortestSpan(){
     return min_span;
 }
 
-int Span::longestSpan(){
+int Span::longestSpan() const{
     if (_numbers.size() < 2)
         throw std::runtime_error("Span is too small");
     int min = *std::min_element(_numbers.begin(), _numbers.end());

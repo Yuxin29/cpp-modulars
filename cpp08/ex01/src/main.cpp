@@ -15,12 +15,11 @@ int main( void )
     std::cout << sp.longestSpan() << std::endl;
     
     std::cout << "--------- large number test---------\n";
-    Span sp_large = Span(100);
-    sp_large.addNumber(6);
-    sp_large.addNumber(3);
-    sp_large.addNumber(17);
-    sp_large.addNumber(9);
-    sp_large.addNumber(11);
+    Span sp_large = Span(10);
+    std::vector<int> v = {1, 3, 8 ,15};
+    sp_large.addRange(v.begin(), v.end());
+    sp_large.addRange(v.begin(), v.end());
+    sp_large.addRange(v.begin(), v.end());
     std::cout << sp_large.shortestSpan() << std::endl;
     std::cout << sp_large.longestSpan() << std::endl;
     return 0;
