@@ -3,35 +3,33 @@
 #include <string>
 #include <iostream>
 
-// why templete;
-// without templete, the belows all need to be defined
-// int swap(int a, int b);        // only int
-// float swap(float a, float b); // only float 
-// char swap(char a, char b);        // only int
+// Last but not least, it would be wonderful to fill your Span using a range of iterators.
+// Making thousands calls to addNumber() is so annoying. 
+// Implement a member function to add many numbers to your Span in one call.
+// If you don’t have a clue, study the Containers. 
+// Some member functions take a range of iterators in order to add a sequence of elements to the container.
+class Span{
+private:
+    // Develop a Span class that can store a maximum of N integers. 
+    // N is an unsigned int variable and will be the only parameter passed to the constructor.
+    unsigned int    N;
 
-// swap: Swaps the values of two given arguments. Does not return anything.
-template <typename T>
-void swap(T& a, T& b){
-    T temp = a;
-    a = b;
-    b = temp;
-}
+public:
+    Span(unsigned int N);
+    Span(const Span& another);
+    Span& operator=(const Span &other);
+    ~Span(); 
 
-// min: Compares the two values passed in its arguments and returns the smallest one. 
-// If the two of them are equal, then it returns the second one.
-template <typename T>
-T min(T a, T b)
-{
-    if (a < b)
-        return a;
-    return b;
-}
+    // This class will have a member function called addNumber() to add a single number to the Span. 
+    // It will be used in order to fill it. 
+    // Any attempt to add a new element if there are already N elements stored should throw an exception.
+    void addNumber(int nbr);
 
-// max: Compares the two values passed in its arguments and returns the greatest one.
-// If the two of them are equal, then it returns the second one.
-template <typename T>
-T max(T a, T b){
-    if (a > b)
-        return a;
-    return b;
-}
+    // Next, implement two member functions: shortestSpan() and longestSpan()
+    // They will respectively find out the shortest span or the longest span (or distance,
+    // if you prefer) between all the numbers stored, and return it. 
+    // If there are no numbers stored, or only one, no span can be found. 
+    // Thus, throw an exception.
+    int shortestSpan();
+    int longestSpan();
+};
