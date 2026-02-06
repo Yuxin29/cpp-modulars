@@ -1,20 +1,13 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/05 16:50:02 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/11 17:57:40 by yuwu             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include <string>   //find, erase, insert, length, empty, +=
-#include <iostream> //std::cout, std::endl
-#include <fstream>  //filestream; openm is_open, get line
+#include <string>       //find, erase, insert, length, empty, +=
+#include <iostream>     //std::cout, std::endl
+#include <fstream>      //filestream; openm is_open, get line
 #include <sys/stat.h>   //for checking if it is regular file
 
+// Create a program that takes three parameters in the following order: 
+// a filename and two strings, s1 and s2.
+// It will open the file <filename> and copies its content into a new file <filename>.replace, 
+// replacing every occurrence of s1 with s2.
+// Using C file manipulation functions is forbidden and will be considered cheating.
 bool is_regular_file(char *file)
 {  
     struct stat sb;
@@ -30,8 +23,7 @@ std::string ft_replace(std::string content, const std::string &s1, const std::st
     if (s1.empty())
         return content;
     size_t pos = 0;
-	while ((pos = content.find(s1, pos)) != std::string::npos)
-	{
+	while ((pos = content.find(s1, pos)) != std::string::npos){
 		content.erase(pos, s1.length());
 		content.insert(pos, s2);
 		pos += s2.length();
@@ -42,21 +34,18 @@ std::string ft_replace(std::string content, const std::string &s1, const std::st
 int main(int ac, char **av)
 {
     //input check
-    if (ac != 4)
-    {
+    if (ac != 4){
         std::cout << "Error: wrong av number." << std::endl;
         return 1;
     }
     //check if it is a regular file
-    if (!is_regular_file(av[1]))
-    {
+    if (!is_regular_file(av[1])){
         std::cout << "Error: file is not a regular file." << std::endl;
         return 1;
     }
     //open av[1],
     std::ifstream ifs(av[1]);
-    if (!ifs.is_open())
-    {
+    if (!ifs.is_open()){
         std::cout << "Error: openning infile failed." << std::endl;
         return 1;
     }
@@ -69,8 +58,7 @@ int main(int ac, char **av)
     //create ac[1].replace //paste av[1] content to ac[1].replace
     std::string out_filename = std::string(av[1]) + ".replace";
     std::ofstream ofs(out_filename.c_str());
-    if (!ofs.is_open())
-    {
+    if (!ofs.is_open()){
         std::cout << "Error: openning outfile failed." << std::endl;
         return 1;
     }
