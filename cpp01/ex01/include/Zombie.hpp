@@ -1,17 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/05 16:49:45 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/11 15:55:49 by yuwu             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#ifndef ZOMBIE_H
-#define ZOMBIE_H
+#pragma once 
 
 #include <string>
 #include <iostream>
@@ -34,5 +21,3 @@ public:
 // Then, it has to initialize the zombies, 
 // giving each one of them the name passed as parameter. 
 Zombie* zombieHorde(int N, std::string name);
-
-#endif

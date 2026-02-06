@@ -1,18 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/05 16:49:12 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/11 16:10:54 by yuwu             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Zombie.hpp"
 
-//return 0; //return (nullptr); / return NULL;
+//return 0; //return (nullptr); // return NULL;
 Zombie* zombieHorde(int N, std::string name)
 {
     if (N < 1)
