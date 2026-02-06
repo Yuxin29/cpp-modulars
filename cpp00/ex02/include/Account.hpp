@@ -8,8 +8,6 @@
 // ************************************************************************** //
 
 #pragma once
-#ifndef __ACCOUNT_H__
-#define __ACCOUNT_H__
 
 // ************************************************************************** //
 //                               Account Class                                //
@@ -22,6 +20,7 @@ public:
 	typedef Account		t;
 
 	//static member varials
+	// these members belong to the class itself. shared by all Account objects
 	static int	getNbAccounts( void );
 	static int	getTotalAmount( void );
 	static int	getNbDeposits( void );
@@ -37,8 +36,7 @@ public:
 	void	displayStatus( void ) const;
 
 private:
-
-	//static member varials: information of all accounts: class-level
+	//static member variables: information of all accounts: class-level
 	static int	_nbAccounts;
 	static int	_totalAmount;
 	static int	_totalNbDeposits;
@@ -63,4 +61,3 @@ private:
 // -*- fill-column: 75; comment-column: 75;                                  -*-
 // ************************************************************************** //
 
-#endif /* __ACCOUNT_H__ */

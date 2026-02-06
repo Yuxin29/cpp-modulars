@@ -1,21 +1,12 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Account.cpp                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/04 18:11:36 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/05 16:45:17 by yuwu             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Account.hpp"
 #include <ctime>
 #include <iomanip> //std::setfill, std::setw
 #include <iostream>
 
-//private static attibute must be defined outside the class oncce
+// ************************************************************************** //
+//                               Private                                      //
+// ************************************************************************** //
+//private static attibute must be defined outside the class once
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
@@ -42,6 +33,10 @@ void	Account::_displayTimestamp( void )
                 << "] ";
 }
 
+
+// ************************************************************************** //
+//                               Public                                       //
+// ************************************************************************** //
 //constructor
 // [19920104_091532] index:4;amount:1234;created
 Account::Account(int initial_deposit)
@@ -81,8 +76,7 @@ void	Account::makeDeposit(int deposit)
 // [19920104_091532] index:2;p_amount:1521;withdrawal:657;amount:864;nb_withdrawals:1
 bool	Account::makeWithdrawal(int withdrawal)
 {
-    if (withdrawal > _amount)
-    {
+    if (withdrawal > _amount){
         _displayTimestamp();
         std::cout << "index:" << _accountIndex << ";p_amount:" << _amount << ";withdrawal:refused" << std::endl;
         return false;
@@ -114,29 +108,24 @@ void	Account::displayStatus(void) const
 }
 
 //***********************class level***********************
-int	Account::getNbAccounts(void)
-{
+int	Account::getNbAccounts(void){
     return _nbAccounts;
 }
 
- int	Account::getTotalAmount(void)
-{
+int	Account::getTotalAmount(void){
     return _totalAmount;
 }
 
- int	Account::getNbDeposits(void)
-{
+int	Account::getNbDeposits(void){
     return _totalNbDeposits;
 }
 
- int	Account::getNbWithdrawals(void)
-{
+int	Account::getNbWithdrawals(void){
     return _totalNbWithdrawals;
 }
 
 //[19920104_091532] accounts:8;total:20049;deposits:0;withdrawals:0
- void	Account::displayAccountsInfos(void)
-{   
+void	Account::displayAccountsInfos(void){   
     _displayTimestamp();
     std::cout   << "accounts:" << _nbAccounts 
                 << ";total:" << _totalAmount 

@@ -1,19 +1,7 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Contact.cpp                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/03 14:37:14 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/05 15:49:00 by yuwu             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Contact.hpp"
     
 // set infos: input is a mutable object: 
-void	Contact::getContact()
+void    Contact::getContact()
 {
     std::string input;
 
@@ -58,24 +46,21 @@ void	Contact::getContact()
     DarkestSecret = input;
 }
 
-void        Contact::printContactNames(int i)
+void    Contact::printContactNames(int i)
 {
     std::string fn = FirstName;
     std::string ln = LastName;
     std::string nn = Nickname;
     
-    if (fn.length() > MAX_LENGTH)
-	{
+    if (fn.length() > MAX_LENGTH){
 		fn.resize(MAX_LENGTH - 1);
 		fn.append(".");
 	}
-    if (ln.length() > MAX_LENGTH)
-	{
+    if (ln.length() > MAX_LENGTH){
 		ln.resize(MAX_LENGTH - 1);
 		ln.append(".");
 	}
-    if (nn.length() > MAX_LENGTH)
-	{
+    if (nn.length() > MAX_LENGTH){
 		nn.resize(MAX_LENGTH - 1);
 		nn.append(".");
 	}
@@ -85,7 +70,7 @@ void        Contact::printContactNames(int i)
               << std::setw(10) << nn << std::endl;
 }
     
-void        Contact::printContact()
+void    Contact::printContact()
 {
     std::cout << "First name: " << FirstName << std::endl;
     std::cout << "Last name: " << LastName << std::endl;
