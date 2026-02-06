@@ -2,6 +2,7 @@
 
 #include <string>
 #include <iostream>
+#include <new>       // defines std::nothrow
 
 class Zombie
 {
@@ -18,6 +19,5 @@ public:
 };
 
 // It must allocate N Zombie objects in a single allocation. 
-// Then, it has to initialize the zombies, 
-// giving each one of them the name passed as parameter. 
+// Then, it has to initialize the zombies,  giving each one of them the name passed as parameter. 
 Zombie* zombieHorde(int N, std::string name);

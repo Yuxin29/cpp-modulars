@@ -10,7 +10,7 @@ int main()
         boy_horde[i].announce();
     }
     delete[] boy_horde;
-    std::cout << std::endl << std::endl;
+    std::cout << std::endl;
 
     std::cout << "------now here comes 0-Zombie arrays------" << std::endl;
     Zombie* none_horde = zombieHorde(0, "none");
@@ -19,7 +19,7 @@ int main()
         none_horde[i].announce();
     }
     delete[] none_horde;
-    std::cout << std::endl << std::endl;
+    std::cout << std::endl;
 
     std::cout << "------now here comes empty-Zombie arrays------" << std::endl;
     Zombie* empty_horde = zombieHorde(3, "");
@@ -28,7 +28,7 @@ int main()
         empty_horde[i].announce();
     }
     delete[] empty_horde;
-    std::cout << std::endl << std::endl;
+    std::cout << std::endl;
 
     return 0;
 }

@@ -1,17 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/05 16:49:45 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/11 16:48:19 by yuwu             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#ifndef WEAPON_H
-#define WEAPON_H
+# pragma once
 
 #include <string>
 #include <iostream>
@@ -31,5 +18,3 @@ public:
     const std::string& getType(void);
     void setType(std::string new_type);
 };
-
-#endif

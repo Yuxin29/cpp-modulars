@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/05 16:50:02 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/11 17:03:25 by yuwu             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 
@@ -21,7 +9,7 @@ int main()
     std::cout << "the original type is " << test.getType() << std::endl;
     test.setType("hot weapon");
     std::cout << "the new type is " << test.getType() << std::endl;
-    std::cout << "------------------------" << std::endl << std::endl;
+    std::cout << std::endl;
     
     // HumanA testing
     {
@@ -31,7 +19,7 @@ int main()
     bob.attack();
     club.setType("some other type of club");
     bob.attack();
-    std::cout << "------------------------" << std::endl << std::endl;
+    std::cout << std::endl;
     }
     
     // HumanB testing
@@ -44,7 +32,8 @@ int main()
     jim.attack();
     club.setType("some other type of club");
     jim.attack();
-    std::cout << "------------------------" << std::endl << std::endl;
+    std::cout << std::endl;
     }
+
     return 0;
 }
