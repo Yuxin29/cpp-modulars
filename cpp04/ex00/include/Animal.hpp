@@ -1,20 +1,13 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/20 19:05:02 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/24 11:43:10 by yuwu             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #pragma once
 
 #include <string>
 #include <iostream>
 
+// 4 Features of all OOP including C++
+// Encapsulation   Hide data, control access
+// Abstraction     Show result, hide how
+// Inheritance     Reuse and extend
+// Polymorphism	One interface, many behaviors
 class Animal
 {
 protected:
