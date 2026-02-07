@@ -1,17 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 10:52:25 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/17 15:36:48 by yuwu             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#ifndef FIXED_H
-#define FIXED_H
+#pragma once
 
 #include <string>
 #include <iostream>
@@ -36,5 +23,3 @@ public:
     int getRawBits(void) const;
     void setRawBits(int const raw);
 };
-
-#endif
