@@ -1,21 +1,10 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/20 19:05:02 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/24 12:38:56 by yuwu             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #pragma once
 
 #include <string>
 #include <iostream>
 
-//pure vitual class can only be called bu new or state directly, it can only be inharited,
+// pure vitual class can only be called by new or state directly, it can only be inheritated,
 // on child process, this pure vitual member function needs to be override.
 class Animal
 {
@@ -26,8 +15,10 @@ public:
 	Animal();
     Animal(const Animal& other);               
     Animal& operator=(const Animal &other);
-    virtual ~Animal();  //virtual makes sure when deconstruct/delete parent, child is also deconstructed/deleted
+	//virtual makes sure when deconstruct/delete parent, child is also deconstructed/deleted
+    virtual ~Animal();  
 
-	virtual void makeSound() const = 0;        //pure vitual, so the Animal class it pure abstact, can only be inharited, not created direcly.
+	//pure vitual, so the Animal class it pure abstact, can only be inharited, not created direcly.
+	virtual void makeSound() const = 0;    
 	std::string getType() const;
 };

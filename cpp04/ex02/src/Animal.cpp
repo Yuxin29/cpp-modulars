@@ -1,36 +1,20 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/20 19:20:59 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/24 12:48:48 by yuwu             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Animal.hpp"
 
-Animal::Animal()
-{
+Animal::Animal(){
     _type = "Pet";
     std::cout << "Animal: " << _type << " constructed." << std::endl;
 }
 
-Animal::Animal(const Animal& other)
-{
+Animal::Animal(const Animal& other){
     this->_type = other._type;
 }
 
-Animal& Animal::operator=(const Animal &other)
-{
+Animal& Animal::operator=(const Animal &other){
     this->_type = other._type;
     return *this;
 }
 
-Animal::~Animal()
-{    
+Animal::~Animal(){    
     std::cout << "Animal: " << _type << " deconstructed." << std::endl;
 }
 

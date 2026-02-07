@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Brain.cpp                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/20 20:45:51 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/24 12:14:51 by yuwu             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Brain.hpp"
 
 Brain::Brain()
@@ -19,26 +7,20 @@ Brain::Brain()
         _ideas[i] = "";    
 }
 
-Brain::Brain(const Brain& other)
-{
+Brain::Brain(const Brain& other){
     for (int i = 0; i < 100; i++)
-    {
         _ideas[i] = other._ideas[i];
-    }
 }
 
-//do I need to check identical case here-->> good habit, but not necessary here, because all static
-Brain& Brain::operator=(const Brain &other)
-{
+//do I need to check identical case here
+// -->> good habit, but not necessary here, because all static
+Brain& Brain::operator=(const Brain &other){
     for (int i = 0; i < 100; i++)
-    {
         _ideas[i] = other._ideas[i];
-    }
     return *this;
 }
     
-Brain::~Brain()
-{
+Brain::~Brain(){
     std::cout << "Brain deconstructed." << std::endl;
 }
 

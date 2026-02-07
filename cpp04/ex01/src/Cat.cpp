@@ -1,6 +1,8 @@
 #include "Cat.hpp"
 #include "Brain.hpp"
 
+//Shallow copy copies pointers, deep copy copies the data they point to.
+
 Cat::Cat()
     : Animal(){
     _type = "Cat";
@@ -10,13 +12,15 @@ Cat::Cat()
 
 Cat::Cat(const Cat& other)
     : Animal(other){
-    _brain = new Brain(*other._brain);// deep copy
+    // deep copy
+    _brain = new Brain(*other._brain);
 }
 
 Cat& Cat::operator=(const Cat &other){
     if (this != &other) {
         Animal::operator=(other);
-        *_brain = *other._brain; //deepcopy
+         //deepcopy
+        *_brain = *other._brain;
     }
     return *this;
 }

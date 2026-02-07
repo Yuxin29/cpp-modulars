@@ -1,36 +1,20 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   WrongWrongAnimal.cpp                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/23 13:26:25 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/23 13:27:25 by yuwu             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal()
-{
+WrongAnimal::WrongAnimal(){
     _type = "WrongPet";
     std::cout << "WrongAnimal: " << _type << " constructed." << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal& other)
-{
+WrongAnimal::WrongAnimal(const WrongAnimal& other){
     this->_type = other._type;
 }
 
-WrongAnimal& WrongAnimal::operator=(const WrongAnimal &other)
-{
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal &other){
     this->_type = other._type;
     return *this;
 }
 
-WrongAnimal::~WrongAnimal()
-{    
+WrongAnimal::~WrongAnimal(){    
     std::cout << "WrongAnimal: " << _type << " deconstructed." << std::endl;
 }
 
