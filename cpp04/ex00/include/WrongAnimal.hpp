@@ -12,8 +12,10 @@ public:
 	WrongAnimal();
     WrongAnimal(const WrongAnimal& other);               
     WrongAnimal& operator=(const WrongAnimal &other);
-    virtual ~WrongAnimal();  //still virtual, for mem safety
+    virtual ~WrongAnimal();  
+	//still virtual, for mem safety
 
-	void makeSound() const;         //not virtual, so polymorphism won't apply
+	void makeSound() const;         
+	//not virtual, so the WrongCat should output the WrongAnimal sound.
 	std::string getType() const;   
 };
