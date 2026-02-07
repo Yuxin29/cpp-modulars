@@ -11,9 +11,8 @@ private:
 	const std::string   _name;
     const int           _gradeToSign;
     const int           _gradeToExecute;
-    bool                _signed = false; // true for signed, false for not signed
-    
-    void checkGrade(int grade) const;
+    bool                _signed = false;
+    void                checkGrade(int grade) const;
 	
 public:
 	Form(const std::string& name, int gradeToSign, int gradeToExecute);

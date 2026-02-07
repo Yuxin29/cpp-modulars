@@ -1,11 +1,14 @@
 #include "Bureaucrat.hpp"
 #include <stdexcept>
 
-//const var must be initiated at the begining of the declaration
-Bureaucrat::Bureaucrat(const std::string& name, int grade)
-    :_name(name) {
-    checkGrade(grade);
-    _grade = grade;
+// Any attempt to instantiate a Bureaucrat using an invalid grade must throw an exception:
+// Bureaucrat::GradeTooHighException  or   Bureaucrat::GradeTooLowException.
+const char* Bureaucrat::GradeTooHighException::what() const throw() {
+    return "grade too high";
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw() {   
+    return "grade too low";
 }
 
 //internal helper function
@@ -14,6 +17,13 @@ void Bureaucrat::checkGrade(int grade) const{
         throw GradeTooHighException();
     if (grade > 150)
         throw GradeTooLowException();
+}
+
+//const var must be initiated at the begining of the declaration
+Bureaucrat::Bureaucrat(const std::string& name, int grade)
+    :_name(name) {
+    checkGrade(grade);
+    _grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other) 
@@ -46,16 +56,6 @@ void Bureaucrat::incrementGrade(){
 void Bureaucrat::decrementGrade(){
     checkGrade(_grade + 1);
     _grade++;
-}
-
-// Any attempt to instantiate a Bureaucrat using an invalid grade must throw an exception:
-// Bureaucrat::GradeTooHighException  or   Bureaucrat::GradeTooLowException.
-const char* Bureaucrat::GradeTooHighException::what() const throw() {
-    return "grade too high";
-}
-
-const char* Bureaucrat::GradeTooLowException::what() const throw() {   
-    return "grade too low";
 }
 
 // you will implement an overload of the insertion («) operator to print something like

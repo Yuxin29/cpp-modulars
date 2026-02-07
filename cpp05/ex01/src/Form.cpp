@@ -2,10 +2,12 @@
 #include "Bureaucrat.hpp"
 #include <stdexcept>
 
-Form::Form(const std::string& name, int gradeToSign, int gradeToExecute)
-    :_name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute){
-    checkGrade(gradeToSign);
-    checkGrade(gradeToExecute);
+const char* Form::GradeTooHighException::what() const throw(){   
+    return "grade too high";
+}
+
+const char* Form::GradeTooLowException::what() const throw(){   
+    return "grade too low";
 }
 
 void Form::checkGrade(int grade) const{
@@ -13,6 +15,12 @@ void Form::checkGrade(int grade) const{
         throw GradeTooHighException();
      if (grade > 150)
         throw GradeTooLowException();
+}
+
+Form::Form(const std::string& name, int gradeToSign, int gradeToExecute)
+    :_name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute){
+    checkGrade(gradeToSign);
+    checkGrade(gradeToExecute);
 }
 
 Form::Form(const Form& other)
@@ -44,21 +52,12 @@ bool Form::getSignedOrNot() const{
     return _signed;
 }
 
-
 void Form::beSigned(const Bureaucrat& b){
     if (_signed)
         throw std::runtime_error("Form already signed");
     if (b.getGrade() > _gradeToSign)
         throw GradeTooLowException();
     _signed = true;
-}
-
-const char* Form::GradeTooHighException::what() const throw(){   
-    return "grade too high";
-}
-
-const char* Form::GradeTooLowException::what() const throw(){   
-    return "grade too low";
 }
 
 std::ostream& operator<<(std::ostream& os, const Form& f) {

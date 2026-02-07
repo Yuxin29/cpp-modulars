@@ -2,11 +2,12 @@
 #include "Form.hpp"
 #include <stdexcept>
 
-//const var must be initiated at the begining of the declaration
-Bureaucrat::Bureaucrat(const std::string& name, int grade)
-    :_name(name) {
-    checkGrade(grade);
-    _grade = grade;
+const char* Bureaucrat::GradeTooHighException::what() const throw(){   
+    return "grade too high";
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw(){   
+    return "grade too low";
 }
 
 void Bureaucrat::checkGrade(int grade) const{
@@ -14,6 +15,12 @@ void Bureaucrat::checkGrade(int grade) const{
         throw GradeTooHighException();
      if (grade > 150)
         throw GradeTooLowException();
+}
+
+Bureaucrat::Bureaucrat(const std::string& name, int grade)
+    :_name(name) {
+    checkGrade(grade);
+    _grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other) 
@@ -57,14 +64,6 @@ void Bureaucrat::signForm(Form& f){
         std::cout << e.what() << std::endl;
         std::cout << _name << " couldn’t sign " << f.getName() << " because " << e.what() << std::endl;
     }
-}
-
-const char* Bureaucrat::GradeTooHighException::what() const throw(){   
-    return "grade too high";
-}
-
-const char* Bureaucrat::GradeTooLowException::what() const throw(){   
-    return "grade too low";
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b){

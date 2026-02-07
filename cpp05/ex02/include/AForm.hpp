@@ -29,7 +29,8 @@ public:
     void            beSigned(const Bureaucrat& b);
     // !!!!!!!!!!!!!  NEW HEWE !!!!!!!!!!!!!!
     void            execute(Bureaucrat const & executor) const;
-    virtual void    executeAction() const = 0; //pure virtual. so the child can all use it and the child must inplement  it themselves
+    //pure virtual. so the child can all use it and the child must inplement it themselves
+    virtual void    executeAction() const = 0;
 
     class GradeTooHighException :public std::exception{
         const char* what() const throw();

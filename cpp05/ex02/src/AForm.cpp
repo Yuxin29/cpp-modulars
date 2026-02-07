@@ -2,10 +2,12 @@
 #include "Bureaucrat.hpp"
 #include <stdexcept>
 
-AForm::AForm(const std::string& name, int gradeToSign, int gradeToExecute)
-    :_name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute){
-    checkGrade(gradeToSign);
-    checkGrade(gradeToExecute);
+const char* AForm::GradeTooHighException::what() const throw(){   
+    return "grade too high";
+}
+
+const char* AForm::GradeTooLowException::what() const throw(){   
+    return "grade too low";
 }
 
 void AForm::checkGrade(int grade) const{
@@ -13,6 +15,12 @@ void AForm::checkGrade(int grade) const{
         throw GradeTooHighException();
      if (grade > 150)
         throw GradeTooLowException();
+}
+
+AForm::AForm(const std::string& name, int gradeToSign, int gradeToExecute)
+    :_name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute){
+    checkGrade(gradeToSign);
+    checkGrade(gradeToExecute);
 }
 
 AForm::AForm(const AForm& other)
@@ -63,14 +71,6 @@ void AForm::execute(Bureaucrat const & executor) const {
     if (executor.getGrade() > _gradeToExecute)
         throw GradeTooLowException();
     this->executeAction();
-}
-
-const char* AForm::GradeTooHighException::what() const throw(){   
-    return "grade too high";
-}
-
-const char* AForm::GradeTooLowException::what() const throw(){   
-    return "grade too low";
 }
 
 std::ostream& operator<<(std::ostream& os, const AForm& f) {

@@ -17,7 +17,7 @@ int main(void)
     }
     std::cout << std::endl;
 
-    // cannot signed the for.
+    // cannot signed the form.
     try {
         Bureaucrat b("Boris", 150);
         std::cout << b << std::endl;
@@ -48,7 +48,7 @@ int main(void)
     }
     std::cout << std::endl;
 
-    //trying to sign form repeatedlt
+    //trying to sign form repeatedly
     try {
         Bureaucrat d("David", 10);
         std::cout << d << std::endl;

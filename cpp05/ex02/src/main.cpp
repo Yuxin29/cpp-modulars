@@ -1,5 +1,4 @@
 #include "Bureaucrat.hpp"
-#include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
@@ -69,7 +68,7 @@ int main(void)
     }
     std::cout << std::endl;
 
-    //trying to exect AForm repeatedlt
+    //trying to exect AForm repeatedlY
     try {
         Bureaucrat d("David", 5);
         std::cout << d << std::endl;

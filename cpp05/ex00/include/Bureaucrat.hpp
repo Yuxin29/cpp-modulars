@@ -9,7 +9,7 @@ class Bureaucrat
 private:
 	const std::string   _name;
     int                 _grade;
-    void checkGrade(int grade) const;
+    void                checkGrade(int grade) const;
 	
 public:
 	Bureaucrat(const std::string& name, int grade);
@@ -23,13 +23,11 @@ public:
     void decrementGrade();
 
     // it needs to be nested, indicated by the subject example
-    class GradeTooHighException :public std::exception
-    {
+    class GradeTooHighException :public std::exception{
         const char* what() const throw();
     };
 
-    class GradeTooLowException :public std::exception
-    {
+    class GradeTooLowException :public std::exception{
         const char* what() const throw();
     };
 };
