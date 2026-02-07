@@ -1,20 +1,9 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 10:55:27 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/17 17:13:01 by yuwu             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 int main( void )
 {
-    std::cout << "---------othdox / getter_setter / toInt_toFloat tested before ---------" << std::endl << std::endl;
+    std::cout << " othdox / getter_setter / toInt_toFloat tested before " << std::endl << std::endl;
 
     {
         std::cout << "---------testing comparison operaters begins---------" << std::endl;
@@ -31,7 +20,7 @@ int main( void )
         std::cout << "bool a <= than b: " << (a <= b) << std::endl;
         std::cout << "bool a == than b: " << (a == b) << std::endl;
         std::cout << "bool a != than b: " << (a != b) << std::endl;
-        std::cout << "----stress testing ----" << std::endl;
+        std::cout << "---- a bit harder testing ----" << std::endl;
         std::cout << "bool c > than b: " << c.operator>(b) << std::endl;
         std::cout << "bool c < than b: " << c.operator<(b) << std::endl;
         std::cout << "bool c >= than b: " << c.operator>=(b) << std::endl;
@@ -39,14 +28,14 @@ int main( void )
         std::cout << "bool c == than b: " << c.operator==(b) << std::endl;
         std::cout << "bool c != than b: " << c.operator!=(b) << std::endl;
     }
-    std::cout << "---------testing comparison operaters ends---------" << std::endl  << std::endl;
+    std::cout << std::endl;
 
     {
         std::cout << "---------testing arithmetic operaters begins---------" << std::endl;
         Fixed a = Fixed(2.4f);
         Fixed b = Fixed(2);
         Fixed c = Fixed(0);
-        Fixed d = Fixed(INT_MAX);
+        Fixed d = Fixed(MY_INT_MAX);
         std::cout << "----nomal caculations ----" << std::endl;
         Fixed const pl(a + b);
         Fixed const mi(a - b);
@@ -58,13 +47,13 @@ int main( void )
         std::cout << "the minus is " << mi << std::endl;
         std::cout << "the multi is " << mu << std::endl;
         std::cout << "the devision is " << de << std::endl;
-        std::cout << "----a bit edge test ----" << std::endl;
+        std::cout << "----a bit harder testing ----" << std::endl;
         Fixed const m(a / c);
         Fixed const n(d * d);
         std::cout << "testing deividing by 0: " << m << std::endl;
         std::cout << "testing overflow:  " << n << std::endl;
     }
-    std::cout << "---------testing arithmetic operaters ends---------" << std::endl << std::endl;
+    std::cout << std::endl;
 
     {
         std::cout << "---------testing increment / decrement begings---------" << std::endl;
@@ -87,7 +76,7 @@ int main( void )
         std::cout << c << std::endl;
         std::cout << Fixed::max(a, c) << std::endl;
     }
-    std::cout << "---------testing increment / decrement ends---------" << std::endl << std::endl;
+    std::cout << std::endl;
     
     {
         std::cout << "---------testing max / min operaters begins---------" << std::endl;
@@ -104,7 +93,7 @@ int main( void )
         std::cout << "the max of a and b is(returning non_const) " << Fixed::max(a, b) << std::endl;
         std::cout << "the max of ac and bc is(returning const) " << Fixed::max(a_c, b_c) << std::endl;
     }
-    std::cout << "---------testing max / min operaters ends---------" << std::endl << std::endl;
+    std::cout << std::endl;
 
     return 0;
 }

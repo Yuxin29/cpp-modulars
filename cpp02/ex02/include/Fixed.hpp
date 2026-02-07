@@ -1,24 +1,11 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 10:54:57 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/17 16:17:16 by yuwu             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#ifndef FIXED_H
-#define FIXED_H
+#pragma once
 
 #include <string>
 #include <iostream>
 #include <cmath>
 
-constexpr int INT_MAX = 2147483647;
-constexpr int INT_MIN = -2147483648;
+constexpr int MY_INT_MAX = 2147483647;
+constexpr int MY_INT_MIN = -2147483648;
 
 class Fixed
 {
@@ -55,8 +42,8 @@ public:
     Fixed operator/(const Fixed &another) const;
     
     //The 4 increment/decrement (pre and post) operators, 
-    Fixed &operator++();   //pre  ++i
-    Fixed operator++(int);         //post i++, int no use, just to differentia.
+    Fixed &operator++();        //pre  ++i
+    Fixed operator++(int);      //post i++, int no use, just to differentia.
     Fixed &operator--();
     Fixed operator--(int);      
     
@@ -69,5 +56,3 @@ public:
 
 // Overloads the insertion operator (<<) for Fixed objects.
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
-
-#endif

@@ -4,8 +4,9 @@
 #include <iostream>
 #include <cmath>
 
-constexpr int INT_MAX = 2147483647;
-constexpr int INT_MIN = -2147483648;
+//constexpr means “this value is known at compile time”
+constexpr int MY_INT_MAX = 2147483647;
+constexpr int MY_INT_MIN = -2147483648;
 
 class Fixed
 {
@@ -28,7 +29,6 @@ public:
     int toInt(void) const;
 };
 
-// from the sub
 // An overload of the insertion («) operator that inserts a floating-point representation of the fixed-point number into the output stream object passed as parameter
 // Overloads the insertion operator (<<) for Fixed objects.
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
