@@ -1,30 +1,15 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yuwu <yuwu@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/18 14:22:59 by yuwu              #+#    #+#             */
-/*   Updated: 2025/10/23 11:39:09 by yuwu             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap()
-{
+ClapTrap::ClapTrap(){
     std::cout << "ClapTrap: ClapTrap being constructed without name." << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
-    :_name(name)
-{
+    :_name(name){
     std::cout << "ClapTrap: ClapTrap being constructed: " << name << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap& another)
-{
+ClapTrap::ClapTrap(const ClapTrap& another){
     std::cout << "ClapTrap: copy ClapTrap from: " << another._name << std::endl;
     this->_name = another._name;
     this->_hitPoint = another._hitPoint;
@@ -32,8 +17,7 @@ ClapTrap::ClapTrap(const ClapTrap& another)
     this->_attackDamagePoint = another._attackDamagePoint;
 }
 
-ClapTrap& ClapTrap::operator=(const ClapTrap &other)
-{
+ClapTrap& ClapTrap::operator=(const ClapTrap &other){
     std::cout << "ClapTrap: copy assign ClapTrap from: " << other._name << " to this one." << std::endl;
     this->_name = other._name;
     this->_hitPoint = other._hitPoint;
@@ -42,8 +26,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &other)
     return *this;
 }
 
-ClapTrap::~ClapTrap()
-{
+ClapTrap::~ClapTrap(){
     std::cout << "ClapTrap being deconstructed: " << _name << std::endl;
 }
 
@@ -54,13 +37,11 @@ ClapTrap::~ClapTrap()
 // Of course, ClapTrap can’t do anything if it has no hit points or energy points left.
 void ClapTrap::attack(const std::string& target)
 {
-    if (_hitPoint <= 0)
-    {
+    if (_hitPoint <= 0){
         std::cout << _name << " is dead: out of hit-points." << std::endl;
         return;
     }
-    if (_energyPoint <= 0)
-    {
+    if (_energyPoint <= 0){
         std::cout << _name << " can not attack: out of energy-points." << std::endl;
         return;
     }
@@ -73,8 +54,7 @@ void ClapTrap::attack(const std::string& target)
 // When ClapTrack attacks, it causes its target to lose <attack damage> hit points.
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    if (_hitPoint <= 0)
-    {
+    if (_hitPoint <= 0){
         std::cout << _name << " can not take more damages." << std::endl;
         return;
     }
@@ -91,13 +71,11 @@ void ClapTrap::takeDamage(unsigned int amount)
 // use energy but get more heathy
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    if (_hitPoint <= 0)
-    {
+    if (_hitPoint <= 0){
         std::cout << _name << " is dead: out of hit-points. can not be repaired anymore" << std::endl;
         return;
     }
-    if (_energyPoint <= 0)
-    {
+    if (_energyPoint <= 0){
         std::cout << _name << " can not repair: out of energy-points." << std::endl;
         return;
     }
