@@ -25,11 +25,11 @@ enum LiteralType
 class ScalarConverter
 {
 private:
-    ScalarConverter();
-    ScalarConverter(const ScalarConverter &other);
-    ScalarConverter &operator=(const ScalarConverter &other);
-    ~ScalarConverter();
-    
+    ScalarConverter() = delete;
+    ScalarConverter(const ScalarConverter &other) = delete;
+    ScalarConverter &operator=(const ScalarConverter &other) = delete;
+    ~ScalarConverter() = delete;
+
     static LiteralType getLiteralType(const std::string &literal);
 public:
     static void convert(const std::string &literal);

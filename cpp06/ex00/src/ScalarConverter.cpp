@@ -49,9 +49,9 @@ static void printDouble(double d){
         return;
     }
     std::cout << "double: " << d;
-    if (d == std::floor(d)) 
+    if (d == std::floor(d))  // rounded down double
         std::cout << ".0";
-    std::cout << "f\n";
+    std::cout << "\n";
 }
 
 // private internal helper to first tell what type it is.
