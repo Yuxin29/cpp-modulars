@@ -1,7 +1,7 @@
-
 #include "Base.hpp"
 
 //It randomly instantiates A, B, or C and returns the instance as a Base pointer. 
+// rand() is a "pseudo-random"
 Base* generate(void){
     int r = std::rand() % 3;
     if (r == 0)
@@ -34,7 +34,7 @@ void identify(Base& p){
         return;
     }
     catch (std::bad_cast& e){}
-    //in case of bad case, it jumpes to next try
+    //in case of bad cast, it jumpes to next try
     try {
         (void)dynamic_cast<B&>(p);
         std::cout << "B\n";
@@ -42,8 +42,8 @@ void identify(Base& p){
     }
     catch (std::bad_cast& e){}
     try {
-        (void)dynamic_cast<B&>(p);
-        std::cout << "B\n";
+        (void)dynamic_cast<C&>(p);
+        std::cout << "C\n";
         return;
     }
     catch (std::bad_cast& e){}
