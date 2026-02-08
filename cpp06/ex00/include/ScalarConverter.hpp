@@ -3,7 +3,8 @@
 #include <string>
 #include <iostream>
 
-// NaN: not a number, it is a illegal result mark, std::numeric_limits<double>::quiet_NaN(),  
+// NaN: not a number, it is a illegal result mark, 
+// std::numeric_limits<double>::quiet_NaN(),  
 //                                  eg. 0.0 / 0.0, sqrt(-1.0), 
 // +inf: + endlessly big            eg double inf = std::numeric_limits<double>::infinity();
 // -inf: - endlessly small          eg double -inf = -std::numeric_limits<double>::infinity();
@@ -18,13 +19,18 @@ enum LiteralType
     TYPE_INVALID                    // 6    all uncategrized type
 };
 
+// Write a class ScalarConverter that will contain only one static method "convert" 
+// that will take as a parameter a string representation of a C++ literal in its most common form 
+// and output its value in the following series of scalar types:
 class ScalarConverter
 {
 private:
+    ScalarConverter();
+    ScalarConverter(const ScalarConverter &other);
+    ScalarConverter &operator=(const ScalarConverter &other);
+    ~ScalarConverter();
+    
     static LiteralType getLiteralType(const std::string &literal);
 public:
-    //Write a class ScalarConverter that will contain only one static method "convert" 
-    // that will take as a parameter a string representation of a C++ literal in its most common form 
-    //and output its value in the following series of scalar types:
-    static void convertChar(const std::string &literal);
+    static void convert(const std::string &literal);
 };
