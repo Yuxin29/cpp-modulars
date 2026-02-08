@@ -1,13 +1,10 @@
 #pragma once
 
-#include <string>
-#include <iostream>
-
 // why templete;
 // without templete, the belows all need to be defined
-// int swap(int a, int b);        // only int
-// float swap(float a, float b); // only float 
-// char swap(char a, char b);        // only int
+// int swap(int a, int b);          // only int
+// float swap(float a, float b);    // only float 
+// char swap(char a, char b);       // only int
 
 // swap: Swaps the values of two given arguments. Does not return anything.
 template <typename T>

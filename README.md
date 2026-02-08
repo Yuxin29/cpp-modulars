@@ -51,20 +51,17 @@ This repository contains a set of **independent C++ modules**, each designed to 
   - ex02 - Abstract classes, inheritance, polymorphism, execution logic
   - ex03 - Factory method, class design, string manipulation
 - Module 06: C++ casts
-  - ex00 - xxx
-  - ex01 - xxx
-  - ex02 - xxx
-  - ex03 - xxx
+  - ex00 - Scalar conversion
+  - ex01 - Serialization
+  - ex02 - Runtime type identification
 - Module 07: C++ templates
-  - ex00 - xxx
-  - ex01 - xxx
+  - ex00 - Function templates (swap, min, max)
+  - ex01 - iter function template
   - ex02 - xxx
-  - ex03 - xxx
 - Module 08: Templated containers, iterators, algorithms
   - ex00 - xxx
   - ex01 - xxx
   - ex02 - xxx
-  - ex03 - xxx
 - Module 09 (to be done):: STL
   - ex00 - xxx
   - ex01 - xxx
