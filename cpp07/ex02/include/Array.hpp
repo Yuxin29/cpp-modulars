@@ -1,11 +1,6 @@
 #pragma once
 
-#include <string>
-#include <iostream>
-#include <cstdlib> //rand
-
-//Develop a class template Array that contains elements of type T and 
-// that implements the following behavior and functions:
+//Develop a class template Array that contains elements of type T and implements the following behavior and functions:
 template <typename T>
 class Array {
 private:
@@ -17,7 +12,7 @@ public:
     Array(unsigned int n);
     Array(const Array& other);               
     Array& operator=(const Array &other);
-    ~Array() {}
+    ~Array();
 
     unsigned int size() const;
     T& operator[](unsigned int index);
