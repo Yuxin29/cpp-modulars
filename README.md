@@ -57,7 +57,7 @@ This repository contains a set of **independent C++ modules**, each designed to 
 - Module 07: C++ templates
   - ex00 - Function templates (swap, min, max)
   - ex01 - iter function template
-  - ex02 - xxx
+  - ex02 - Class template Array<T>, Deep Copy, operator[], RAII
 - Module 08: Templated containers, iterators, algorithms
   - ex00 - xxx
   - ex01 - xxx
