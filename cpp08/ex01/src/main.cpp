@@ -27,8 +27,11 @@ int main( void )
     std::vector<int> v = {1, 3, 8 ,15};
     try {
         sp_large.addRange(v.begin(), v.end());
+        std::cout << "added\n";
         sp_large.addRange(v.begin(), v.end());
+        std::cout << "added\n";
         sp_large.addRange(v.begin(), v.end()); // should throw
+        std::cout << "added\n";
     } catch (const std::exception& e) {
         std::cout << "Exception caught: " << e.what() << std::endl;
     }

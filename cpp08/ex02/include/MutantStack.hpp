@@ -1,16 +1,20 @@
 #pragma once
 
-#include <string>
-#include <iostream>
-#include <stack> //rand
+#include <stack>
 
 // std::stack    container adapter   first in, last out
 // by default, std::stack use deque internally to storage data
 // it supports: push(), pop(), top(), empty(), size()
 // it deos not support: iterator
 // it uses container c at the base level, we do use by inherite
+// push()   Adds an element to the top of the stack 
+// pop()    Removes the element to the top of the stack 
+// top()    Accesses (reads) the element at the top
+// empty()  Returns true if the stack has no elements
+// size()   Returns the number of elements currently in the stack
 template <typename T>
-class MutantStack : public std::stack<T>
+class MutantStack 
+    : public std::stack<T>
 {
 public:
     using container_type = typename std::stack<T>::container_type;

@@ -1,41 +1,39 @@
-
 #include "MutantStack.hpp"
+#include <iostream>
 
-// push()   Adds an element to the top of the stack 
-// pop()    Removecs the element to the top of the stack 
-// top()    Accesses (reads) the element at the top
-// empty()  Returns true if the stack has no elements
-// size()   Returns the number of elements currently in the stack
 int main()
 {
     MutantStack<int> mstack;
 
-    std::cout << "---- testing push----\n";
+    std::cout << "---- testing empty and push----\n";
     std::cout << "empty or not: " << mstack.empty() << std::endl;
-    
-    std::cout << "---- testing push----\n";
     mstack.push(5);
     mstack.push(17);
     std::cout << "empty or not: " << mstack.empty() << std::endl;
-    std::cout << "Not the top is: " << mstack.top() << std::endl;
+    std::cout << "Now the top is: " << mstack.top() << std::endl << std::endl;
 
-    std::cout << "---- testing pop----\n";
+    std::cout << "---- testing pop and top----\n";
     mstack.pop();
-    std::cout << "Not the top is: " << mstack.top() << std::endl;
+    std::cout << "Not the top is: " << mstack.top() << std::endl << std::endl;
     
     std::cout << "---- testing size----\n";
     mstack.push(3);
-    mstack.push(5);
+    mstack.push(4);
     mstack.push(737);
     mstack.push(0);
-    std::cout << "Now the size is: "<< mstack.size() << std::endl;
+    std::cout << "Now the size is: "<< mstack.size() << std::endl << std::endl;
 
+    std::cout << "---- testing iterator----\n";
     MutantStack<int>::iterator it_begin = mstack.begin();
     MutantStack<int>::iterator it_end = mstack.end();
     ++it_begin;
+    std::cout << *it_begin << std::endl;
     --it_begin;
-    while (it_begin != it_end)
-    {
+    std::cout << *it_begin << std::endl;
+    std::cout << "increment and decrement \n";
+    std::cout << *it_end << std::endl;
+    std::cout << "end\n";
+    while (it_begin != it_end){
         std::cout << *it_begin << std::endl;
         ++it_begin;
     }

@@ -59,14 +59,13 @@ This repository contains a set of **independent C++ modules**, each designed to 
   - ex01 - iter function template
   - ex02 - Class template Array<T>, Deep Copy, operator[], RAII
 - Module 08: Templated containers, iterators, algorithms
-  - ex00 - xxx
-  - ex01 - xxx
-  - ex02 - xxx
-- Module 09 (to be done):: STL
-  - ex00 - xxx
-  - ex01 - xxx
-  - ex02 - xxx
-  - ex03 - xxx
+  - ex00 - Template functions, STL containers, iteration
+  - ex01 - Container class, member functions, range operations, exception handling
+  - ex02 - container adapter, iterators, STL integration
+- Module 09 (to be done):: STL: Standard templete library
+  - ex00 - File parsing, exception handling, container usage, date/value mapping
+  - ex01 - Stack operations, RPN evaluation, operator handling, container usage
+  - ex02 - Merge-insert sort, sequence sorting, performance measurement, multi-container usage
 
 **Compilation**
 
