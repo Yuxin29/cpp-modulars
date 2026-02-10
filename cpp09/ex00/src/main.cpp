@@ -1,4 +1,5 @@
 #include "BitcoinExchange.hpp"
+#include <iostream>
 
 int main(int ac, char **av)
 {
@@ -14,7 +15,7 @@ int main(int ac, char **av)
     try {
         BitcoinExchange my_btc;
         my_btc.loadDatabase("data.csv");
-        my_btc.loadInpput(av[1]);
+        my_btc.loadInput(av[1]);
     }
     catch (const std::runtime_error &e){
         std::cout << "Error: " << e.what() << std::endl;
