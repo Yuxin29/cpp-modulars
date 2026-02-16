@@ -1,5 +1,8 @@
 #include "ScalarConverter.hpp"
 #include <exception>
+#include <iostream>
+#include <cmath>    //std::ifinf....
+#include <limits>   //std::numeric_limits
 
 static void printChar(int i){
     if (i < 0 || i > 127){
@@ -23,7 +26,8 @@ static void printInt(double d, int i){
 static void printFloat(float f, int i){
     if (std::isnan(f)){
         std::cout << "float: nanf\n";
-        return;}
+        return;
+    }
     if (std::isinf(f)){
         if (f < 0)
             std::cout << "float: " << "-inff\n";
@@ -39,7 +43,7 @@ static void printFloat(float f, int i){
 
 static void printDouble(double d){
     if (std::isnan(d)){
-        std::cout << "double: nanf\n";
+        std::cout << "double: nan\n";
         return;}
     if (std::isinf(d)){
         if (d < 0)

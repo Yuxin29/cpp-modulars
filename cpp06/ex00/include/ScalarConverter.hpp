@@ -1,7 +1,6 @@
 #pragma once
 
 #include <string>
-#include <iostream>
 
 // NaN: not a number, it is a illegal result mark, 
 // std::numeric_limits<double>::quiet_NaN(),  
@@ -31,6 +30,7 @@ private:
     ~ScalarConverter() = delete;
 
     static LiteralType getLiteralType(const std::string &literal);
+    
 public:
     static void convert(const std::string &literal);
 };

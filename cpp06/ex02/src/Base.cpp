@@ -11,8 +11,9 @@ Base* generate(void){
     return new C;
 }
 
-//It prints the actual type of the object pointed to by p: "A", "B", or "C".
+// It prints the actual type of the object pointed to by p: "A", "B", or "C".
 // with a ptr, it will return a nullptr if it is a bad cast
+// dynamic_cast<T*>(ptr) return nullptr if failed
 void identify(Base* p){
     if (dynamic_cast<A *>(p))
         std::cout << "A\n";
@@ -27,6 +28,7 @@ void identify(Base* p){
 //It prints the actual type of the object referenced by p: "A", "B", or "C". 
 // Using a pointer inside this function is forbidden.
 // with a ref, it will return a bad cast it is not the correct type.
+//dynamic_cast<T&>(ref) throw std::bad_cast if failed
 void identify(Base& p){
     try {
         (void)dynamic_cast<A&>(p);
