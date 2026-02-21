@@ -1,6 +1,9 @@
 #include "Span.hpp"
+#include <algorithm>
 
-Span::Span(unsigned int N) :_max(N){
+Span::Span(unsigned int N) 
+    :_max(N){
+    _numbers.reserve(_max);
 }
 
 Span::Span(const Span& another)
@@ -31,23 +34,23 @@ void Span::addNumber(int number){
 // if you prefer between all the numbers stored, and return it. 
 // If there are no numbers stored, or only one, no span can be found. 
 // Thus, throw an exception.
-int Span::shortestSpan() const{
+long long Span::shortestSpan() const{
     if (_numbers.size() < 2)
         throw std::runtime_error("Span is too small");
     std::vector<int> cp = _numbers;
     std::sort(cp.begin(), cp.end());
-    int min_span = cp[1] - cp[0];
+    long long min_span = static_cast<long long>(cp[1]) - cp[0];
     for (size_t i = 0; i < cp.size() - 1; i++){
-        if ((cp[i + 1] - cp[i]) < min_span) 
-            min_span = cp[i + 1] - cp[i];
+        if (static_cast<long long>(cp[i + 1] - cp[i]) < min_span) 
+            min_span = static_cast<long long>(cp[i + 1] - cp[i]);
     }
     return min_span;
 }
 
-int Span::longestSpan() const{
+long long Span::longestSpan() const{
     if (_numbers.size() < 2)
         throw std::runtime_error("Span is too small");
-    int min = *std::min_element(_numbers.begin(), _numbers.end());
-    int max = *std::max_element(_numbers.begin(), _numbers.end());
-    return (max - min);
+    int my_min = *std::min_element(_numbers.begin(), _numbers.end());
+    int my_max = *std::max_element(_numbers.begin(), _numbers.end());
+    return  static_cast<long long>(my_max - my_min);
 }

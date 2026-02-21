@@ -1,6 +1,8 @@
 #pragma once
 
 #include <vector>
+#include <stdexcept>
+#include <iterator>
 
 // Develop a Span class that can store a maximum of N integers. 
 // N is an unsigned int variable and will be the only parameter passed to the constructor.
@@ -17,14 +19,14 @@ public:
 
     void addNumber(int number);
 
-    int shortestSpan() const;
-    int longestSpan() const;
+    long long shortestSpan() const;
+    long long longestSpan() const;
 
     // Last but not least, it would be wonderful to fill your Span using a range of iterators.
     // Implement a member function to add many numbers to your Span in one call.
     template <typename Iterator>
     void addRange(Iterator begin, Iterator end){
-        size_t new_range = std::distance(begin, end);
+        size_t new_range = static_cast<size_t>(std::distance(begin, end));
         if (_numbers.size() + new_range > _max)
             throw std::runtime_error("the new Span will overflow");
         _numbers.insert(_numbers.end(), begin, end);

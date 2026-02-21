@@ -14,7 +14,7 @@ int main()
 
     std::cout << "---- testing pop and top----\n";
     mstack.pop();
-    std::cout << "Not the top is: " << mstack.top() << std::endl << std::endl;
+    std::cout << "Now the top is: " << mstack.top() << std::endl << std::endl;
     
     std::cout << "---- testing size----\n";
     mstack.push(3);
@@ -26,13 +26,6 @@ int main()
     std::cout << "---- testing iterator----\n";
     MutantStack<int>::iterator it_begin = mstack.begin();
     MutantStack<int>::iterator it_end = mstack.end();
-    ++it_begin;
-    std::cout << *it_begin << std::endl;
-    --it_begin;
-    std::cout << *it_begin << std::endl;
-    std::cout << "increment and decrement \n";
-    std::cout << *it_end << std::endl;
-    std::cout << "end\n";
     while (it_begin != it_end){
         std::cout << *it_begin << std::endl;
         ++it_begin;

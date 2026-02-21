@@ -48,10 +48,3 @@ int main( void )
     return 0;
 }
 
-
-// Should output:
-// $> ./ex01
-// 2
-// 14
-// $>
-

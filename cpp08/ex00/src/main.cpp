@@ -41,10 +41,10 @@ int main() {
     test_container(f, 0);
     std::cout << "\n";
 
-    std::cout << "------ char vector ------\n";
-    std::vector<char> g = {'a', 'b', 'c', 'd'};
-    test_container(g, 99);
-    std::cout << "\n";
+    // std::cout << "------ char vector ------\n";
+    // std::vector<char> g = {'a', 'b', 'c', 'd'};
+    // test_container(g, 99);
+    // std::cout << "\n";
 
     return 0;
 }
