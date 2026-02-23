@@ -64,8 +64,8 @@ This repository contains a set of **independent C++ modules**, each designed to 
   - ex02 - container adapter, iterators, STL integration
 - Module 09 (to be done):: STL: Standard templete library
   - ex00 - File parsing, exception handling, container usage, date/value mapping
-  - ex01 - Stack operations, Reverse Polish Notation, operator handling
-  - ex02 - Merge-insert sort, sequence sorting, performance measurement, multi-container usage
+  - ex01(to be done) - Stack operations, Reverse Polish Notation, operator handling
+  - ex02(to be done) - Merge-insert sort, sequence sorting, performance measurement, multi-container usage
 
 **Compilation**
 

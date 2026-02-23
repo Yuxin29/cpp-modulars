@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include <stdstacck>
+#include <stack>
 
 // nverted Polish mathematical expression: Reverse Polish Notation (RPN),
 // - Operators come after their operands
@@ -14,14 +14,16 @@
 class PRN
 {
 private:
-    std::stack<std::string> _data;
-    void    isValidPRN;
+    std::stack<int> _data;
+    std::string     _input;
+
+    void        isValidInput(const std::string &input);
+    void        loadInput(const std::string &input);
 
 public:
-    PRN(const std::string *line);
+    PRN(const std::string &input);
     ~ PRN();
 
-    void        loadDatabase(const std::string &db);
-    void        loadInput(const std::string &input);
+    void        calculate();
 };
 
