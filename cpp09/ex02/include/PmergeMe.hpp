@@ -1,26 +1,26 @@
 #pragma once
 
 #include <string>
-#include <map>
+#include <vector>
 
-// We need to create a C++ program called btc that reads two CSV files:
-// Bitcoin database (data.csv) with historical Bitcoin prices.
-// Input file containing dates and amounts of Bitcoin to calculate their value.
-class BitcoinExchange
+// Ford-Johnson algorithm.
+// pairing, pairing of pairs, recursion
+
+// maybe vector and sorted map ? 
+// You must use at least two different containers (map, stack were used already)
+// Your program must be able to handle at least 3000 different integers.
+class PmergeMe
 {
 private:
-    std::map<std::string, double> _data;
+    std::vector<unsigned int> _unsortedSequence;
+    std::vector<unsigned int> _sortedSequence;
 
-    void        isValidDate(const std::string &date);
-    void        isValidValue(const std::string &value);
-    void        isValidLine(const std::string &line, char separator, bool is_db);
-    std::string findClosestDate(const std::string &inputDate);
+    void        isValidSequence (const std::string &av);
 
 public:
-    BitcoinExchange();
-    ~ BitcoinExchange();
+    PmergeMe();
+    ~ PmergeMe();
 
-    void        loadDatabase(const std::string &db);
-    void        loadInput(const std::string &input);
+    void        sequenceSort(const std::string _sequence);
 };
 

@@ -17,7 +17,7 @@ int main(int ac, char **av)
     }
     catch (std::exception &e)
     {
-        std::cerr << "Error" << std::endl;
+        std::cout << "Error" << std::endl;
         return 1;
     }
 

@@ -8,7 +8,6 @@
 bool    RPN::isValidInput(const std::string &input) const{
     if (input.empty())
         return false;
-
     std::stringstream ss(input);
     std::string         token;
     int                 state = 0;
@@ -26,7 +25,7 @@ bool    RPN::isValidInput(const std::string &input) const{
             return false;
         return (state == 1);
     }
-    return true;
+    return (state == 1);
 }
 
 void    RPN::loadInput(const std::string &input){
