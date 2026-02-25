@@ -11,19 +11,18 @@
 //      - No parentheses are needed
 //      - No operator precedence rules are required
 //      - Very easy for computers to evaluate
-class PRN
+class RPN
 {
 private:
     std::stack<int> _data;
     std::string     _input;
 
-    void        isValidInput(const std::string &input);
+    bool        isValidInput(const std::string &input) const;
     void        loadInput(const std::string &input);
 
 public:
-    PRN(const std::string &input);
-    ~ PRN();
+    RPN(const std::string &input);
+    ~ RPN();
 
     void        calculate();
 };
-

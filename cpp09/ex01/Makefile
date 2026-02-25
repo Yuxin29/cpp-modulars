@@ -5,7 +5,7 @@ SRC_DIR := src
 OBJ_DIR := obj
 INCLUDE_DIR := include
 
-SRCS := $(SRC_DIR)/PmergeMe.cpp $(SRC_DIR)/main.cpp
+SRCS := $(SRC_DIR)/RPN.cpp $(SRC_DIR)/main.cpp
 OBJS := $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
 all: $(NAME)

@@ -3,13 +3,23 @@
 
 int main(int ac, char **av)
 {
-    if (ac == 1){
+    if (ac != 2){
         std::cout << "Error: non_valid input\n";
         return 1;
     }
+
     //Your program must process this expression and output the correct result on the standard output.
     // If an error occurs during the execution of the program an error message should be displayed on the standard error.
-    // Your program must be able to handle operations with these tokens: "+ - / *".
+    try
+    {
+        RPN test(av[1]);
+        test.calculate();
+    }
+    catch (std::exception &e)
+    {
+        std::cerr << "Error" << std::endl;
+        return 1;
+    }
 
     return 0;
 }
