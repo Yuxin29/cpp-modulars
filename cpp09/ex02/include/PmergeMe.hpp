@@ -18,8 +18,8 @@ private:
     std::deque<unsigned int>    _sortedSequence;
 
     void        parsing(char **av);
-    void        processVector();
-    void        processDeque();
+    void        processVector(std::vector<unsigned int>& v);
+    void        processDeque(std::deque<unsigned int>& d);
 
 public:
     PmergeMe(char **av);
@@ -27,4 +27,3 @@ public:
 
     void        sequenceSort();
 };
-

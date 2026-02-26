@@ -7,7 +7,12 @@
 
 //private helper
 void        PmergeMe::parsing(char **av){
+    if (!av[1])
+       throw std::runtime_error("Error: no int arrays");
     for (int i = 1; av[i]; i++){
+        for (int j = 1; av[i][j]; j++)
+            if (!std::isdigit(av[i][j]))
+                throw std::runtime_error("invald nbr");
         long long nbr = std::atoll(av[i]);
         if (nbr < 0 || nbr > UINT_MAX)
             throw std::runtime_error("invald int");
@@ -16,8 +21,8 @@ void        PmergeMe::parsing(char **av){
     }
 }
 
-void        PmergeMe::processVector(){
-    if (_unsortedSequence.size() <= 1)
+void        PmergeMe::processVector(std::vector<unsigned int>& v){
+    if (v.size() <= 1)
         return;
 
     // pairing
@@ -25,11 +30,22 @@ void        PmergeMe::processVector(){
     // recursive sort winners
     // binary insert losers
 
-    //std::cout << _unsortedSequence << std::endl;
+    std::cout << "Before: ";
+    for (size_t i = 0; i < v.size(); i++)
+         std::cout << v[i] << " ";
+    std::cout << std::endl;
+    //Time to process a range of X elements with std::vector : ...
 }
 
-void        PmergeMe::processDeque(){
-    //std::cout << _unsortedSequence << std::endl;
+void        PmergeMe::processDeque(std::deque<unsigned int>& d){
+    if (d.size() <= 1)
+        return;
+        
+    std::cout << "After: ";
+    for (size_t i = 0; i < d.size(); i++)
+         std::cout << d[i] << " ";
+    std::cout << std::endl;
+    //Time to process a range of X elements with std::deque : ...
 }
 
 PmergeMe::PmergeMe(char **av){
@@ -40,8 +56,8 @@ PmergeMe::~ PmergeMe(){
 }
 
 void        PmergeMe::sequenceSort(){
-    processVector();
-    processDeque();
+    processVector(_unsortedSequence);
+    processDeque(_sortedSequence);
 }
 
 

@@ -4,17 +4,12 @@
 
 int main(int ac, char **av)
 {
-    if (ac == 1){
-        std::cout << "Error: non_valid input\n";
-        return 1;
-    }
-    try
-    {
+    (void) ac;
+    try{
         PmergeMe test(av);
         test.sequenceSort();
     }
-    catch(const std::exception& e)
-    {
+    catch(const std::exception& e){
         std::cout << e.what() << '\n';
     }
 
