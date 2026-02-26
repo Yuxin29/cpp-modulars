@@ -8,6 +8,15 @@ int main(int ac, char **av)
         std::cout << "Error: non_valid input\n";
         return 1;
     }
+    try
+    {
+        PmergeMe test(av);
+        test.sequenceSort();
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << e.what() << '\n';
+    }
 
     return 0;
 }
