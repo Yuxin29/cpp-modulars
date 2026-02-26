@@ -1,6 +1,5 @@
 #pragma once
 
-#include <string>
 #include <vector>
 #include <deque>
 
@@ -10,7 +9,6 @@
 // You must use at least two different containers (map, stack were used already)
 // vector: dynamic array: ccontinous memory,            push_back
 // deque: double ended queue: memory in small pieces    push_back/push_front, pop_back/pop_front,
-// Your program must be able to handle at least 3000 different integers.
 class PmergeMe
 {
 private:

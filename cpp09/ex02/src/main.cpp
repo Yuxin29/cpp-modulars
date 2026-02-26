@@ -22,7 +22,7 @@ int main(int ac, char **av)
 // Time to process a range of 5 elements with std::[..] : 0.00031 us
 // Time to process a range of 5 elements with std::[..] : 0.00014 us
 
-
+// Your program must be able to handle at least 3000 different integers.
 // $> ./PmergeMe `shuf -i 1-100000 -n 3000 | tr "\n" " "`
 // Before: 141 79 526 321 [...]
 // After: 79 141 321 526 [...]
