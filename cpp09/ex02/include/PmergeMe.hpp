@@ -2,6 +2,8 @@
 
 #include <vector>
 #include <deque>
+#include <ctime> // std::clock_t
+
 
 // Ford-Johnson algorithm: Merge-Insertion Sort
 // pairing, compairing, insertinh, recursion
@@ -16,12 +18,18 @@ private:
     std::deque<unsigned int>    _sortedSequence;
 
     void        parsing(char **av);
+
     void        processVector(std::vector<unsigned int>& v);
     void        processDeque(std::deque<unsigned int>& d);
 
-public:
-    PmergeMe(char **av);
-    ~ PmergeMe();
+    void        printVector(const std::vector<unsigned int>& v);
+    void        printDeque(const std::deque<unsigned int>& d);
+
+    double      calculateTime(std::clock_t start, std::clock_t end) const;
+
+    public:
+    PmergeMe(char **av){parsing(av);};
+    ~ PmergeMe(){};
 
     void        sequenceSort();
 };
