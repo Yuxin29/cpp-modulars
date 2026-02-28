@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <deque>
+#include <iostream>
 
 // Ford-Johnson algorithm: Merge-Insertion Sort: pairing, compairing, insertinh, recursion
 // You must use at least two different containers (map, stack were used already)
@@ -16,8 +17,7 @@ private:
     void    parsing(char **av);
     void    processVector(std::vector<unsigned int>& v);
     void    processDeque(std::deque<unsigned int>& d);
-    void    printBefore() const;
-    void    printAfter() const;
+    void    printNbr(const char* prefix) const;
     void    printTime(double t1, double t2) const;
 
 public:

@@ -1,6 +1,6 @@
 NAME := PmergeMe
 CXX := c++
-CXXFLAGS := -Wall -Wextra -Werror -std=c++17 -I include
+CXXFLAGS := -Wall -Wextra -Werror -std=c++17 -O3 -I include
 SRC_DIR := src
 OBJ_DIR := obj
 INCLUDE_DIR := include
