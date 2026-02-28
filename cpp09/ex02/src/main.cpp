@@ -1,4 +1,5 @@
 #include "PmergeMe.hpp"
+#include <iostream>
 
 int main(int ac, char **av)
 {
@@ -8,6 +9,10 @@ int main(int ac, char **av)
         test.sequenceSort();
     }
     catch(const std::exception& e){
-        std::cout << e.what() << '\n';
+        std::cerr << e.what() << '\n';
     }
 }
+
+// testing examples
+//./PmergeMe 3 5 9 7 4
+//./PmergeMe `shuf -i 1-100000 -n 3000 | tr "\n" " "`
