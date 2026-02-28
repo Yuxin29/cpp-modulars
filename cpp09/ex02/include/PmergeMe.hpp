@@ -3,7 +3,7 @@
 #include <vector>
 #include <deque>
 #include <ctime> // std::clock_t
-
+#include <algorithm>    // std::lower_bound
 
 // Ford-Johnson algorithm: Merge-Insertion Sort
 // pairing, compairing, insertinh, recursion
@@ -19,17 +19,43 @@ private:
 
     void        parsing(char **av);
 
-    void        processVector(std::vector<unsigned int>& v);
-    void        processDeque(std::deque<unsigned int>& d);
-
-    void        printVector(const std::vector<unsigned int>& v);
-    void        printDeque(const std::deque<unsigned int>& d);
-
-    double      calculateTime(std::clock_t start, std::clock_t end) const;
-
+    template <typename Container>
+    void        processContainer(Container& c);
+    
     public:
     PmergeMe(char **av){parsing(av);};
     ~ PmergeMe(){};
 
     void        sequenceSort();
 };
+
+template <typename Container>
+void        PmergeMe::processContainer(Container& c){
+    if (c.size() <= 1)
+            return;
+
+    Container winners;
+    Container losers;
+
+    for (size_t i = 0; i + 1 < c.size(); i += 2){
+        if (c[i] > c[i + 1]){
+            winners.push_back(c[i]);
+            losers.push_back(c[i + 1]);
+        }
+        else
+        {
+            winners.push_back(c[i + 1]);
+            losers.push_back(c[i]);
+        }
+    }
+    if (c.size() % 2 == 1)
+        winners.push_back(c.back());
+
+    processContainer(winners);
+    c = winners;
+
+    for (size_t i = 0; i < losers.size(); i++){
+        typename Container::iterator pos =std::lower_bound(c.begin(), c.end(), losers[i]);
+        c.insert(pos, losers[i]);
+    }
+}
