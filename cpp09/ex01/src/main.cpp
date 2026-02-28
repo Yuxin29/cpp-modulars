@@ -10,14 +10,12 @@ int main(int ac, char **av)
 
     //Your program must process this expression and output the correct result on the standard output.
     // If an error occurs during the execution of the program an error message should be displayed on the standard error.
-    try
-    {
+    try{
         RPN test(av[1]);
         test.calculate();
     }
-    catch (std::exception &e)
-    {
-        std::cout << "Error" << std::endl;
+    catch (std::exception &e){
+        std::cerr << "Error" << std::endl;
         return 1;
     }
 
