@@ -1,4 +1,5 @@
 #include "PmergeMe.hpp"
+
 #include <chrono>    
 #include <algorithm>    // std::lower_bound
 #include <stdexcept>
@@ -7,52 +8,57 @@
 #include <climits>      // UINT_MAX
 
 // static local utils
-namespace pm_utils
-{
-    bool    isPositiveInt(char *c, unsigned int &value){
-        int i = 0;
-        if (!c || !*c)
+static bool    isPositiveInt(char *c, unsigned int &value){
+    int i = 0;
+    if (!c || !*c)
+        return false;
+    if (c[i] == '-')
+        return false;
+    else if (c[i] == '+')
+        i++;
+    if (!c[i])
+        return false;
+    for (; c[i]; i++){
+        if (!std::isdigit(c[i]))
             return false;
-        if (c[i] == '-')
-            return false;
-        else if (c[i] == '+')
-            i++;
-        if (!c[i])
-            return false;
-        for (; c[i]; i++){
-            if (!std::isdigit(c[i]))
-                return false;
-        }
-        long long nbr = std::strtoll(c, NULL, 10);
-        if (nbr < 0 || nbr > UINT_MAX)
-            return false;
-        value = static_cast<unsigned int>(nbr);
-        return true;
     }
+    long long nbr = std::strtoll(c, NULL, 10);
+    if (nbr < 0 || nbr > UINT_MAX)
+        return false;
+    value = static_cast<unsigned int>(nbr);
+    return true;
+}
 
-    void    insertLosers(std::vector<unsigned int>& v, const std::vector<unsigned int>& losers){
-        std::vector<unsigned int> merged;
-        merged.reserve(v.size() + losers.size());
-        std::merge(v.begin(), v.end(), losers.begin(), losers.end(), std::back_inserter(merged));
-        v.swap(merged);
-    }
+template <typename Container>
+static void binaryInsert(Container& c, unsigned int value){
+    typename Container::iterator pos = std::lower_bound(c.begin(), c.end(), value);
+    c.insert(pos, value);
+}
 
-    void    insertLosers(std::deque<unsigned int>& d,const std::deque<unsigned int>& losers){
-        std::deque<unsigned int> merged;
-        merged.resize(0);           // or just declare empty
-        merged.clear();
-        std::merge(d.begin(), d.end(), losers.begin(), losers.end(), std::back_inserter(merged));
-        d.swap(merged);
+template <typename SizeContainer>
+static SizeContainer generateJacobOrder(size_t n){
+    SizeContainer order;
+    if (n == 0)
+        return order;
+    SizeContainer jac;
+    jac.push_back(0);
+    jac.push_back(1);
+    while (jac.back() < n){
+        size_t sz = jac.size();
+        jac.push_back(jac[sz - 1] + 2 * jac[sz - 2]);
     }
+    for (size_t i = jac.size(); i-- > 0;){
+        if (jac[i] < n)
+            order.push_back(jac[i]);
+    }
+    return order;
 }
 
 //private helper
 void    PmergeMe::parsing(char **av){
-    if (!av[1])
-       throw std::runtime_error("Error: no int arrays");
     for (int i = 1; av[i]; i++){
         unsigned int value;
-        if (!pm_utils::isPositiveInt(av[i], value))
+        if (!isPositiveInt(av[i], value))
             throw std::runtime_error("Error");
         _vectorSequence.push_back(static_cast<unsigned int>(value));
         _dequeSequence.push_back(static_cast<unsigned int>(value));
@@ -77,8 +83,16 @@ void PmergeMe::processVector(std::vector<unsigned int>& v){
     if (v.size() % 2 == 1)
         winners.push_back(v.back());
     processVector(winners);
+    // 3) binary insert losers according to Jacob order
+    // --- Jacob order generation ---
+    auto order = generateJacobOrder<std::vector<size_t>>(losers.size());
+    // binary insert by Jacob order
+    for (size_t idx : order){
+        if (idx < losers.size())
+            binaryInsert(winners, losers[idx]);
+    }
+    // result becomes sorted chain
     v.swap(winners);
-    pm_utils::insertLosers(v, losers);
 }
 
 void PmergeMe::processDeque(std::deque<unsigned int>& d){
@@ -99,12 +113,19 @@ void PmergeMe::processDeque(std::deque<unsigned int>& d){
     if (d.size() % 2 == 1)
         winners.push_back(d.back());
     processDeque(winners);
+    // Jacob order
+    auto order = generateJacobOrder<std::deque<size_t>>(losers.size());
+    // binary insert
+    for (size_t idx : order)
+    {
+        if (idx < losers.size())
+            binaryInsert(winners, losers[idx]);
+    }
     d.swap(winners);
-    pm_utils::insertLosers(d, losers);
 }
 
 void PmergeMe::printNbr(const char* prefix) const{
-    std::cout << prefix << ": ";
+    std::cout << prefix;
     for (size_t i = 0; i < _vectorSequence.size(); i++)
         std::cout << _vectorSequence[i] << " ";
     std::cout << std::endl;
@@ -118,17 +139,19 @@ void PmergeMe::printTime(double t1, double t2) const{
 
 // public
 void        PmergeMe::sequenceSort(){
-    printNbr("Before");
+    printNbr("Before: ");
     // ------------- sort vector -------------
-    std::chrono::high_resolution_clock::time_point startVec = std::chrono::high_resolution_clock::now();
-    processVector(_vectorSequence);
-    std::chrono::high_resolution_clock::time_point endVec = std::chrono::high_resolution_clock::now();
-    double timeVec = std::chrono::duration<double, std::micro>(endVec - startVec).count();
+    std::vector<unsigned int> vecCopy = _vectorSequence;
+    auto startVec = std::chrono::high_resolution_clock::now();
+    processVector(vecCopy);
+    auto endVec = std::chrono::high_resolution_clock::now();
+    double timeVec = std::chrono::duration<double, std::micro>(endVec - startVec).count ();
     // ------------- sort deque -------------
-    std::chrono::high_resolution_clock::time_point startDeq = std::chrono::high_resolution_clock::now();
-    processDeque(_dequeSequence);
-    std::chrono::high_resolution_clock::time_point endDeq = std::chrono::high_resolution_clock::now();
+    std::deque<unsigned int> deqCopy = _dequeSequence;
+    auto startDeq = std::chrono::high_resolution_clock::now();
+    processDeque(deqCopy);
+    auto endDeq = std::chrono::high_resolution_clock::now();
     double timeDeq = std::chrono::duration<double, std::micro>(endDeq - startDeq).count();
-    printNbr("After");
+    printNbr("After: ");
     printTime(timeVec, timeDeq);
 }

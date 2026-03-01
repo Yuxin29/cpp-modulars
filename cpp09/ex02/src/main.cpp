@@ -3,12 +3,17 @@
 int main(int ac, char **av)
 {
     (void) ac;
+    if (ac < 2){
+        std::cerr << "Error: no int arrays\n";
+        return 1;
+    }
     try{
         PmergeMe test(av);
         test.sequenceSort();
     }
     catch(const std::exception& e){
         std::cerr << e.what() << '\n';
+        return 1;
     }
 }
 
