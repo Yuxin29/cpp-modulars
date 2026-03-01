@@ -7,13 +7,11 @@ class RPN
 {
 private:
     std::stack<int> _data;
-
-    bool        isValidInput(const std::string &input) const;
     void        loadInput(const std::string &input);
 
 public:
-    RPN(const std::string &input);
-    ~RPN();
+    RPN(const std::string &input){loadInput(input);};
+    ~RPN(){};
 
     void        calculate();
 };
