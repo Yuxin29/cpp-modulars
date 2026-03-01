@@ -17,8 +17,8 @@ private:
     std::string findClosestDate(const std::string &inputDate);
 
 public:
-    BitcoinExchange();
-    ~ BitcoinExchange();
+    BitcoinExchange(){};
+    ~ BitcoinExchange(){};
 
     void        loadDatabase(const std::string &db);
     void        loadInput(const std::string &input);
