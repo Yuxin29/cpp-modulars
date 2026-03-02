@@ -29,10 +29,14 @@ static bool    isPositiveInt(char *c, unsigned int &value){
     return true;
 }
 
-template <typename Container>
-static void binaryInsert(Container& c, unsigned int value){
-    typename Container::iterator pos = std::lower_bound(c.begin(), c.end(), value);
-    c.insert(pos, value);
+static void printNbr(const char* prefix, const std::vector<unsigned int>& v){
+    std::cout << prefix;
+    for (size_t i = 0; i < v.size(); i++){
+        std::cout << v[i];
+        if (i + 1 < v.size())
+            std::cout << " ";
+    }
+    std::cout << std::endl;
 }
 
 template <typename SizeContainer>
@@ -52,6 +56,23 @@ static SizeContainer generateJacobOrder(size_t n){
             order.push_back(jac[i]);
     }
     return order;
+}
+
+template <typename Container>
+static void insertJacob(Container& winners, const Container& losers){
+    using SizeContainer = std::vector<size_t>;
+    SizeContainer order = generateJacobOrder<SizeContainer>(losers.size());
+    std::vector<bool> inserted(losers.size(), false);
+    for (size_t idx : order){
+        if (idx < losers.size() && !inserted[idx]){
+            winners.insert(std::lower_bound(winners.begin(), winners.end(), losers[idx]),losers[idx]);
+            inserted[idx] = true;
+        }
+    }
+    for (size_t i = 0; i < losers.size(); ++i){
+        if (!inserted[i])
+            winners.insert(std::lower_bound(winners.begin(), winners.end(), losers[i]),losers[i]);
+    }
 }
 
 //private helper
@@ -83,15 +104,7 @@ void PmergeMe::processVector(std::vector<unsigned int>& v){
     if (v.size() % 2 == 1)
         winners.push_back(v.back());
     processVector(winners);
-    // 3) binary insert losers according to Jacob order
-    // --- Jacob order generation ---
-    auto order = generateJacobOrder<std::vector<size_t>>(losers.size());
-    // binary insert by Jacob order
-    for (size_t idx : order){
-        if (idx < losers.size())
-            binaryInsert(winners, losers[idx]);
-    }
-    // result becomes sorted chain
+    insertJacob(winners, losers);
     v.swap(winners);
 }
 
@@ -113,22 +126,8 @@ void PmergeMe::processDeque(std::deque<unsigned int>& d){
     if (d.size() % 2 == 1)
         winners.push_back(d.back());
     processDeque(winners);
-    // Jacob order
-    auto order = generateJacobOrder<std::deque<size_t>>(losers.size());
-    // binary insert
-    for (size_t idx : order)
-    {
-        if (idx < losers.size())
-            binaryInsert(winners, losers[idx]);
-    }
+    insertJacob(winners, losers);
     d.swap(winners);
-}
-
-void PmergeMe::printNbr(const char* prefix) const{
-    std::cout << prefix;
-    for (size_t i = 0; i < _vectorSequence.size(); i++)
-        std::cout << _vectorSequence[i] << " ";
-    std::cout << std::endl;
 }
 
 void PmergeMe::printTime(double t1, double t2) const{
@@ -139,19 +138,19 @@ void PmergeMe::printTime(double t1, double t2) const{
 
 // public
 void        PmergeMe::sequenceSort(){
-    printNbr("Before: ");
+    printNbr("Before: ", _vectorSequence);
     // ------------- sort vector -------------
-    std::vector<unsigned int> vecCopy = _vectorSequence;
     auto startVec = std::chrono::high_resolution_clock::now();
+    std::vector<unsigned int> vecCopy = _vectorSequence;
     processVector(vecCopy);
     auto endVec = std::chrono::high_resolution_clock::now();
     double timeVec = std::chrono::duration<double, std::micro>(endVec - startVec).count ();
     // ------------- sort deque -------------
-    std::deque<unsigned int> deqCopy = _dequeSequence;
     auto startDeq = std::chrono::high_resolution_clock::now();
+    std::deque<unsigned int> deqCopy = _dequeSequence;
     processDeque(deqCopy);
     auto endDeq = std::chrono::high_resolution_clock::now();
     double timeDeq = std::chrono::duration<double, std::micro>(endDeq - startDeq).count();
-    printNbr("After: ");
+    printNbr("After: ", vecCopy);
     printTime(timeVec, timeDeq);
 }

@@ -13,7 +13,6 @@ private:
     void    parsing(char **av);
     void    processVector(std::vector<unsigned int>& v);
     void    processDeque(std::deque<unsigned int>& d);
-    void    printNbr(const char* prefix) const;
     void    printTime(double t1, double t2) const;
 
 public:

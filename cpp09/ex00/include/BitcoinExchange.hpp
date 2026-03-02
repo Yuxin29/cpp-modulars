@@ -6,6 +6,7 @@
 // We need to create a C++ program called btc that reads two CSV files:
 // Bitcoin database (data.csv) with historical Bitcoin prices.
 // Input file containing dates and amounts of Bitcoin to calculate their value.
+// std::map: ordered, key has to be ainoa, lower_bound
 class BitcoinExchange
 {
 private:
@@ -23,4 +24,3 @@ public:
     void        loadDatabase(const std::string &db);
     void        loadInput(const std::string &input);
 };
-

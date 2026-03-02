@@ -1,8 +1,7 @@
 #include "BitcoinExchange.hpp"
 #include <stdexcept>
-#include <fstream>
+#include <fstream>      //file stream
 #include <iostream>
-#include <iomanip>
 
 static bool    validateYearMontDay(int year, int month, int day){
     if (year < 0 || month < 1 || month > 12 || day < 1 || day > 31) 
@@ -27,12 +26,17 @@ static bool    validateYearMontDay(int year, int month, int day){
     return true;
 }
 
-// •A valid date will always be in the following format: Year-Month-Day.
-// date | value
-// 2005-02-02 | 0.1
+// A valid date will always be in the following format: Year-Month-Day
+// 1995-11-05
 void BitcoinExchange::isValidDate(const std::string &date){
     if (date.size() != 10 || date[4] != '-' || date[7] != '-')
         throw std::runtime_error("Error: bad input => " + date);
+    for (size_t i = 0; i < 10; i++){
+        if (i == 4 || i == 7)
+            continue;
+        if (!std::isdigit(date[i]))
+            throw std::runtime_error("Error: bad input => " + date);
+    }
     int year, month, day;
     // stoi will throw exception for non_digits
     try {
@@ -48,8 +52,8 @@ void BitcoinExchange::isValidDate(const std::string &date){
 }
 
 // •A valid value must be either a float or a positive integer, between 0 and 1000.
-// date | value
-// 2005-02-02 | 0.1
+// double stod(const std::string& str, size_t* pos = 0);
+// value = "12abc", index = 2 < 5
 void BitcoinExchange::isValidValue(const std::string &value){
     double d;
     size_t index;
@@ -58,7 +62,7 @@ void BitcoinExchange::isValidValue(const std::string &value){
         if (index < value.length())
             throw std::runtime_error("Error: not a number => " + value);
     }
-    catch (...){   
+    catch (const std::exception&){
         throw std::runtime_error("Error: not a number => " + value);
     }
     if (d < 0) 
@@ -69,6 +73,8 @@ void BitcoinExchange::isValidValue(const std::string &value){
 
 // Each line in this file must use the following format: "date | value".
 // is_db, only when it is not database, we need to check value
+// date | value
+// 2005-02-02 | 0.1
 void BitcoinExchange::isValidLine(const std::string &line, char separator, bool is_db){
     size_t sep = line.find(separator);
     if (sep == std::string::npos)
@@ -88,6 +94,12 @@ void BitcoinExchange::isValidLine(const std::string &line, char separator, bool 
 // iterator lower_bound(const Key& key);
 // const_iterator lower_bound(const Key&  >=) const;
 // return the first element which  >= key
+// data
+// 2009-01-01
+// 2010-01-01
+// 2011-01-01
+// input 
+// 2010-06-01
 std::string BitcoinExchange::findClosestDate(const std::string &inputDate){
     if (_data.find(inputDate) != _data.end())
         return inputDate;
@@ -107,7 +119,6 @@ void BitcoinExchange::loadDatabase(const std::string &db){
         throw std::runtime_error("could not open database file.");
     std::string line;
     std::getline(file, line);
-
     while (std::getline(file, line)){
         try {
             isValidLine(line, ',', true);
@@ -134,7 +145,6 @@ void BitcoinExchange::loadInput(const std::string &input){
         throw std::runtime_error("Error: could not open input file for some reason.");
     std::string line;
     std::getline(file, line);
-
     while (std::getline(file, line)){
         try {
             isValidLine(line, '|', false);
@@ -145,7 +155,7 @@ void BitcoinExchange::loadInput(const std::string &input){
             double price = _data[dbDate];
             double value = std::stod(valueStr);
             // Calculate and output
-            std::cout << dateStr << " => " << value << " = " << std::fixed << std::setprecision(2) << value * price << std::endl;
+            std::cout << dateStr << " => " << value << " = " << value * price << std::endl;
         }
         catch (const std::exception &e){
             std::cout << e.what() << std::endl;
