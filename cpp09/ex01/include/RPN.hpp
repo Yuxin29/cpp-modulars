@@ -3,6 +3,18 @@
 #include <string>
 #include <stack>
 
+/**
+* @brief 	A class to evaluate Reverse Polish Notation (RPN) expressions from an input file
+*
+* @Notes    Reverted Polish mathematical expression: Reverse Polish Notation (RPN),
+            - Operators come after their operands
+            - The expression is evaluated from left to right
+            - A stack is usually used to process it
+* @Why      RPN is useful
+            - No parentheses are needed
+            - No operator precedence rules are required
+            - Very easy for computers to evaluate
+*/
 class RPN
 {
 private:
@@ -15,12 +27,3 @@ public:
 
     void        calculate();
 };
-
-// Reverted Polish mathematical expression: Reverse Polish Notation (RPN),
-// - Operators come after their operands
-// - The expression is evaluated from left to right
-// - A stack is usually used to process it
-// Why RPN is useful
-// - No parentheses are needed
-// - No operator precedence rules are required
-// - Very easy for computers to evaluate

@@ -4,11 +4,18 @@
 #include <sstream>
 #include <cctype>
 
-//The numbers used in this operation and passed as arguments will always be less than 10.
-// Your program must be able to handle operations with these tokens: "+ - / *".
-// 3 4 +
-// top  get the top
-// pop  remove the top
+/**
+* @brief 	Load and calculate the RPN expression from an input string
+* @param 	input the input string containing the RPN expression
+* @return 	void, throw runtime_error if the input is invalid
+
+* @rules    The numbers used in this operation and passed as arguments will always be less than 10.
+            Your program must be able to handle operations with these tokens: "+ - / *".
+* @example  3 4 + => 7
+* @functions used  
+            top  get the top
+            pop  remove the top
+*/
 void    RPN::loadInput(const std::string &input){
     if (input.empty())
         throw std::runtime_error("Error");
@@ -43,6 +50,12 @@ void    RPN::loadInput(const std::string &input){
         throw std::runtime_error("Error");
 }
 
+
+/**
+* @brief 	Calculate the result of the RPN expression and output it
+* @param 	void
+* @return 	void, throw runtime_error if the calculation cannot be performed
+*/
 void    RPN::calculate(){
     std::cout << _data.top() << std::endl;
 }
