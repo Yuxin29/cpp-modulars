@@ -133,6 +133,8 @@ date,exchange_rate
 2010-01-30,0
 2010-02-02,0
 2010-02-05,0
+*/
+void BitcoinExchange::isValidLine(const st
 2010-02-08,0
 2010-02-11,0
 2010-02-14,0

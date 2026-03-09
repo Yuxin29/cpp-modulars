@@ -3,15 +3,33 @@
 #include <fstream>      //file stream
 #include <iostream>
 
+
+/**
+ * @brief 	Validate the date value
+ *
+ * @param 	year the year part of the date
+ * @param 	month the month part of the date
+ * @param 	day the day part of the date
+ * @return 	bool true if the date is valid, false otherwise
+*
+ * @note 	genral rules for valid date:
+            - Year: any non-negative integer
+            - Month: an integer between 1 and 12 (inclusive)
+            - Day: an integer between 1 and 31 (inclusive)
+                - Months with 30 days: April (4), June (6), September (9), November (11) - Day must be between 1 and 30
+                - February (2):
+                    - In leap years: Day must be between 1 and 29
+                        - It is divisible by 4 and not divisible by 100, OR
+                        - It is divisible by 400    
+                    - In non-leap years: Day must be between 1 and 28  
+ */
 static bool    validateYearMontDay(int year, int month, int day){
     if (year < 0 || month < 1 || month > 12 || day < 1 || day > 31) 
         return false;
-    // Months with 30 days
     if (month == 4 || month == 6 || month == 9 || month == 11){
         if (day > 30)
             return false;
     }
-    // Leap year check: A leap year is defined as:
     else if (month == 2){
         bool isLeap = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
         if (isLeap){
@@ -26,8 +44,15 @@ static bool    validateYearMontDay(int year, int month, int day){
     return true;
 }
 
-// A valid date will always be in the following format: Year-Month-Day
-// 1995-11-05
+/**
+* @brief 	Validate the date format
+* @param 	date the date string to validate
+* @return 	void, throw runtime_error if the date is invalid
+*
+* @note 	A valid date will always be in the following format
+            Year-Month-Day
+            1995-11-05
+*/
 void BitcoinExchange::isValidDate(const std::string &date){
     if (date.size() != 10 || date[4] != '-' || date[7] != '-')
         throw std::runtime_error("Error: bad input => " + date);
@@ -51,9 +76,15 @@ void BitcoinExchange::isValidDate(const std::string &date){
         throw std::runtime_error("Error: bad input: non-existing date => " + date);
 }
 
-// •A valid value must be either a float or a positive integer, between 0 and 1000.
-// double stod(const std::string& str, size_t* pos = 0);
-// value = "12abc", index = 2 < 5
+/**
+* @brief 	Validate the value format
+* @param 	value the value string to validate
+* @return 	void, throw runtime_error if the value is invalid
+*
+* @note 	A valid value must be either a float or a positive integer, between 0 and 1000.
+            double stod(const std::string& str, size_t* pos = 0);
+            value = "12abc", index = 2 < 5
+*/
 void BitcoinExchange::isValidValue(const std::string &value){
     double d;
     size_t index;
@@ -71,10 +102,18 @@ void BitcoinExchange::isValidValue(const std::string &value){
         throw std::runtime_error("Error: too large a number.");
 }
 
-// Each line in this file must use the following format: "date | value".
-// is_db, only when it is not database, we need to check value
-// date | value
-// 2005-02-02 | 0.1
+/**
+* @brief 	Validate the line format
+* @param 	line the line string to validate
+* @param 	separator the character that separates the date and value
+* @param 	is_db a boolean indicating whether the line is from the database or input file(is_db, only when it is not database, we need to check value)    
+* @return 	void, throw runtime_error if the line is invalid
+
+* @note 	A valid line must contain a date and a value separated by a specific character 
+            (comma for database, pipe for input).
+            For database lines, only the date format needs to be validated. 
+            For input lines, both the date and value formats need to be validated.
+*/
 void BitcoinExchange::isValidLine(const std::string &line, char separator, bool is_db){
     size_t sep = line.find(separator);
     if (sep == std::string::npos)
@@ -91,15 +130,19 @@ void BitcoinExchange::isValidLine(const std::string &line, char separator, bool 
         isValidValue(value);
 }
 
-// iterator lower_bound(const Key& key);
-// const_iterator lower_bound(const Key&  >=) const;
-// return the first element which  >= key
-// data
-// 2009-01-01
-// 2010-01-01
-// 2011-01-01
-// input 
-// 2010-06-01
+/**
+* @brief 	Find the closest date in the database that is less than or equal to the input date
+* @param 	inputDate the date string to find the closest match for
+* @return 	the closest date string from the database
+* @throws 	std::runtime_error if no earlier date is available for the input date
+
+* @example 	If the input date               "2010-06-01" 
+            and the database contains       "2009-01-01", "2010-01-01", "2011-01-01", 
+            the function will return        "2010-01-01" as it is the closest date that is less than or equal to the input date.
+            iterator lower_bound(const Key& key);
+            const_iterator lower_bound(const Key&  >=) const;
+            return the first element which  >= key
+*/
 std::string BitcoinExchange::findClosestDate(const std::string &inputDate){
     if (_data.find(inputDate) != _data.end())
         return inputDate;
@@ -110,9 +153,12 @@ std::string BitcoinExchange::findClosestDate(const std::string &inputDate){
     return it->first;
 }
 
-// publics:
-// The program should:
-// Read the database into a container (like std::map or std::unordered_map).
+/**
+* @brief 	Load the database from a CSV file and store it in a map
+* @param 	db the file path of the database CSV file
+* @return 	void, throw runtime_error if the file cannot be opened or if any line is invalid
+*
+*/
 void BitcoinExchange::loadDatabase(const std::string &db){
     std::ifstream file(db);
     if (!file.is_open())
@@ -134,11 +180,17 @@ void BitcoinExchange::loadDatabase(const std::string &db){
     }
 }
 
-// THen Read the input file line by line.
-// Validate the date and value.
-// For each date, find the corresponding Bitcoin price. If the date doesn’t exist, use the closest lower date.
-// Multiply the value by the price and output it.
-// Handle errors: invalid date, negative numbers, numbers > 1000, file errors.
+/**
+* @brief 	Load the input from a CSV file, validate it, and calculate the Bitcoin value based on the database
+* @param 	input the file path of the input CSV file
+* @return 	void, throw runtime_error if the file cannot be opened or if any line is invalid
+*
+* @steps    1. Read the input file line by line.
+            2. Validate the date and value.
+            3. For each date, find the corresponding Bitcoin price. If the date doesn’t exist, use the closest lower date.
+            4. Multiply the value by the price and output it.
+            5. Handle errors: invalid date, negative numbers, numbers > 1000, file errors. 
+*/
 void BitcoinExchange::loadInput(const std::string &input){
     std::ifstream file(input);
     if (!file.is_open())
@@ -154,7 +206,6 @@ void BitcoinExchange::loadInput(const std::string &input){
             std::string dbDate = findClosestDate(dateStr);
             double price = _data[dbDate];
             double value = std::stod(valueStr);
-            // Calculate and output
             std::cout << dateStr << " => " << value << " = " << value * price << std::endl;
         }
         catch (const std::exception &e){
